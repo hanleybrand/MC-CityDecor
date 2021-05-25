@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modernvanilla:lime_bricks"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:lime_bricks_slab",
+    "count": 6
+}
+}

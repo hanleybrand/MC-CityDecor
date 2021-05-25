@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "modernvanilla:polished_granite_wall",
+    "modernvanilla:polished_andesite_wall",
+    "modernvanilla:polished_diorite_wall"
+  ]
+}

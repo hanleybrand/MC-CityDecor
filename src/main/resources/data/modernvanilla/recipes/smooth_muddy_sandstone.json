@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "modernvanilla:muddy_sandstone"
+  },
+  "result": "modernvanilla:smooth_muddy_sandstone",
+  "experience": 0.1,
+  "cookingtime": 200
+}

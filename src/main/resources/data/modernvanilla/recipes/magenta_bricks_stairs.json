@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modernvanilla:magenta_bricks"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:magenta_bricks_stairs",
+    "count": 4
+}
+}

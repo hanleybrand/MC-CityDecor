@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "modernvanilla:block/light_blue_terracotta_bricks_slab"
+    },
+    "type=double": {
+      "model": "modernvanilla:block/light_blue_terracotta_bricks"
+    },
+    "type=top": {
+      "model": "modernvanilla:block/light_blue_terracotta_bricks_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "liberexponentia:block/iron_siding_slab"
+    },
+    "type=double": {
+      "model": "modernvanilla:block/iron_siding"
+    },
+    "type=top": {
+      "model": "liberexponentia:block/iron_siding_slab_top"
+    }
+  }
+}

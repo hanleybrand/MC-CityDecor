@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "modernvanilla:block/yellow_bricks",
+    "top": "modernvanilla:block/yellow_bricks",
+    "side": "modernvanilla:block/yellow_bricks"
+  }
+}

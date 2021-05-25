@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "modernvanilla:block/green_iron_siding"
+  }
+}

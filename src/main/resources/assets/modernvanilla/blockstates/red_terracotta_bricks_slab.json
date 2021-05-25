@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "modernvanilla:block/red_terracotta_bricks_slab"
+    },
+    "type=double": {
+      "model": "modernvanilla:block/red_terracotta_bricks"
+    },
+    "type=top": {
+      "model": "modernvanilla:block/red_terracotta_bricks_slab_top"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "modernvanilla:iron_scaffolding",
+    "modernvanilla:steel_scaffolding",
+    "modernvanilla:chain_link_fence",
+    "modernvanilla:barbed_wire_roll",
+    "modernvanilla:barbed_wire_edging"
+  ]
+}

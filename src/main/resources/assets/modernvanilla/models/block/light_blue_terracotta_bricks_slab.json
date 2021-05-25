@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "modernvanilla:block/light_blue_terracotta_bricks",
+    "top": "modernvanilla:block/light_blue_terracotta_bricks",
+    "side": "modernvanilla:block/light_blue_terracotta_bricks"
+  }
+}

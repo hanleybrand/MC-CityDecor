@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "modernvanilla:orange_bricks"
+  },
+  "result": "modernvanilla:orange_bricks_slab",
+  "count": 2
+}

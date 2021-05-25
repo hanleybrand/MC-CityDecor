@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "modernvanilla:block/barbed_wire_post",
+    "side": "modernvanilla:block/barbed_wire_side"
+  }
+}

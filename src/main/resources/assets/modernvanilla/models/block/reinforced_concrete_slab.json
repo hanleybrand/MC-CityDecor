@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "modernvanilla:block/reinforced_concrete",
+    "top": "modernvanilla:block/reinforced_concrete",
+    "side": "modernvanilla:block/reinforced_concrete"
+  }
+}

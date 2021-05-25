@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "modernvanilla:block/orange_bricks",
+    "top": "modernvanilla:block/orange_bricks",
+    "side": "modernvanilla:block/orange_bricks"
+  }
+}

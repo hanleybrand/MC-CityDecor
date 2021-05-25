@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "bottom=false": {
+      "model": "modernvanilla:block/steel_scaffolding_stable"
+    },
+    "bottom=true": {
+      "model": "modernvanilla:block/steel_scaffolding_unstable"
+    }
+  }
+}

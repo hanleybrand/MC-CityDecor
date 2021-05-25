@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "modernvanilla:block/iron_siding",
+    "top": "modernvanilla:block/iron_siding",
+    "side": "modernvanilla:block/iron_siding"
+  }
+}

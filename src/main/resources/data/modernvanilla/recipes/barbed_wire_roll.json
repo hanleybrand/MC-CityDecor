@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "INI",
+    "NNN"
+  ],
+  "key": {
+    "I": {
+      "item": "modernvanilla:steel_rod"
+    },
+    "N": {
+      "item": "modernvanilla:barbed_wire"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:barbed_wire_roll"
+  }
+}

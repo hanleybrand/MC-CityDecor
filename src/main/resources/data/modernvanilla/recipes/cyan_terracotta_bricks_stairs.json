@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modernvanilla:cyan_terracotta_bricks"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:cyan_terracotta_bricks_stairs",
+    "count": 4
+}
+}

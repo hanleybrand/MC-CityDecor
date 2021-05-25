@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modernvanilla:black_bricks"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:black_bricks_stairs",
+    "count": 4
+}
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modernvanilla:iron_siding"
+    }
+  },
+  "result": {
+    "item": "liberexponentia:iron_siding_stairs",
+    "count": 4
+}
+}

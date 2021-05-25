@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modernvanilla:muddy_sandstone"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:muddy_sandstone_wall",
+    "count": 6
+  }
+}
