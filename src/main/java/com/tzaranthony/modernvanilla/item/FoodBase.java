@@ -8,10 +8,10 @@ public class FoodBase extends Item {
 
     public FoodBase(String name, int hunger, float saturation) {
         super(new Item.Properties()
-                .group(ModernVanilla.TAB)
+                .tab(ModernVanilla.TAB)
                 .food(new Food.Builder()
-                        .hunger(hunger)
-                        .saturation(saturation)
+                        .nutrition(hunger)
+                        .saturationMod(saturation)
                         .build())
         );
         this.setRegistryName(name);

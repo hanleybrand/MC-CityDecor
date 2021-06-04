@@ -16,29 +16,29 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
 public class Rod extends DirectionalBlock {
-    protected static final VoxelShape ROD_VERTICAL_AABB = Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
-    protected static final VoxelShape ROD_NS_AABB = Block.makeCuboidShape(6.0D, 6.0D, 0.0D, 10.0D, 10.0D, 16.0D);
-    protected static final VoxelShape ROD_EW_AABB = Block.makeCuboidShape(0.0D, 6.0D, 6.0D, 16.0D, 10.0D, 10.0D);
+    protected static final VoxelShape ROD_VERTICAL_AABB = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
+    protected static final VoxelShape ROD_NS_AABB = Block.box(6.0D, 6.0D, 0.0D, 10.0D, 10.0D, 16.0D);
+    protected static final VoxelShape ROD_EW_AABB = Block.box(0.0D, 6.0D, 6.0D, 16.0D, 10.0D, 10.0D);
 
     public Rod(String name) {
-        super(AbstractBlock.Properties.create(Material.IRON, MaterialColor.BLACK)
-                .func_235861_h_()
-                .hardnessAndResistance(5.0F, 6.0F)
+        super(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY)
+                .requiresCorrectToolForDrops()
+                .strength(5.0F, 6.0F)
                 .sound(SoundType.METAL)
-                .notSolid());
+                .noOcclusion());
         this.setRegistryName(name);
     }
 
     public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
+        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.with(FACING, mirrorIn.mirror(state.get(FACING)));
+        return state.setValue(FACING, mirrorIn.mirror(state.getValue(FACING)));
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(FACING).getAxis()) {
+        switch (state.getValue(FACING).getAxis()) {
             case X:
             default:
                 return ROD_EW_AABB;
@@ -50,20 +50,22 @@ public class Rod extends DirectionalBlock {
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        Direction direction = context.getFace();
-        BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(direction.getOpposite()));
-        return blockstate.isIn(this) && blockstate.get(FACING) == direction ? this.getDefaultState().with(FACING, direction.getOpposite()) : this.getDefaultState().with(FACING, direction);
+        Direction direction = context.getClickedFace();
+        BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(direction.getOpposite()));
+        return blockstate.is(this)
+                && blockstate.getValue(FACING) == direction ? this.defaultBlockState().setValue(FACING, direction.getOpposite())
+                : this.defaultBlockState().setValue(FACING, direction);
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 
-    public PushReaction getPushReaction(BlockState state) {
+    public PushReaction getPistonPushReaction(BlockState state) {
         return PushReaction.NORMAL;
     }
 
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+    public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
         return false;
     }
 }

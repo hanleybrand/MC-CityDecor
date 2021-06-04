@@ -7,14 +7,12 @@ import net.minecraftforge.common.ToolType;
 
 public class MVLightBlock extends Block {
     public MVLightBlock(String name, float hardResist, int light) {
-        super(Block.Properties.create(Material.GLASS)
-                .func_235861_h_()
+        super(Block.Properties.of(Material.GLASS)
+                .requiresCorrectToolForDrops()
                 .sound(SoundType.GLASS)
-                .hardnessAndResistance(hardResist)
+                .strength(hardResist)
                 .harvestLevel(4)
-                .func_235838_a_((lightVar) -> {
-                    return light;
-                })
+                .lightLevel((state) -> {return light;})
                 .harvestTool(ToolType.PICKAXE));
         this.setRegistryName(name);
     }

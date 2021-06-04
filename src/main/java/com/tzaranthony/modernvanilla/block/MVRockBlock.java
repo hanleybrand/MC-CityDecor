@@ -7,10 +7,10 @@ import net.minecraftforge.common.ToolType;
 
 public class MVRockBlock extends Block {
     public MVRockBlock(String name, float hardness, float resistance) {
-        super(Block.Properties.create(Material.ROCK)
-                .func_235861_h_()
+        super(Block.Properties.of(Material.STONE)
+                .requiresCorrectToolForDrops()
                 .sound(SoundType.STONE)
-                .hardnessAndResistance(hardness, resistance)
+                .strength(hardness, resistance)
                 .harvestLevel(2)
                 .harvestTool(ToolType.PICKAXE));
         this.setRegistryName(name);

@@ -10,8 +10,8 @@ import net.minecraft.item.DyeColor;
 public class MVConcretePowder extends ConcretePowderBlock {
     public MVConcretePowder(Block block, String name) {
         super(block, AbstractBlock.Properties
-                .create(Material.SAND, DyeColor.WHITE)
-                .hardnessAndResistance(0.5F)
+                .of(Material.SAND, DyeColor.WHITE)
+                .strength(0.5F)
                 .sound(SoundType.SAND));
         this.setRegistryName(name);
     }

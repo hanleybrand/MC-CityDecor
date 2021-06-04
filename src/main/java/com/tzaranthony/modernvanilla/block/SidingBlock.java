@@ -7,10 +7,10 @@ import net.minecraftforge.common.ToolType;
 
 public class SidingBlock extends Block {
     public SidingBlock(String name) {
-        super(Block.Properties.create(Material.IRON)
-                .func_235861_h_()
-                .sound(SoundType.field_235594_P_)
-                .hardnessAndResistance(4, 20)
+        super(Block.Properties.of(Material.METAL)
+                .requiresCorrectToolForDrops()
+                .sound(SoundType.NETHERITE_BLOCK)
+                .strength(4, 20)
                 .harvestLevel(3)
                 .harvestTool(ToolType.PICKAXE));
         this.setRegistryName(name);

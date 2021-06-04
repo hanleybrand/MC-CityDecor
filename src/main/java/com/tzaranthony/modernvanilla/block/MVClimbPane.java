@@ -12,11 +12,11 @@ import net.minecraft.world.IWorldReader;
 public class MVClimbPane extends PaneBlock {
     public MVClimbPane(String name) {
         super(AbstractBlock.Properties
-                .create(Material.IRON, MaterialColor.AIR)
-                .func_235861_h_()
-                .hardnessAndResistance(5.0F, 6.0F)
-                .sound(SoundType.METAL)
-                .notSolid());
+                .of(Material.METAL, MaterialColor.NONE)
+                .requiresCorrectToolForDrops()
+                .strength(5.0F, 6.0F)
+                .sound(SoundType.CHAIN)
+                .noOcclusion());
         this.setRegistryName(name);
     }
     

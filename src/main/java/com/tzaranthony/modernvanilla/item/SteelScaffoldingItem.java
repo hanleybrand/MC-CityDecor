@@ -1,8 +1,8 @@
 package com.tzaranthony.modernvanilla.item;
 
+import com.tzaranthony.modernvanilla.block.SteelScaffolding;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ScaffoldingBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -24,40 +24,40 @@ public class SteelScaffoldingItem extends BlockItem {
     }
 
     @Nullable
-    public BlockItemUseContext getBlockItemUseContext(BlockItemUseContext context) {
-        BlockPos blockpos = context.getPos();
-        World world = context.getWorld();
+    public BlockItemUseContext updatePlacementContext(BlockItemUseContext context) {
+        BlockPos blockpos = context.getClickedPos();
+        World world = context.getLevel();
         BlockState blockstate = world.getBlockState(blockpos);
         Block block = this.getBlock();
-        if (!blockstate.isIn(block)) {
-            return ScaffoldingBlock.func_220117_a(world, blockpos) == 15 ? null : context;
+        if (!blockstate.is(block)) {
+            return SteelScaffolding.getDistance(world, blockpos) == 15 ? null : context;
         } else {
             Direction direction;
-            if (context.func_225518_g_()) {
-                direction = context.isInside() ? context.getFace().getOpposite() : context.getFace();
+            if (context.isSecondaryUseActive()) {
+                direction = context.isInside() ? context.getClickedFace().getOpposite() : context.getClickedFace();
             } else {
-                direction = context.getFace() == Direction.UP ? context.getPlacementHorizontalFacing() : Direction.UP;
+                direction = context.getClickedFace() == Direction.UP ? context.getHorizontalDirection() : Direction.UP;
             }
 
             int i = 0;
-            BlockPos.Mutable blockpos$mutable = blockpos.func_239590_i_().move(direction);
+            BlockPos.Mutable blockpos$mutable = blockpos.mutable().move(direction);
 
             while (i < 15) {
-                if (!world.isRemote && !World.isValid(blockpos$mutable)) {
+                if (!world.isClientSide && !World.isInWorldBounds(blockpos$mutable)) {
                     PlayerEntity playerentity = context.getPlayer();
                     int j = world.getHeight();
                     if (playerentity instanceof ServerPlayerEntity && blockpos$mutable.getY() >= j) {
                         SChatPacket schatpacket = new SChatPacket((new TranslationTextComponent("build.tooHigh", j))
-                                .func_240699_a_(TextFormatting.RED), ChatType.GAME_INFO, Util.field_240973_b_);
-                        ((ServerPlayerEntity) playerentity).connection.sendPacket(schatpacket);
+                                .withStyle(TextFormatting.RED), ChatType.GAME_INFO, Util.NIL_UUID);
+                        ((ServerPlayerEntity) playerentity).connection.send(schatpacket);
                     }
                     break;
                 }
 
                 blockstate = world.getBlockState(blockpos$mutable);
-                if (!blockstate.isIn(this.getBlock())) {
-                    if (blockstate.isReplaceable(context)) {
-                        return BlockItemUseContext.func_221536_a(context, blockpos$mutable, direction);
+                if (!blockstate.is(this.getBlock())) {
+                    if (blockstate.canBeReplaced(context)) {
+                        return BlockItemUseContext.at(context, blockpos$mutable, direction);
                     }
                     break;
                 }
@@ -71,7 +71,7 @@ public class SteelScaffoldingItem extends BlockItem {
         }
     }
 
-    protected boolean checkPosition() {
+    protected boolean mustSurvive() {
         return false;
     }
 }

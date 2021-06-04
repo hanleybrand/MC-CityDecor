@@ -7,10 +7,10 @@ import net.minecraftforge.common.ToolType;
 
 public class MetalBlock extends Block {
     public MetalBlock(String name, int harvestLevel, float hardness, float resistance) {
-        super(Block.Properties.create(Material.IRON)
-                .func_235861_h_()
+        super(Block.Properties.of(Material.METAL)
+                .requiresCorrectToolForDrops()
                 .sound(SoundType.METAL)
-                .hardnessAndResistance(hardness, resistance)
+                .strength(hardness, resistance)
                 .harvestLevel(harvestLevel)
                 .harvestTool(ToolType.PICKAXE));
         this.setRegistryName(name);

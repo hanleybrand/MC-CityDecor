@@ -28,28 +28,34 @@ import java.util.Map;
 
 public class MVWall extends WallBlock {
     public static final BooleanProperty UP = BlockStateProperties.UP;
-    public static final EnumProperty<WallHeight> field_235612_b_ = BlockStateProperties.field_235908_S_;
-    public static final EnumProperty<WallHeight> field_235613_c_ = BlockStateProperties.field_235909_T_;
-    public static final EnumProperty<WallHeight> field_235614_d_ = BlockStateProperties.field_235910_U_;
-    public static final EnumProperty<WallHeight> field_235615_e_ = BlockStateProperties.field_235911_V_;
-    public static final BooleanProperty field_235616_f_ = BlockStateProperties.WATERLOGGED;
-    private final Map<BlockState, VoxelShape> field_235617_g_;
-    private final Map<BlockState, VoxelShape> field_235618_h_;
-    private static final VoxelShape field_235619_i_ = Block.makeCuboidShape(7.0D, 0.0D, 7.0D, 9.0D, 16.0D, 9.0D);
-    private static final VoxelShape field_235620_j_ = Block.makeCuboidShape(7.0D, 0.0D, 0.0D, 9.0D, 16.0D, 9.0D);
-    private static final VoxelShape field_235621_k_ = Block.makeCuboidShape(7.0D, 0.0D, 7.0D, 9.0D, 16.0D, 16.0D);
-    private static final VoxelShape field_235622_o_ = Block.makeCuboidShape(0.0D, 0.0D, 7.0D, 9.0D, 16.0D, 9.0D);
-    private static final VoxelShape field_235623_p_ = Block.makeCuboidShape(7.0D, 0.0D, 7.0D, 16.0D, 16.0D, 9.0D);
+    public static final EnumProperty<WallHeight> EAST_WALL = BlockStateProperties.EAST_WALL;
+    public static final EnumProperty<WallHeight> NORTH_WALL = BlockStateProperties.NORTH_WALL;
+    public static final EnumProperty<WallHeight> SOUTH_WALL = BlockStateProperties.SOUTH_WALL;
+    public static final EnumProperty<WallHeight> WEST_WALL = BlockStateProperties.WEST_WALL;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    private final Map<BlockState, VoxelShape> shapeByIndex;
+    private final Map<BlockState, VoxelShape> collisionShapeByIndex;
+    private static final VoxelShape POST_TEST = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 16.0D, 9.0D);
+    private static final VoxelShape NORTH_TEST = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 16.0D, 9.0D);
+    private static final VoxelShape SOUTH_TEST = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 16.0D, 16.0D);
+    private static final VoxelShape WEST_TEST = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 16.0D, 9.0D);
+    private static final VoxelShape EAST_TEST = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 16.0D, 9.0D);
 
     public MVWall(String name, AbstractBlock block) {
-        super(AbstractBlock.Properties.from(block));
+        super(AbstractBlock.Properties.copy(block));
         this.setRegistryName(name);
-        this.setDefaultState(this.stateContainer.getBaseState().with(UP, Boolean.valueOf(true)).with(field_235613_c_, WallHeight.NONE).with(field_235612_b_, WallHeight.NONE).with(field_235614_d_, WallHeight.NONE).with(field_235615_e_, WallHeight.NONE).with(field_235616_f_, Boolean.valueOf(false)));
-        this.field_235617_g_ = this.func_235624_a_(4.0F, 3.0F, 16.0F, 0.0F, 14.0F, 16.0F);
-        this.field_235618_h_ = this.func_235624_a_(4.0F, 3.0F, 24.0F, 0.0F, 24.0F, 24.0F);
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(UP, Boolean.valueOf(true))
+                .setValue(NORTH_WALL, WallHeight.NONE)
+                .setValue(EAST_WALL, WallHeight.NONE)
+                .setValue(SOUTH_WALL, WallHeight.NONE)
+                .setValue(WEST_WALL, WallHeight.NONE)
+                .setValue(WATERLOGGED, Boolean.valueOf(false)));
+        this.shapeByIndex = this.makeShapes(4.0F, 3.0F, 16.0F, 0.0F, 14.0F, 16.0F);
+        this.collisionShapeByIndex = this.makeShapes(4.0F, 3.0F, 24.0F, 0.0F, 24.0F, 24.0F);
     }
 
-    private static VoxelShape func_235631_a_(VoxelShape p_235631_0_, WallHeight p_235631_1_, VoxelShape p_235631_2_, VoxelShape p_235631_3_) {
+    private static VoxelShape applyWallShape(VoxelShape p_235631_0_, WallHeight p_235631_1_, VoxelShape p_235631_2_, VoxelShape p_235631_3_) {
         if (p_235631_1_ == WallHeight.TALL) {
             return VoxelShapes.or(p_235631_0_, p_235631_3_);
         } else {
@@ -57,39 +63,44 @@ public class MVWall extends WallBlock {
         }
     }
 
-    private Map<BlockState, VoxelShape> func_235624_a_(float p_235624_1_, float p_235624_2_, float p_235624_3_, float p_235624_4_, float p_235624_5_, float p_235624_6_) {
+    private Map<BlockState, VoxelShape> makeShapes(float p_235624_1_, float p_235624_2_, float p_235624_3_, float p_235624_4_, float p_235624_5_, float p_235624_6_) {
         float f = 8.0F - p_235624_1_;
         float f1 = 8.0F + p_235624_1_;
         float f2 = 8.0F - p_235624_2_;
         float f3 = 8.0F + p_235624_2_;
-        VoxelShape voxelshape = Block.makeCuboidShape((double) f, 0.0D, (double) f, (double) f1, (double) p_235624_3_, (double) f1);
-        VoxelShape voxelshape1 = Block.makeCuboidShape((double) f2, (double) p_235624_4_, 0.0D, (double) f3, (double) p_235624_5_, (double) f3);
-        VoxelShape voxelshape2 = Block.makeCuboidShape((double) f2, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_5_, 16.0D);
-        VoxelShape voxelshape3 = Block.makeCuboidShape(0.0D, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_5_, (double) f3);
-        VoxelShape voxelshape4 = Block.makeCuboidShape((double) f2, (double) p_235624_4_, (double) f2, 16.0D, (double) p_235624_5_, (double) f3);
-        VoxelShape voxelshape5 = Block.makeCuboidShape((double) f2, (double) p_235624_4_, 0.0D, (double) f3, (double) p_235624_6_, (double) f3);
-        VoxelShape voxelshape6 = Block.makeCuboidShape((double) f2, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_6_, 16.0D);
-        VoxelShape voxelshape7 = Block.makeCuboidShape(0.0D, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_6_, (double) f3);
-        VoxelShape voxelshape8 = Block.makeCuboidShape((double) f2, (double) p_235624_4_, (double) f2, 16.0D, (double) p_235624_6_, (double) f3);
+        VoxelShape voxelshape = Block.box((double) f, 0.0D, (double) f, (double) f1, (double) p_235624_3_, (double) f1);
+        VoxelShape voxelshape1 = Block.box((double) f2, (double) p_235624_4_, 0.0D, (double) f3, (double) p_235624_5_, (double) f3);
+        VoxelShape voxelshape2 = Block.box((double) f2, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_5_, 16.0D);
+        VoxelShape voxelshape3 = Block.box(0.0D, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_5_, (double) f3);
+        VoxelShape voxelshape4 = Block.box((double) f2, (double) p_235624_4_, (double) f2, 16.0D, (double) p_235624_5_, (double) f3);
+        VoxelShape voxelshape5 = Block.box((double) f2, (double) p_235624_4_, 0.0D, (double) f3, (double) p_235624_6_, (double) f3);
+        VoxelShape voxelshape6 = Block.box((double) f2, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_6_, 16.0D);
+        VoxelShape voxelshape7 = Block.box(0.0D, (double) p_235624_4_, (double) f2, (double) f3, (double) p_235624_6_, (double) f3);
+        VoxelShape voxelshape8 = Block.box((double) f2, (double) p_235624_4_, (double) f2, 16.0D, (double) p_235624_6_, (double) f3);
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
 
-        for (Boolean obool : UP.getAllowedValues()) {
-            for (WallHeight wallheight : field_235612_b_.getAllowedValues()) {
-                for (WallHeight wallheight1 : field_235613_c_.getAllowedValues()) {
-                    for (WallHeight wallheight2 : field_235615_e_.getAllowedValues()) {
-                        for (WallHeight wallheight3 : field_235614_d_.getAllowedValues()) {
+        for (Boolean obool : UP.getPossibleValues()) {
+            for (WallHeight wallheight : EAST_WALL.getPossibleValues()) {
+                for (WallHeight wallheight1 : NORTH_WALL.getPossibleValues()) {
+                    for (WallHeight wallheight2 : WEST_WALL.getPossibleValues()) {
+                        for (WallHeight wallheight3 : SOUTH_WALL.getPossibleValues()) {
                             VoxelShape voxelshape9 = VoxelShapes.empty();
-                            voxelshape9 = func_235631_a_(voxelshape9, wallheight, voxelshape4, voxelshape8);
-                            voxelshape9 = func_235631_a_(voxelshape9, wallheight2, voxelshape3, voxelshape7);
-                            voxelshape9 = func_235631_a_(voxelshape9, wallheight1, voxelshape1, voxelshape5);
-                            voxelshape9 = func_235631_a_(voxelshape9, wallheight3, voxelshape2, voxelshape6);
+                            voxelshape9 = applyWallShape(voxelshape9, wallheight, voxelshape4, voxelshape8);
+                            voxelshape9 = applyWallShape(voxelshape9, wallheight2, voxelshape3, voxelshape7);
+                            voxelshape9 = applyWallShape(voxelshape9, wallheight1, voxelshape1, voxelshape5);
+                            voxelshape9 = applyWallShape(voxelshape9, wallheight3, voxelshape2, voxelshape6);
                             if (obool) {
                                 voxelshape9 = VoxelShapes.or(voxelshape9, voxelshape);
                             }
 
-                            BlockState blockstate = this.getDefaultState().with(UP, obool).with(field_235612_b_, wallheight).with(field_235615_e_, wallheight2).with(field_235613_c_, wallheight1).with(field_235614_d_, wallheight3);
-                            builder.put(blockstate.with(field_235616_f_, Boolean.valueOf(false)), voxelshape9);
-                            builder.put(blockstate.with(field_235616_f_, Boolean.valueOf(true)), voxelshape9);
+                            BlockState blockstate = this.defaultBlockState()
+                                    .setValue(UP, obool)
+                                    .setValue(EAST_WALL, wallheight)
+                                    .setValue(WEST_WALL, wallheight2)
+                                    .setValue(NORTH_WALL, wallheight1)
+                                    .setValue(SOUTH_WALL, wallheight3);
+                            builder.put(blockstate.setValue(WATERLOGGED, Boolean.valueOf(false)), voxelshape9);
+                            builder.put(blockstate.setValue(WATERLOGGED, Boolean.valueOf(true)), voxelshape9);
                         }
                     }
                 }
@@ -100,99 +111,104 @@ public class MVWall extends WallBlock {
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return this.field_235617_g_.get(state);
+        return this.shapeByIndex.get(state);
     }
 
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return this.field_235618_h_.get(state);
+        return this.collisionShapeByIndex.get(state);
     }
 
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+    public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
         return false;
     }
 
-    private boolean func_220113_a(BlockState p_220113_1_, boolean p_220113_2_, Direction p_220113_3_) {
+    private boolean connectsTo(BlockState p_220113_1_, boolean p_220113_2_, Direction p_220113_3_) {
         Block block = p_220113_1_.getBlock();
-        boolean flag = block instanceof FenceGateBlock && FenceGateBlock.isParallel(p_220113_1_, p_220113_3_);
-        return p_220113_1_.func_235714_a_(BlockTags.WALLS) || !cannotAttach(block) && p_220113_2_ || block instanceof PaneBlock || flag;
+        boolean flag = block instanceof FenceGateBlock && FenceGateBlock.connectsToDirection(p_220113_1_, p_220113_3_);
+        return p_220113_1_.is(BlockTags.WALLS) || !isExceptionForConnection(block) && p_220113_2_ || block instanceof PaneBlock || flag;
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        IWorldReader iworldreader = context.getWorld();
-        BlockPos blockpos = context.getPos();
-        FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
+        IWorldReader iworldreader = context.getLevel();
+        BlockPos blockpos = context.getClickedPos();
+        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
         BlockPos blockpos1 = blockpos.north();
         BlockPos blockpos2 = blockpos.east();
         BlockPos blockpos3 = blockpos.south();
         BlockPos blockpos4 = blockpos.west();
-        BlockPos blockpos5 = blockpos.up();
+        BlockPos blockpos5 = blockpos.above();
         BlockState blockstate = iworldreader.getBlockState(blockpos1);
         BlockState blockstate1 = iworldreader.getBlockState(blockpos2);
         BlockState blockstate2 = iworldreader.getBlockState(blockpos3);
         BlockState blockstate3 = iworldreader.getBlockState(blockpos4);
         BlockState blockstate4 = iworldreader.getBlockState(blockpos5);
-        boolean flag = this.func_220113_a(blockstate, blockstate.isSolidSide(iworldreader, blockpos1, Direction.SOUTH), Direction.SOUTH);
-        boolean flag1 = this.func_220113_a(blockstate1, blockstate1.isSolidSide(iworldreader, blockpos2, Direction.WEST), Direction.WEST);
-        boolean flag2 = this.func_220113_a(blockstate2, blockstate2.isSolidSide(iworldreader, blockpos3, Direction.NORTH), Direction.NORTH);
-        boolean flag3 = this.func_220113_a(blockstate3, blockstate3.isSolidSide(iworldreader, blockpos4, Direction.EAST), Direction.EAST);
-        BlockState blockstate5 = this.getDefaultState().with(field_235616_f_, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
-        return this.func_235626_a_(iworldreader, blockstate5, blockpos5, blockstate4, flag, flag1, flag2, flag3);
+        boolean flag = this.connectsTo(blockstate, blockstate.isFaceSturdy(iworldreader, blockpos1, Direction.SOUTH), Direction.SOUTH);
+        boolean flag1 = this.connectsTo(blockstate1, blockstate1.isFaceSturdy(iworldreader, blockpos2, Direction.WEST), Direction.WEST);
+        boolean flag2 = this.connectsTo(blockstate2, blockstate2.isFaceSturdy(iworldreader, blockpos3, Direction.NORTH), Direction.NORTH);
+        boolean flag3 = this.connectsTo(blockstate3, blockstate3.isFaceSturdy(iworldreader, blockpos4, Direction.EAST), Direction.EAST);
+        BlockState blockstate5 = this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+        return this.updateShape(iworldreader, blockstate5, blockpos5, blockstate4, flag, flag1, flag2, flag3);
     }
     
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (stateIn.get(field_235616_f_)) {
-            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.getValue(WATERLOGGED)) {
+            worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
         }
 
         if (facing == Direction.DOWN) {
-            return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+            return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         } else {
-            return facing == Direction.UP ? this.func_235625_a_(worldIn, stateIn, facingPos, facingState) : this.func_235627_a_(worldIn, currentPos, stateIn, facingPos, facingState, facing);
+            return facing == Direction.UP ? this.topUpdate(worldIn, stateIn, facingPos, facingState)
+                    : this.sideUpdate(worldIn, currentPos, stateIn, facingPos, facingState, facing);
         }
     }
 
-    private static boolean func_235629_a_(BlockState p_235629_0_, Property<WallHeight> p_235629_1_) {
-        return p_235629_0_.get(p_235629_1_) != WallHeight.NONE;
+    private static boolean isConnected(BlockState p_235629_0_, Property<WallHeight> p_235629_1_) {
+        return p_235629_0_.getValue(p_235629_1_) != WallHeight.NONE;
     }
 
-    private static boolean func_235632_a_(VoxelShape p_235632_0_, VoxelShape p_235632_1_) {
-        return !VoxelShapes.compare(p_235632_1_, p_235632_0_, IBooleanFunction.ONLY_FIRST);
+    private static boolean isCovered(VoxelShape p_235632_0_, VoxelShape p_235632_1_) {
+        return !VoxelShapes.joinIsNotEmpty(p_235632_1_, p_235632_0_, IBooleanFunction.ONLY_FIRST);
     }
 
-    private BlockState func_235625_a_(IWorldReader p_235625_1_, BlockState p_235625_2_, BlockPos p_235625_3_, BlockState p_235625_4_) {
-        boolean flag = func_235629_a_(p_235625_2_, field_235613_c_);
-        boolean flag1 = func_235629_a_(p_235625_2_, field_235612_b_);
-        boolean flag2 = func_235629_a_(p_235625_2_, field_235614_d_);
-        boolean flag3 = func_235629_a_(p_235625_2_, field_235615_e_);
-        return this.func_235626_a_(p_235625_1_, p_235625_2_, p_235625_3_, p_235625_4_, flag, flag1, flag2, flag3);
+    private BlockState topUpdate(IWorldReader p_235625_1_, BlockState p_235625_2_, BlockPos p_235625_3_, BlockState p_235625_4_) {
+        boolean flag = isConnected(p_235625_2_, NORTH_WALL);
+        boolean flag1 = isConnected(p_235625_2_, EAST_WALL);
+        boolean flag2 = isConnected(p_235625_2_, SOUTH_WALL);
+        boolean flag3 = isConnected(p_235625_2_, WEST_WALL);
+        return this.updateShape(p_235625_1_, p_235625_2_, p_235625_3_, p_235625_4_, flag, flag1, flag2, flag3);
     }
 
-    private BlockState func_235627_a_(IWorldReader p_235627_1_, BlockPos p_235627_2_, BlockState p_235627_3_, BlockPos p_235627_4_, BlockState p_235627_5_, Direction p_235627_6_) {
+    private BlockState sideUpdate(IWorldReader p_235627_1_, BlockPos p_235627_2_, BlockState p_235627_3_, BlockPos p_235627_4_, BlockState p_235627_5_, Direction p_235627_6_) {
         Direction direction = p_235627_6_.getOpposite();
-        boolean flag = p_235627_6_ == Direction.NORTH ? this.func_220113_a(p_235627_5_, p_235627_5_.isSolidSide(p_235627_1_, p_235627_4_, direction), direction) : func_235629_a_(p_235627_3_, field_235613_c_);
-        boolean flag1 = p_235627_6_ == Direction.EAST ? this.func_220113_a(p_235627_5_, p_235627_5_.isSolidSide(p_235627_1_, p_235627_4_, direction), direction) : func_235629_a_(p_235627_3_, field_235612_b_);
-        boolean flag2 = p_235627_6_ == Direction.SOUTH ? this.func_220113_a(p_235627_5_, p_235627_5_.isSolidSide(p_235627_1_, p_235627_4_, direction), direction) : func_235629_a_(p_235627_3_, field_235614_d_);
-        boolean flag3 = p_235627_6_ == Direction.WEST ? this.func_220113_a(p_235627_5_, p_235627_5_.isSolidSide(p_235627_1_, p_235627_4_, direction), direction) : func_235629_a_(p_235627_3_, field_235615_e_);
-        BlockPos blockpos = p_235627_2_.up();
+        boolean flag = p_235627_6_ == Direction.NORTH ? this.connectsTo(p_235627_5_, p_235627_5_.isFaceSturdy(p_235627_1_, p_235627_4_, direction), direction)
+                : isConnected(p_235627_3_, NORTH_WALL);
+        boolean flag1 = p_235627_6_ == Direction.EAST ? this.connectsTo(p_235627_5_, p_235627_5_.isFaceSturdy(p_235627_1_, p_235627_4_, direction), direction)
+                : isConnected(p_235627_3_, EAST_WALL);
+        boolean flag2 = p_235627_6_ == Direction.SOUTH ? this.connectsTo(p_235627_5_, p_235627_5_.isFaceSturdy(p_235627_1_, p_235627_4_, direction), direction)
+                : isConnected(p_235627_3_, SOUTH_WALL);
+        boolean flag3 = p_235627_6_ == Direction.WEST ? this.connectsTo(p_235627_5_, p_235627_5_.isFaceSturdy(p_235627_1_, p_235627_4_, direction), direction)
+                : isConnected(p_235627_3_, WEST_WALL);
+        BlockPos blockpos = p_235627_2_.above();
         BlockState blockstate = p_235627_1_.getBlockState(blockpos);
-        return this.func_235626_a_(p_235627_1_, p_235627_3_, blockpos, blockstate, flag, flag1, flag2, flag3);
+        return this.updateShape(p_235627_1_, p_235627_3_, blockpos, blockstate, flag, flag1, flag2, flag3);
     }
 
-    private BlockState func_235626_a_(IWorldReader p_235626_1_, BlockState p_235626_2_, BlockPos p_235626_3_, BlockState p_235626_4_, boolean p_235626_5_, boolean p_235626_6_, boolean p_235626_7_, boolean p_235626_8_) {
-        VoxelShape voxelshape = p_235626_4_.getCollisionShape(p_235626_1_, p_235626_3_).project(Direction.DOWN);
-        BlockState blockstate = this.func_235630_a_(p_235626_2_, p_235626_5_, p_235626_6_, p_235626_7_, p_235626_8_, voxelshape);
-        return blockstate.with(UP, Boolean.valueOf(this.func_235628_a_(blockstate, p_235626_4_, voxelshape)));
+    private BlockState updateShape(IWorldReader p_235626_1_, BlockState p_235626_2_, BlockPos p_235626_3_, BlockState p_235626_4_, boolean p_235626_5_, boolean p_235626_6_, boolean p_235626_7_, boolean p_235626_8_) {
+        VoxelShape voxelshape = p_235626_4_.getCollisionShape(p_235626_1_, p_235626_3_).getFaceShape(Direction.DOWN);
+        BlockState blockstate = this.updateSides(p_235626_2_, p_235626_5_, p_235626_6_, p_235626_7_, p_235626_8_, voxelshape);
+        return blockstate.setValue(UP, Boolean.valueOf(this.shouldRaisePost(blockstate, p_235626_4_, voxelshape)));
     }
 
-    private boolean func_235628_a_(BlockState p_235628_1_, BlockState p_235628_2_, VoxelShape p_235628_3_) {
-        boolean flag = p_235628_2_.getBlock() instanceof WallBlock && p_235628_2_.get(UP);
+    private boolean shouldRaisePost(BlockState p_235628_1_, BlockState p_235628_2_, VoxelShape p_235628_3_) {
+        boolean flag = p_235628_2_.getBlock() instanceof WallBlock && p_235628_2_.getValue(UP);
         if (flag) {
             return true;
         } else {
-            WallHeight wallheight = p_235628_1_.get(field_235613_c_);
-            WallHeight wallheight1 = p_235628_1_.get(field_235614_d_);
-            WallHeight wallheight2 = p_235628_1_.get(field_235612_b_);
-            WallHeight wallheight3 = p_235628_1_.get(field_235615_e_);
+            WallHeight wallheight = p_235628_1_.getValue(NORTH_WALL);
+            WallHeight wallheight1 = p_235628_1_.getValue(SOUTH_WALL);
+            WallHeight wallheight2 = p_235628_1_.getValue(EAST_WALL);
+            WallHeight wallheight3 = p_235628_1_.getValue(WEST_WALL);
             boolean flag1 = wallheight1 == WallHeight.NONE;
             boolean flag2 = wallheight3 == WallHeight.NONE;
             boolean flag3 = wallheight2 == WallHeight.NONE;
@@ -205,44 +221,51 @@ public class MVWall extends WallBlock {
                 if (flag6) {
                     return false;
                 } else {
-                    return p_235628_2_.getBlock().isIn(BlockTags.field_232877_ar_) || func_235632_a_(p_235628_3_, field_235619_i_);
+                    return p_235628_2_.getBlock().is(BlockTags.WALL_POST_OVERRIDE) || isCovered(p_235628_3_, POST_TEST);
                 }
             }
         }
     }
 
-    private BlockState func_235630_a_(BlockState p_235630_1_, boolean p_235630_2_, boolean p_235630_3_, boolean p_235630_4_, boolean p_235630_5_, VoxelShape p_235630_6_) {
-        return p_235630_1_.with(field_235613_c_, this.func_235633_a_(p_235630_2_, p_235630_6_, field_235620_j_)).with(field_235612_b_, this.func_235633_a_(p_235630_3_, p_235630_6_, field_235623_p_)).with(field_235614_d_, this.func_235633_a_(p_235630_4_, p_235630_6_, field_235621_k_)).with(field_235615_e_, this.func_235633_a_(p_235630_5_, p_235630_6_, field_235622_o_));
+    private BlockState updateSides(BlockState p_235630_1_, boolean p_235630_2_, boolean p_235630_3_, boolean p_235630_4_, boolean p_235630_5_, VoxelShape p_235630_6_) {
+        return p_235630_1_
+                .setValue(NORTH_WALL, this.makeWallState(p_235630_2_, p_235630_6_, NORTH_TEST))
+                .setValue(EAST_WALL, this.makeWallState(p_235630_3_, p_235630_6_, EAST_TEST))
+                .setValue(SOUTH_WALL, this.makeWallState(p_235630_4_, p_235630_6_, SOUTH_TEST))
+                .setValue(WEST_WALL, this.makeWallState(p_235630_5_, p_235630_6_, WEST_TEST));
     }
 
-    private WallHeight func_235633_a_(boolean p_235633_1_, VoxelShape p_235633_2_, VoxelShape p_235633_3_) {
+    private WallHeight makeWallState(boolean p_235633_1_, VoxelShape p_235633_2_, VoxelShape p_235633_3_) {
         if (p_235633_1_) {
-            return func_235632_a_(p_235633_2_, p_235633_3_) ? WallHeight.TALL : WallHeight.LOW;
+            return isCovered(p_235633_2_, p_235633_3_) ? WallHeight.TALL : WallHeight.LOW;
         } else {
             return WallHeight.NONE;
         }
     }
 
     public FluidState getFluidState(BlockState state) {
-        return state.get(field_235616_f_) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
-        return !state.get(field_235616_f_);
+        return !state.getValue(WATERLOGGED);
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(UP, field_235613_c_, field_235612_b_, field_235615_e_, field_235614_d_, field_235616_f_);
+        builder.add(UP, NORTH_WALL, EAST_WALL, WEST_WALL, SOUTH_WALL, WATERLOGGED);
     }
 
     public BlockState rotate(BlockState state, Rotation rot) {
         switch (rot) {
             case CLOCKWISE_180:
-                return state.with(field_235613_c_, state.get(field_235614_d_)).with(field_235612_b_, state.get(field_235615_e_)).with(field_235614_d_, state.get(field_235613_c_)).with(field_235615_e_, state.get(field_235612_b_));
+                return state.setValue(NORTH_WALL, state.getValue(SOUTH_WALL)).setValue(EAST_WALL,
+                        state.getValue(WEST_WALL)).setValue(SOUTH_WALL, state.getValue(NORTH_WALL)).setValue(WEST_WALL, state.getValue(EAST_WALL));
             case COUNTERCLOCKWISE_90:
-                return state.with(field_235613_c_, state.get(field_235612_b_)).with(field_235612_b_, state.get(field_235614_d_)).with(field_235614_d_, state.get(field_235615_e_)).with(field_235615_e_, state.get(field_235613_c_));
+                return state.setValue(NORTH_WALL, state.getValue(EAST_WALL)).setValue(EAST_WALL,
+                        state.getValue(SOUTH_WALL)).setValue(SOUTH_WALL, state.getValue(WEST_WALL)).setValue(WEST_WALL, state.getValue(NORTH_WALL));
             case CLOCKWISE_90:
-                return state.with(field_235613_c_, state.get(field_235615_e_)).with(field_235612_b_, state.get(field_235613_c_)).with(field_235614_d_, state.get(field_235612_b_)).with(field_235615_e_, state.get(field_235614_d_));
+                return state.setValue(NORTH_WALL, state.getValue(WEST_WALL)).setValue(EAST_WALL,
+                        state.getValue(NORTH_WALL)).setValue(SOUTH_WALL, state.getValue(EAST_WALL)).setValue(WEST_WALL, state.getValue(SOUTH_WALL));
             default:
                 return state;
         }
@@ -251,9 +274,9 @@ public class MVWall extends WallBlock {
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         switch (mirrorIn) {
             case LEFT_RIGHT:
-                return state.with(field_235613_c_, state.get(field_235614_d_)).with(field_235614_d_, state.get(field_235613_c_));
+                return state.setValue(NORTH_WALL, state.getValue(SOUTH_WALL)).setValue(SOUTH_WALL, state.getValue(NORTH_WALL));
             case FRONT_BACK:
-                return state.with(field_235612_b_, state.get(field_235615_e_)).with(field_235615_e_, state.get(field_235612_b_));
+                return state.setValue(EAST_WALL, state.getValue(WEST_WALL)).setValue(WEST_WALL, state.getValue(EAST_WALL));
             default:
                 return super.mirror(state, mirrorIn);
         }

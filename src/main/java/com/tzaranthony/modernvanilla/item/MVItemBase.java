@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 public class MVItemBase extends Item {
 
     public MVItemBase(String name) {
-        super(new Item.Properties().group(ModernVanilla.TAB));
+        super(new Item.Properties().tab(ModernVanilla.TAB));
         this.setRegistryName(name);
     }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dyed_bricks",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:terracotta"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:terracotta_bricks",
+    "count": 8
+  }
+}

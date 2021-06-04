@@ -35,7 +35,7 @@ public class ModernVanilla {
 
     public static final ItemGroup TAB = new ItemGroup("ModVanilla") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(MVItems.STEEL_INGOT);
         }
 

@@ -6,7 +6,7 @@ import net.minecraft.item.Rarity;
 
 public class UnburnableItemRarity extends Item {
     public UnburnableItemRarity(String name, Rarity rare) {
-        super(new Item.Properties().group(ModernVanilla.TAB).func_234689_a_().rarity(rare));
+        super(new Item.Properties().tab(ModernVanilla.TAB).fireResistant().rarity(rare));
         this.setRegistryName(name);
     }
 }

@@ -7,8 +7,8 @@ import net.minecraft.block.material.MaterialColor;
 
 public class MVAbsSlab extends SlabBlock {
     public MVAbsSlab(String name, Material material, MaterialColor color, Float hardness, Float resistance) {
-        super(AbstractBlock.Properties.create(material, color)
-                .func_235861_h_().hardnessAndResistance(hardness, resistance));
+        super(AbstractBlock.Properties.of(material, color)
+                .requiresCorrectToolForDrops().strength(hardness, resistance));
         this.setRegistryName(name);
     }
 }

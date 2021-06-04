@@ -13,19 +13,19 @@ import net.minecraft.world.World;
 
 public class MVAbsStairsDmg extends StairsBlock {
     public MVAbsStairsDmg(String name, BlockState state, AbstractBlock block) {
-        super(state, Properties.from(block));
+        super(state, Properties.copy(block));
         this.setRegistryName(name);
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity) {
-            entityIn.setMotionMultiplier(state, new Vector3d((double) 0.5F, 0.75D, (double) 0.5F));
-            entityIn.attackEntityFrom(MVDamageSource.BARBED_WIRE, 0.5F);
-            double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
-            double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
-            double d2 = Math.abs(entityIn.getPosY() - entityIn.lastTickPosY);
+            entityIn.makeStuckInBlock(state, new Vector3d((double) 0.5F, 0.75D, (double) 0.5F));
+            entityIn.hurt(MVDamageSource.BARBED_WIRE, 0.5F);
+            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
+            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
+            double d2 = Math.abs(entityIn.getY() - entityIn.yOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F || d2 >= (double) 0.0003F) {
-                entityIn.attackEntityFrom(MVDamageSource.BARBED_WIRE, 4.5F);
+                entityIn.hurt(MVDamageSource.BARBED_WIRE, 4.5F);
             }
         }
     }

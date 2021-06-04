@@ -8,8 +8,8 @@ import net.minecraft.block.material.MaterialColor;
 
 public class MVAbsSlabSound extends SlabBlock {
     public MVAbsSlabSound(String name, Material material, MaterialColor color, Float hardness, Float resistance) {
-        super(AbstractBlock.Properties.create(material, color)
-                .func_235861_h_().hardnessAndResistance(hardness, resistance).sound(SoundType.field_235590_L_));
+        super(AbstractBlock.Properties.of(material, color)
+                .requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.NETHER_BRICKS));
         this.setRegistryName(name);
     }
 }

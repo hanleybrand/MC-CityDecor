@@ -6,7 +6,7 @@ import net.minecraft.block.StairsBlock;
 
 public class MVStairs extends StairsBlock {
     public MVStairs(String name, BlockState state, Block block) {
-        super(state, Block.Properties.from(block));
+        super(state, Block.Properties.copy(block));
         this.setRegistryName(name);
     }
 }

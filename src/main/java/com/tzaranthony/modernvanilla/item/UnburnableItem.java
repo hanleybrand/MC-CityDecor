@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 public class UnburnableItem extends Item {
 
     public UnburnableItem(String name) {
-        super(new Item.Properties().group(ModernVanilla.TAB).func_234689_a_());
+        super(new Item.Properties().tab(ModernVanilla.TAB).fireResistant());
         this.setRegistryName(name);
     }
 }
