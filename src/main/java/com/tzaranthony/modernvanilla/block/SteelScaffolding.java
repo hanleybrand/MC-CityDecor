@@ -47,10 +47,6 @@ public class SteelScaffolding extends Block implements IWaterLoggable {
                 .setValue(BOTTOM, Boolean.valueOf(false));
     }
 
-    public int getCoverage() {
-        return 15;
-    }
-
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(DISTANCE, WATERLOGGED, BOTTOM);
     }

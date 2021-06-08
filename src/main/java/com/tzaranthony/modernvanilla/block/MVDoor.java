@@ -7,11 +7,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 
 public class MVDoor extends DoorBlock {
-    public MVDoor(Material material) {
-        super(AbstractBlock.Properties.of(material, MaterialColor.METAL)
+    public MVDoor(String name, SoundType sound) {
+        super(AbstractBlock.Properties.of(Material.METAL, MaterialColor.METAL)
                 .requiresCorrectToolForDrops()
                 .strength(5.0F)
-                .sound(SoundType.METAL)
+                .sound(sound)
                 .noOcclusion());
+        this.setRegistryName(name);
     }
 }

@@ -6,6 +6,7 @@ import com.tzaranthony.modernvanilla.item.IronScaffoldingItem;
 import com.tzaranthony.modernvanilla.item.SteelScaffoldingItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.renderer.RenderType;
@@ -52,6 +53,7 @@ public class MVBlocks {
     public static final Block STEEL_FENCE = new MVFence("steel_fence", STEEL_BLOCK);
     public static final Block CHAIN_LINK_FENCE = new MVClimbPane("chain_link_fence");
     public static final Block STEEL_TRAPDOOR = new MetalTrapdoor("steel_trapdoor");
+    public static final Block STEEL_DOOR = new MVDoor("steel_door", SoundType.METAL);
 
     //TODO: glass door
     public static final Block WHITE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`white_stained_glass_trapdoor", DyeColor.WHITE);
@@ -70,6 +72,7 @@ public class MVBlocks {
     public static final Block GREEN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`green_stained_glass_trapdoor", DyeColor.GREEN);
     public static final Block RED_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`red_stained_glass_trapdoor", DyeColor.RED);
     public static final Block BLACK_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`black_stained_glass_trapdoor", DyeColor.BLACK);
+    public static final Block GLASS_DOOR = new MVDoor("glass_door", SoundType.GLASS);
 
     //TODO: lightbulb? (wall, ceiling)
     public static final Block CEILING_LIGHT = new MVLightBlock("ceiling_light", 0.8F, 30);

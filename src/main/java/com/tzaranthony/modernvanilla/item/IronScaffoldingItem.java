@@ -7,7 +7,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.Item;
 import net.minecraft.network.play.server.SChatPacket;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Util;
@@ -20,7 +19,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class IronScaffoldingItem extends BlockItem {
-    public IronScaffoldingItem(Block block, Item.Properties properties) {
+    public IronScaffoldingItem(Block block, Properties properties) {
         super(block, properties);
     }
 
@@ -31,7 +30,7 @@ public class IronScaffoldingItem extends BlockItem {
         BlockState blockstate = world.getBlockState(blockpos);
         Block block = this.getBlock();
         if (!blockstate.is(block)) {
-            return IronScaffolding.getDistance(world, blockpos) == 15 ? null : context;
+            return IronScaffolding.getDistance(world, blockpos) == 11 ? null : context;
         } else {
             Direction direction;
             if (context.isSecondaryUseActive()) {

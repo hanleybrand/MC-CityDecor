@@ -42,13 +42,9 @@ public class IronScaffolding extends Block implements IWaterLoggable {
                 .dynamicShape());
         this.setRegistryName(name);
         this.stateDefinition.any()
-                .setValue(DISTANCE, Integer.valueOf(15))
+                .setValue(DISTANCE, Integer.valueOf(11))
                 .setValue(WATERLOGGED, Boolean.valueOf(false))
                 .setValue(BOTTOM, Boolean.valueOf(false));
-    }
-
-    public int getCoverage() {
-        return 11;
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
