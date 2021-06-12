@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "modernvanilla:mossy_bricks"
+  },
+  "result": "modernvanilla:mossy_bricks_slab",
+  "count": 2
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "modernvanilla:block/worn_cyan_concrete_slab"
+    },
+    "type=double": {
+      "model": "modernvanilla:block/worn_cyan_concrete"
+    },
+    "type=top": {
+      "model": "modernvanilla:block/worn_cyan_concrete_slab_top"
+    }
+  }
+}

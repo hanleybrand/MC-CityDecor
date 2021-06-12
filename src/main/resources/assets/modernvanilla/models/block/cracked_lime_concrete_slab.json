@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "modernvanilla:block/cracked_lime_concrete",
+    "top": "modernvanilla:block/cracked_lime_concrete",
+    "side": "modernvanilla:block/cracked_lime_concrete"
+  }
+}

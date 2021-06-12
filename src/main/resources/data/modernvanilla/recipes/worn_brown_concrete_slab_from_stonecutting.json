@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "modernvanilla:worn_brown_concrete"
+  },
+  "result": "modernvanilla:worn_brown_concrete_slab",
+  "count": 2
+}

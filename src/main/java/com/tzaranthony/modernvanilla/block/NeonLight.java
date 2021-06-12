@@ -40,9 +40,12 @@ public class NeonLight extends DirectionalBlock implements IWaterLoggable {
     public NeonLight(String name, int light) {
         super(AbstractBlock.Properties.of(Material.DECORATION)
                 .instabreak()
-                .lightLevel((state) -> {return light * state.getValue(RODS);})
+                .lightLevel((state) -> {
+                    return light * state.getValue(RODS);
+                })
                 .sound(SoundType.GLASS)
                 .noOcclusion());
+        this.setRegistryName(name);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.UP)
                 .setValue(RODS, Integer.valueOf(1))
@@ -55,11 +58,11 @@ public class NeonLight extends DirectionalBlock implements IWaterLoggable {
         if (blockstate.is(this)) {
             return blockstate.is(this)
                     && blockstate.getValue(FACING) == direction ? this.defaultBlockState()
-                        .setValue(FACING, direction.getOpposite())
-                        .setValue(RODS, Integer.valueOf(Math.min(2, blockstate.getValue(RODS) + 1)))
+                    .setValue(FACING, direction.getOpposite())
+                    .setValue(RODS, Integer.valueOf(Math.min(2, blockstate.getValue(RODS) + 1)))
                     : this.defaultBlockState()
-                        .setValue(FACING, direction)
-                        .setValue(RODS, Integer.valueOf(Math.min(2, blockstate.getValue(RODS) + 1)));
+                    .setValue(FACING, direction)
+                    .setValue(RODS, Integer.valueOf(Math.min(2, blockstate.getValue(RODS) + 1)));
         } else {
             FluidState fluidstate = p_196258_1_.getLevel().getFluidState(p_196258_1_.getClickedPos());
             boolean flag = fluidstate.getType() == Fluids.WATER;
@@ -76,10 +79,10 @@ public class NeonLight extends DirectionalBlock implements IWaterLoggable {
     }
 
     public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
-        switch(p_220053_1_.getValue(FACING).getAxis()) {
+        switch (p_220053_1_.getValue(FACING).getAxis()) {
             case X:
             default:
-                switch(p_220053_1_.getValue(RODS)) {
+                switch (p_220053_1_.getValue(RODS)) {
                     case 1:
                     default:
                         return X_AXIS_AA;
@@ -87,7 +90,7 @@ public class NeonLight extends DirectionalBlock implements IWaterLoggable {
                         return X_AXIS_BB;
                 }
             case Z:
-                switch(p_220053_1_.getValue(RODS)) {
+                switch (p_220053_1_.getValue(RODS)) {
                     case 1:
                     default:
                         return Y_AXIS_AA;
@@ -95,7 +98,7 @@ public class NeonLight extends DirectionalBlock implements IWaterLoggable {
                         return Y_AXIS_BB;
                 }
             case Y:
-                switch(p_220053_1_.getValue(RODS)) {
+                switch (p_220053_1_.getValue(RODS)) {
                     case 1:
                     default:
                         return Z_AXIS_AA;
@@ -108,12 +111,12 @@ public class NeonLight extends DirectionalBlock implements IWaterLoggable {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
         Direction direction = p_180655_1_.getValue(FACING);
-        double d0 = (double)p_180655_3_.getX() + 0.55D - (double)(p_180655_4_.nextFloat() * 0.1F);
-        double d1 = (double)p_180655_3_.getY() + 0.55D - (double)(p_180655_4_.nextFloat() * 0.1F);
-        double d2 = (double)p_180655_3_.getZ() + 0.55D - (double)(p_180655_4_.nextFloat() * 0.1F);
-        double d3 = (double)(0.4F - (p_180655_4_.nextFloat() + p_180655_4_.nextFloat()) * 0.4F);
+        double d0 = (double) p_180655_3_.getX() + 0.55D - (double) (p_180655_4_.nextFloat() * 0.1F);
+        double d1 = (double) p_180655_3_.getY() + 0.55D - (double) (p_180655_4_.nextFloat() * 0.1F);
+        double d2 = (double) p_180655_3_.getZ() + 0.55D - (double) (p_180655_4_.nextFloat() * 0.1F);
+        double d3 = (double) (0.4F - (p_180655_4_.nextFloat() + p_180655_4_.nextFloat()) * 0.4F);
         if (p_180655_4_.nextInt(5) == 0) {
-            p_180655_2_.addParticle(ParticleTypes.END_ROD, d0 + (double)direction.getStepX() * d3, d1 + (double)direction.getStepY() * d3, d2 + (double)direction.getStepZ() * d3, p_180655_4_.nextGaussian() * 0.005D, p_180655_4_.nextGaussian() * 0.005D, p_180655_4_.nextGaussian() * 0.005D);
+            p_180655_2_.addParticle(ParticleTypes.END_ROD, d0 + (double) direction.getStepX() * d3, d1 + (double) direction.getStepY() * d3, d2 + (double) direction.getStepZ() * d3, p_180655_4_.nextGaussian() * 0.005D, p_180655_4_.nextGaussian() * 0.005D, p_180655_4_.nextGaussian() * 0.005D);
         }
 
     }

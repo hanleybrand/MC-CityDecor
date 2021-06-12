@@ -29,15 +29,17 @@ import java.util.List;
 public class MVBlocks {
     // steel
     public static final Block STEEL_BLOCK = new MetalBlock("steel_block", 3, 6.0F, 8.0F);
-    public static final Block STEEL_FRAME = new MetalBlock("steel_frame", 3, 6.0F, 8.0F);
-    public static final Block IRON_FRAME = new MetalBlock("iron_frame", 2, 5.0F, 6.0F);
+    public static final Block STEEL_FRAME = new FrameBlock("steel_frame", 3, 6.0F, 8.0F);
+    public static final Block IRON_FRAME = new FrameBlock("iron_frame", 2, 5.0F, 6.0F);
 
     //TODO: Cushion -- like a half slab of wool, but sittable, make it have a better texture please. Maybe a chair???
 
 
+    //TODO: pallets -- storage that looks like shipping pallets
+
     // new concrete
     public static final Block REINFORCED_CONCRETE = new MVRockBlock("reinforced_concrete", 2.0F, 9.0F);
-    public static final Block REINFORCED_CONCRETE_POWDER = new MVConcretePowder(REINFORCED_CONCRETE, "reinforced_concrete_powder");
+    public static final Block REINFORCED_CONCRETE_POWDER = new MVConcretePowder("reinforced_concrete_powder", REINFORCED_CONCRETE);
     public static final Block REINFORCED_CONCRETE_STAIRS = new MVAbsStairs("reinforced_concrete_stairs", REINFORCED_CONCRETE.defaultBlockState(), REINFORCED_CONCRETE);
     public static final Block REINFORCED_CONCRETE_SLAB = new MVAbsSlabD("reinforced_concrete_slab", Material.STONE, DyeColor.WHITE, 1.8F, 1.8F);
 
@@ -48,31 +50,49 @@ public class MVBlocks {
     public static final Block STEEL_SCAFFOLDING = new SteelScaffolding("steel_scaffolding");
     public static final Block STEEL_ROD = new Rod("steel_rod");
 
-    // metal fence, steel trap door TODO: steel door
+    // metal fence, steel trap door, steel door
     public static final Block IRON_FENCE = new MVFence("iron_fence", Blocks.IRON_BLOCK);
     public static final Block STEEL_FENCE = new MVFence("steel_fence", STEEL_BLOCK);
     public static final Block CHAIN_LINK_FENCE = new MVClimbPane("chain_link_fence");
     public static final Block STEEL_TRAPDOOR = new MetalTrapdoor("steel_trapdoor");
     public static final Block STEEL_DOOR = new MVDoor("steel_door", SoundType.METAL);
 
-    //TODO: glass door
-    public static final Block WHITE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`white_stained_glass_trapdoor", DyeColor.WHITE);
-    public static final Block ORANGE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`orange_stained_glass_trapdoor", DyeColor.ORANGE);
-    public static final Block MAGENTA_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`magenta_stained_glass_trapdoor", DyeColor.MAGENTA);
-    public static final Block LIGHT_BLUE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`light_blue_stained_glass_trapdoor", DyeColor.LIGHT_BLUE);
-    public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`yellow_stained_glass_trapdoor", DyeColor.YELLOW);
-    public static final Block LIME_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`lime_stained_glass_trapdoor", DyeColor.LIME);
-    public static final Block PINK_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`pink_stained_glass_trapdoor", DyeColor.PINK);
-    public static final Block GRAY_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`gray_stained_glass_trapdoor", DyeColor.GRAY);
-    public static final Block LIGHT_GRAY_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`light_gray_stained_glass_trapdoor", DyeColor.LIGHT_GRAY);
-    public static final Block CYAN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`cyan_stained_glass_trapdoor", DyeColor.CYAN);
-    public static final Block PURPLE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`purple_stained_glass_trapdoor", DyeColor.PURPLE);
-    public static final Block BLUE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`blue_stained_glass_trapdoor", DyeColor.BLUE);
-    public static final Block BROWN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`brown_stained_glass_trapdoor", DyeColor.BROWN);
-    public static final Block GREEN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`green_stained_glass_trapdoor", DyeColor.GREEN);
-    public static final Block RED_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`red_stained_glass_trapdoor", DyeColor.RED);
-    public static final Block BLACK_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("`black_stained_glass_trapdoor", DyeColor.BLACK);
+    // glass doors and trapdoors
+    public static final Block GLASS_TRAPDOOR = new GlassTrapdoor("glass_trapdoor", DyeColor.WHITE);
+    public static final Block WHITE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("white_stained_glass_trapdoor", DyeColor.WHITE);
+    public static final Block ORANGE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("orange_stained_glass_trapdoor", DyeColor.ORANGE);
+    public static final Block MAGENTA_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("magenta_stained_glass_trapdoor", DyeColor.MAGENTA);
+    public static final Block LIGHT_BLUE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("light_blue_stained_glass_trapdoor", DyeColor.LIGHT_BLUE);
+    public static final Block YELLOW_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("yellow_stained_glass_trapdoor", DyeColor.YELLOW);
+    public static final Block LIME_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("lime_stained_glass_trapdoor", DyeColor.LIME);
+    public static final Block PINK_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("pink_stained_glass_trapdoor", DyeColor.PINK);
+    public static final Block GRAY_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("gray_stained_glass_trapdoor", DyeColor.GRAY);
+    public static final Block LIGHT_GRAY_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("light_gray_stained_glass_trapdoor", DyeColor.LIGHT_GRAY);
+    public static final Block CYAN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("cyan_stained_glass_trapdoor", DyeColor.CYAN);
+    public static final Block PURPLE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("purple_stained_glass_trapdoor", DyeColor.PURPLE);
+    public static final Block BLUE_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("blue_stained_glass_trapdoor", DyeColor.BLUE);
+    public static final Block BROWN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("brown_stained_glass_trapdoor", DyeColor.BROWN);
+    public static final Block GREEN_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("green_stained_glass_trapdoor", DyeColor.GREEN);
+    public static final Block RED_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("red_stained_glass_trapdoor", DyeColor.RED);
+    public static final Block BLACK_STAINED_GLASS_TRAPDOOR = new GlassTrapdoor("black_stained_glass_trapdoor", DyeColor.BLACK);
     public static final Block GLASS_DOOR = new MVDoor("glass_door", SoundType.GLASS);
+    public static final Block WHITE_STAINED_GLASS_DOOR = new MVDoor("white_stained_glass_door", SoundType.GLASS);
+    public static final Block ORANGE_STAINED_GLASS_DOOR = new MVDoor("orange_stained_glass_door", SoundType.GLASS);
+    public static final Block MAGENTA_STAINED_GLASS_DOOR = new MVDoor("magenta_stained_glass_door", SoundType.GLASS);
+    public static final Block LIGHT_BLUE_STAINED_GLASS_DOOR = new MVDoor("light_blue_stained_glass_door", SoundType.GLASS);
+    public static final Block YELLOW_STAINED_GLASS_DOOR = new MVDoor("yellow_stained_glass_door", SoundType.GLASS);
+    public static final Block LIME_STAINED_GLASS_DOOR = new MVDoor("lime_stained_glass_door", SoundType.GLASS);
+    public static final Block PINK_STAINED_GLASS_DOOR = new MVDoor("pink_stained_glass_door", SoundType.GLASS);
+    public static final Block GRAY_STAINED_GLASS_DOOR = new MVDoor("gray_stained_glass_door", SoundType.GLASS);
+    public static final Block LIGHT_GRAY_STAINED_GLASS_DOOR = new MVDoor("light_gray_stained_glass_door", SoundType.GLASS);
+    public static final Block CYAN_STAINED_GLASS_DOOR = new MVDoor("cyan_stained_glass_door", SoundType.GLASS);
+    public static final Block PURPLE_STAINED_GLASS_DOOR = new MVDoor("purple_stained_glass_door", SoundType.GLASS);
+    public static final Block BLUE_STAINED_GLASS_DOOR = new MVDoor("blue_stained_glass_door", SoundType.GLASS);
+    public static final Block BROWN_STAINED_GLASS_DOOR = new MVDoor("brown_stained_glass_door", SoundType.GLASS);
+    public static final Block GREEN_STAINED_GLASS_DOOR = new MVDoor("green_stained_glass_door", SoundType.GLASS);
+    public static final Block RED_STAINED_GLASS_DOOR = new MVDoor("red_stained_glass_door", SoundType.GLASS);
+    public static final Block BLACK_STAINED_GLASS_DOOR = new MVDoor("black_stained_glass_door", SoundType.GLASS);
+
 
     //TODO: lightbulb? (wall, ceiling)
     public static final Block CEILING_LIGHT = new MVLightBlock("ceiling_light", 0.8F, 30);
@@ -133,13 +153,122 @@ public class MVBlocks {
     public static final Block BLACK_STEEL_SIDING = new SidingBlock("black_steel_siding");
 
 
-    //TODO: cracked bricks, mossy bricks
+    // cracked bricks, mossy bricks
     public static final Block CRACKED_BRICKS = new MVRockBlock("cracked_bricks", 2.0F, 6.0F);
     public static final Block MOSSY_BRICKS = new MVRockBlock("mossy_bricks", 2.0F, 6.0F);
+    // slabs
+    public static final Block CRACKED_BRICKS_SLAB = new MVAbsSlab("cracked_bricks_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block MOSSY_BRICKS_SLAB = new MVAbsSlab("mossy_bricks_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    //stairs
+    public static final Block CRACKED_BRICKS_STAIRS = new MVAbsStairs("cracked_bricks_stairs", CRACKED_BRICKS.defaultBlockState(), CRACKED_BRICKS);
+    public static final Block MOSSY_BRICKS_STAIRS = new MVAbsStairs("mossy_bricks_stairs", MOSSY_BRICKS.defaultBlockState(), MOSSY_BRICKS);
 
-    //TODO: cracked concrete, worn concrete
-    public static final Block CRACKED_CONCRETE = new MVRockBlock("cracked_concrete", 1.8F, 1.8F);
-    public static final Block WORN_CONCRETE = new MVRockBlock("worn_concrete", 1.8F, 1.8F);
+    // cracked and worn concrete
+    public static final Block CRACKED_WHITE_CONCRETE = new MVRockBlock("cracked_white_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_ORANGE_CONCRETE = new MVRockBlock("cracked_orange_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_MAGENTA_CONCRETE = new MVRockBlock("cracked_magenta_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_LIGHT_BLUE_CONCRETE = new MVRockBlock("cracked_light_blue_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_YELLOW_CONCRETE = new MVRockBlock("cracked_yellow_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_LIME_CONCRETE = new MVRockBlock("cracked_lime_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_PINK_CONCRETE = new MVRockBlock("cracked_pink_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_GRAY_CONCRETE = new MVRockBlock("cracked_gray_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_LIGHT_GRAY_CONCRETE = new MVRockBlock("cracked_light_gray_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_CYAN_CONCRETE = new MVRockBlock("cracked_cyan_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_PURPLE_CONCRETE = new MVRockBlock("cracked_purple_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_BLUE_CONCRETE = new MVRockBlock("cracked_blue_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_BROWN_CONCRETE = new MVRockBlock("cracked_brown_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_GREEN_CONCRETE = new MVRockBlock("cracked_green_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_RED_CONCRETE = new MVRockBlock("cracked_red_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_BLACK_CONCRETE = new MVRockBlock("cracked_black_concrete", 2.0F, 9.0F);
+    public static final Block CRACKED_REINFORCED_CONCRETE = new MVRockBlock("cracked_reinforced_concrete", 2.0F, 9.0F);
+    public static final Block WORN_WHITE_CONCRETE = new MVRockBlock("worn_white_concrete", 2.0F, 9.0F);
+    public static final Block WORN_ORANGE_CONCRETE = new MVRockBlock("worn_orange_concrete", 2.0F, 9.0F);
+    public static final Block WORN_MAGENTA_CONCRETE = new MVRockBlock("worn_magenta_concrete", 2.0F, 9.0F);
+    public static final Block WORN_LIGHT_BLUE_CONCRETE = new MVRockBlock("worn_light_blue_concrete", 2.0F, 9.0F);
+    public static final Block WORN_YELLOW_CONCRETE = new MVRockBlock("worn_yellow_concrete", 2.0F, 9.0F);
+    public static final Block WORN_LIME_CONCRETE = new MVRockBlock("worn_lime_concrete", 2.0F, 9.0F);
+    public static final Block WORN_PINK_CONCRETE = new MVRockBlock("worn_pink_concrete", 2.0F, 9.0F);
+    public static final Block WORN_GRAY_CONCRETE = new MVRockBlock("worn_gray_concrete", 2.0F, 9.0F);
+    public static final Block WORN_LIGHT_GRAY_CONCRETE = new MVRockBlock("worn_light_gray_concrete", 2.0F, 9.0F);
+    public static final Block WORN_CYAN_CONCRETE = new MVRockBlock("worn_cyan_concrete", 2.0F, 9.0F);
+    public static final Block WORN_PURPLE_CONCRETE = new MVRockBlock("worn_purple_concrete", 2.0F, 9.0F);
+    public static final Block WORN_BLUE_CONCRETE = new MVRockBlock("worn_blue_concrete", 2.0F, 9.0F);
+    public static final Block WORN_BROWN_CONCRETE = new MVRockBlock("worn_brown_concrete", 2.0F, 9.0F);
+    public static final Block WORN_GREEN_CONCRETE = new MVRockBlock("worn_green_concrete", 2.0F, 9.0F);
+    public static final Block WORN_RED_CONCRETE = new MVRockBlock("worn_red_concrete", 2.0F, 9.0F);
+    public static final Block WORN_BLACK_CONCRETE = new MVRockBlock("worn_black_concrete", 2.0F, 9.0F);
+    public static final Block WORN_REINFORCED_CONCRETE = new MVRockBlock("worn_reinforced_concrete", 2.0F, 9.0F);
+    // slabs
+    public static final Block WORN_WHITE_CONCRETE_SLAB = new MVAbsSlab("worn_white_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_ORANGE_CONCRETE_SLAB = new MVAbsSlab("worn_orange_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_MAGENTA_CONCRETE_SLAB = new MVAbsSlab("worn_magenta_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_LIGHT_BLUE_CONCRETE_SLAB = new MVAbsSlab("worn_light_blue_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_YELLOW_CONCRETE_SLAB = new MVAbsSlab("worn_yellow_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_LIME_CONCRETE_SLAB = new MVAbsSlab("worn_lime_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_PINK_CONCRETE_SLAB = new MVAbsSlab("worn_pink_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_GRAY_CONCRETE_SLAB = new MVAbsSlab("worn_gray_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_LIGHT_GRAY_CONCRETE_SLAB = new MVAbsSlab("worn_light_gray_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_CYAN_CONCRETE_SLAB = new MVAbsSlab("worn_cyan_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_PURPLE_CONCRETE_SLAB = new MVAbsSlab("worn_purple_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_BLUE_CONCRETE_SLAB = new MVAbsSlab("worn_blue_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_BROWN_CONCRETE_SLAB = new MVAbsSlab("worn_brown_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_GREEN_CONCRETE_SLAB = new MVAbsSlab("worn_green_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_RED_CONCRETE_SLAB = new MVAbsSlab("worn_red_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_BLACK_CONCRETE_SLAB = new MVAbsSlab("worn_black_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block WORN_REINFORCED_CONCRETE_SLAB = new MVAbsSlab("worn_reinforced_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_WHITE_CONCRETE_SLAB = new MVAbsSlab("cracked_white_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_ORANGE_CONCRETE_SLAB = new MVAbsSlab("cracked_orange_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_MAGENTA_CONCRETE_SLAB = new MVAbsSlab("cracked_magenta_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_LIGHT_BLUE_CONCRETE_SLAB = new MVAbsSlab("cracked_light_blue_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_YELLOW_CONCRETE_SLAB = new MVAbsSlab("cracked_yellow_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_LIME_CONCRETE_SLAB = new MVAbsSlab("cracked_lime_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_PINK_CONCRETE_SLAB = new MVAbsSlab("cracked_pink_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_GRAY_CONCRETE_SLAB = new MVAbsSlab("cracked_gray_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_LIGHT_GRAY_CONCRETE_SLAB = new MVAbsSlab("cracked_light_gray_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_CYAN_CONCRETE_SLAB = new MVAbsSlab("cracked_cyan_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_PURPLE_CONCRETE_SLAB = new MVAbsSlab("cracked_purple_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_BLUE_CONCRETE_SLAB = new MVAbsSlab("cracked_blue_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_BROWN_CONCRETE_SLAB = new MVAbsSlab("cracked_brown_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_GREEN_CONCRETE_SLAB = new MVAbsSlab("cracked_green_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_RED_CONCRETE_SLAB = new MVAbsSlab("cracked_red_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_BLACK_CONCRETE_SLAB = new MVAbsSlab("cracked_black_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    public static final Block CRACKED_REINFORCED_CONCRETE_SLAB = new MVAbsSlab("cracked_reinforced_concrete_slab", Material.STONE, MaterialColor.WOOL, 2.0F, 6.0F);
+    // stairs
+    public static final Block WORN_WHITE_CONCRETE_STAIRS = new MVAbsStairs("worn_white_concrete_stairs", WORN_WHITE_CONCRETE.defaultBlockState(), WORN_WHITE_CONCRETE);
+    public static final Block WORN_ORANGE_CONCRETE_STAIRS = new MVAbsStairs("worn_orange_concrete_stairs", WORN_ORANGE_CONCRETE.defaultBlockState(), WORN_ORANGE_CONCRETE);
+    public static final Block WORN_MAGENTA_CONCRETE_STAIRS = new MVAbsStairs("worn_magenta_concrete_stairs", WORN_MAGENTA_CONCRETE.defaultBlockState(), WORN_MAGENTA_CONCRETE);
+    public static final Block WORN_LIGHT_BLUE_CONCRETE_STAIRS = new MVAbsStairs("worn_light_blue_concrete_stairs", WORN_LIGHT_BLUE_CONCRETE.defaultBlockState(), WORN_LIGHT_BLUE_CONCRETE);
+    public static final Block WORN_YELLOW_CONCRETE_STAIRS = new MVAbsStairs("worn_yellow_concrete_stairs", WORN_YELLOW_CONCRETE.defaultBlockState(), WORN_YELLOW_CONCRETE);
+    public static final Block WORN_LIME_CONCRETE_STAIRS = new MVAbsStairs("worn_lime_concrete_stairs", WORN_LIME_CONCRETE.defaultBlockState(), WORN_LIME_CONCRETE);
+    public static final Block WORN_PINK_CONCRETE_STAIRS = new MVAbsStairs("worn_pink_concrete_stairs", WORN_PINK_CONCRETE.defaultBlockState(), WORN_PINK_CONCRETE);
+    public static final Block WORN_GRAY_CONCRETE_STAIRS = new MVAbsStairs("worn_gray_concrete_stairs", WORN_GRAY_CONCRETE.defaultBlockState(), WORN_GRAY_CONCRETE);
+    public static final Block WORN_LIGHT_GRAY_CONCRETE_STAIRS = new MVAbsStairs("worn_light_gray_concrete_stairs", WORN_LIGHT_GRAY_CONCRETE.defaultBlockState(), WORN_LIGHT_GRAY_CONCRETE);
+    public static final Block WORN_CYAN_CONCRETE_STAIRS = new MVAbsStairs("worn_cyan_concrete_stairs", WORN_CYAN_CONCRETE.defaultBlockState(), WORN_CYAN_CONCRETE);
+    public static final Block WORN_PURPLE_CONCRETE_STAIRS = new MVAbsStairs("worn_purple_concrete_stairs", WORN_PURPLE_CONCRETE.defaultBlockState(), WORN_PURPLE_CONCRETE);
+    public static final Block WORN_BLUE_CONCRETE_STAIRS = new MVAbsStairs("worn_blue_concrete_stairs", WORN_BLUE_CONCRETE.defaultBlockState(), WORN_BLUE_CONCRETE);
+    public static final Block WORN_BROWN_CONCRETE_STAIRS = new MVAbsStairs("worn_brown_concrete_stairs", WORN_BROWN_CONCRETE.defaultBlockState(), WORN_BROWN_CONCRETE);
+    public static final Block WORN_GREEN_CONCRETE_STAIRS = new MVAbsStairs("worn_green_concrete_stairs", WORN_GREEN_CONCRETE.defaultBlockState(), WORN_GREEN_CONCRETE);
+    public static final Block WORN_RED_CONCRETE_STAIRS = new MVAbsStairs("worn_red_concrete_stairs", WORN_RED_CONCRETE.defaultBlockState(), WORN_RED_CONCRETE);
+    public static final Block WORN_BLACK_CONCRETE_STAIRS = new MVAbsStairs("worn_black_concrete_stairs", WORN_BLACK_CONCRETE.defaultBlockState(), WORN_BLACK_CONCRETE);
+    public static final Block WORN_REINFORCED_CONCRETE_STAIRS = new MVAbsStairs("worn_reinforced_concrete_stairs", WORN_REINFORCED_CONCRETE.defaultBlockState(), WORN_REINFORCED_CONCRETE);
+    public static final Block CRACKED_WHITE_CONCRETE_STAIRS = new MVAbsStairs("cracked_white_concrete_stairs", CRACKED_WHITE_CONCRETE.defaultBlockState(), CRACKED_WHITE_CONCRETE);
+    public static final Block CRACKED_ORANGE_CONCRETE_STAIRS = new MVAbsStairs("cracked_orange_concrete_stairs", CRACKED_ORANGE_CONCRETE.defaultBlockState(), CRACKED_ORANGE_CONCRETE);
+    public static final Block CRACKED_MAGENTA_CONCRETE_STAIRS = new MVAbsStairs("cracked_magenta_concrete_stairs", CRACKED_MAGENTA_CONCRETE.defaultBlockState(), CRACKED_MAGENTA_CONCRETE);
+    public static final Block CRACKED_LIGHT_BLUE_CONCRETE_STAIRS = new MVAbsStairs("cracked_light_blue_concrete_stairs", CRACKED_LIGHT_BLUE_CONCRETE.defaultBlockState(), CRACKED_LIGHT_BLUE_CONCRETE);
+    public static final Block CRACKED_YELLOW_CONCRETE_STAIRS = new MVAbsStairs("cracked_yellow_concrete_stairs", CRACKED_YELLOW_CONCRETE.defaultBlockState(), CRACKED_YELLOW_CONCRETE);
+    public static final Block CRACKED_LIME_CONCRETE_STAIRS = new MVAbsStairs("cracked_lime_concrete_stairs", CRACKED_LIME_CONCRETE.defaultBlockState(), CRACKED_LIME_CONCRETE);
+    public static final Block CRACKED_PINK_CONCRETE_STAIRS = new MVAbsStairs("cracked_pink_concrete_stairs", CRACKED_PINK_CONCRETE.defaultBlockState(), CRACKED_PINK_CONCRETE);
+    public static final Block CRACKED_GRAY_CONCRETE_STAIRS = new MVAbsStairs("cracked_gray_concrete_stairs", CRACKED_GRAY_CONCRETE.defaultBlockState(), CRACKED_GRAY_CONCRETE);
+    public static final Block CRACKED_LIGHT_GRAY_CONCRETE_STAIRS = new MVAbsStairs("cracked_light_gray_concrete_stairs", CRACKED_LIGHT_GRAY_CONCRETE.defaultBlockState(), CRACKED_LIGHT_GRAY_CONCRETE);
+    public static final Block CRACKED_CYAN_CONCRETE_STAIRS = new MVAbsStairs("cracked_cyan_concrete_stairs", CRACKED_CYAN_CONCRETE.defaultBlockState(), CRACKED_CYAN_CONCRETE);
+    public static final Block CRACKED_PURPLE_CONCRETE_STAIRS = new MVAbsStairs("cracked_purple_concrete_stairs", CRACKED_PURPLE_CONCRETE.defaultBlockState(), CRACKED_PURPLE_CONCRETE);
+    public static final Block CRACKED_BLUE_CONCRETE_STAIRS = new MVAbsStairs("cracked_blue_concrete_stairs", CRACKED_BLUE_CONCRETE.defaultBlockState(), CRACKED_BLUE_CONCRETE);
+    public static final Block CRACKED_BROWN_CONCRETE_STAIRS = new MVAbsStairs("cracked_brown_concrete_stairs", CRACKED_BROWN_CONCRETE.defaultBlockState(), CRACKED_BROWN_CONCRETE);
+    public static final Block CRACKED_GREEN_CONCRETE_STAIRS = new MVAbsStairs("cracked_green_concrete_stairs", CRACKED_GREEN_CONCRETE.defaultBlockState(), CRACKED_GREEN_CONCRETE);
+    public static final Block CRACKED_RED_CONCRETE_STAIRS = new MVAbsStairs("cracked_red_concrete_stairs", CRACKED_RED_CONCRETE.defaultBlockState(), CRACKED_RED_CONCRETE);
+    public static final Block CRACKED_BLACK_CONCRETE_STAIRS = new MVAbsStairs("cracked_black_concrete_stairs", CRACKED_BLACK_CONCRETE.defaultBlockState(), CRACKED_BLACK_CONCRETE);
+    public static final Block CRACKED_REINFORCED_CONCRETE_STAIRS = new MVAbsStairs("cracked_reinforced_concrete_stairs", CRACKED_REINFORCED_CONCRETE.defaultBlockState(), CRACKED_REINFORCED_CONCRETE);
+
 
     // muddy sandstone
     public static final Block MUDDY_SANDSTONE = new MVRockBlock("muddy_sandstone", 0.8F, 0.8F);
@@ -357,15 +486,17 @@ public class MVBlocks {
         }
 
         if (FMLEnvironment.dist == Dist.CLIENT) {
-            RenderType cutout = RenderType.cutout();
+            RenderType cutout = RenderType.cutoutMipped();
             RenderTypeLookup.setRenderLayer(STEEL_TRAPDOOR, cutout);
             RenderTypeLookup.setRenderLayer(CHAIN_LINK_FENCE, cutout);
             RenderTypeLookup.setRenderLayer(BARBED_WIRE_ROLL, cutout);
             RenderTypeLookup.setRenderLayer(BARBED_WIRE_EDGING, cutout);
-            RenderTypeLookup.setRenderLayer(STEEL_FRAME, cutout);
+            RenderTypeLookup.setRenderLayer(STEEL_DOOR, cutout);
             RenderTypeLookup.setRenderLayer(IRON_FRAME, cutout);
+            RenderTypeLookup.setRenderLayer(STEEL_FRAME, cutout);
 
             RenderType clear = RenderType.translucent();
+            RenderTypeLookup.setRenderLayer(GLASS_TRAPDOOR, clear);
             RenderTypeLookup.setRenderLayer(WHITE_STAINED_GLASS_TRAPDOOR, clear);
             RenderTypeLookup.setRenderLayer(ORANGE_STAINED_GLASS_TRAPDOOR, clear);
             RenderTypeLookup.setRenderLayer(MAGENTA_STAINED_GLASS_TRAPDOOR, clear);
@@ -382,7 +513,23 @@ public class MVBlocks {
             RenderTypeLookup.setRenderLayer(GREEN_STAINED_GLASS_TRAPDOOR, clear);
             RenderTypeLookup.setRenderLayer(RED_STAINED_GLASS_TRAPDOOR, clear);
             RenderTypeLookup.setRenderLayer(BLACK_STAINED_GLASS_TRAPDOOR, clear);
-
+            RenderTypeLookup.setRenderLayer(GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(WHITE_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(ORANGE_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(MAGENTA_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(LIGHT_BLUE_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(YELLOW_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(LIME_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(PINK_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(GRAY_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(LIGHT_GRAY_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(CYAN_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(PURPLE_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(BLUE_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(BROWN_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(GREEN_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(RED_STAINED_GLASS_DOOR, clear);
+            RenderTypeLookup.setRenderLayer(BLACK_STAINED_GLASS_DOOR, clear);
         }
     }
 
@@ -391,12 +538,12 @@ public class MVBlocks {
         try {
             for (Field f : MVBlocks.class.getDeclaredFields()) {
                 Object obj = f.get(null);
-                if (obj instanceof IronScaffolding) {
-                    BlockItem blockItem = new IronScaffoldingItem((Block) obj, new Item.Properties().tab(ModernVanilla.TAB));
+                if (obj instanceof SteelScaffolding) {
+                    BlockItem blockItem = new SteelScaffoldingItem((Block) obj, new Item.Properties().tab(ModernVanilla.TAB));
                     blockItem.setRegistryName(((Block) obj).getRegistryName());
                     regBlockItems.getRegistry().register(blockItem);
-                } else if (obj instanceof SteelScaffolding) {
-                    BlockItem blockItem = new SteelScaffoldingItem((Block) obj, new Item.Properties().tab(ModernVanilla.TAB));
+                } else if (obj instanceof IronScaffolding) {
+                    BlockItem blockItem = new IronScaffoldingItem((Block) obj, new Item.Properties().tab(ModernVanilla.TAB));
                     blockItem.setRegistryName(((Block) obj).getRegistryName());
                     regBlockItems.getRegistry().register(blockItem);
                 } else if (obj instanceof Block && !IGNORE_CLASS_LIST.contains(obj.getClass())) {

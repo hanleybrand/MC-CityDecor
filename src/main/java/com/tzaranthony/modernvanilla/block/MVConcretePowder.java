@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.DyeColor;
 
 public class MVConcretePowder extends ConcretePowderBlock {
-    public MVConcretePowder(Block block, String name) {
+    public MVConcretePowder(String name, Block block) {
         super(block, AbstractBlock.Properties
                 .of(Material.SAND, DyeColor.WHITE)
                 .strength(0.5F)
