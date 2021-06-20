@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "modernvanilla:block/ceiling_light_side",
+    "side": "modernvanilla:block/ceiling_light"
+  }
+}

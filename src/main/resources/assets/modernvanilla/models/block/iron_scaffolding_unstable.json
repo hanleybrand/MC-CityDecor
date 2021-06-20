@@ -1,7 +1,7 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "minecraft:block/scaffolding_top",
+    "particle": "modernvanilla:block/iron_scaffolding_top",
     "top": "modernvanilla:block/iron_scaffolding_top",
     "side": "modernvanilla:block/iron_scaffolding_side",
     "bottom": "modernvanilla:block/iron_scaffolding_bottom"

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:bricks"
+  },
+  "result": "modernvanilla:cracked_bricks",
+  "cookingtime": 200
+}

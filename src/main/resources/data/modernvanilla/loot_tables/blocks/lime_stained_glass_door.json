@@ -17,6 +17,19 @@
             }
           ],
           "name": "modernvanilla:lime_stained_glass_door"
+        },
+      {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "modernvanilla:lime_stained_glass_door",
+              "properties": {
+                "half": "upper"
+              }
+            }
+          ],
+          "name": "modernvanilla:lime_stained_glass_door"
         }
       ],
       "conditions": [

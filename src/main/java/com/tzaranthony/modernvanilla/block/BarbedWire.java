@@ -1,11 +1,8 @@
 package com.tzaranthony.modernvanilla.block;
 
 import com.tzaranthony.modernvanilla.util.MVDamageSource;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.BlockPos;
@@ -16,11 +13,7 @@ import net.minecraft.world.World;
 public class BarbedWire extends RotatedPillarBlock {
 
     public BarbedWire(String name) {
-        super(Block.Properties.of(Material.METAL)
-                .noCollission()
-                .noOcclusion()
-                .sound(SoundType.CHAIN)
-                .strength(20, 0.5F));
+        super(MVBlockProperties.BarbedWire());
         this.setRegistryName(name);
     }
 

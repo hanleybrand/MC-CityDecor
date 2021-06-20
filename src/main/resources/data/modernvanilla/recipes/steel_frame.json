@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NIN",
+    "III",
+    "NIN"
+  ],
+  "key": {
+    "I": {
+      "item": "modernvanilla:steel_nugget"
+    },
+    "N": {
+      "item": "modernvanilla:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:steel_frame"
+  }
+}

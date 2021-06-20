@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "modernvanilla:reinforced_concrete"
+  },
+  "result": "modernvanilla:worn_reinforced_concrete",
+  "count": 1
+}

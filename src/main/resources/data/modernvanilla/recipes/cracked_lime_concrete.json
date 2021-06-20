@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:lime_concrete"
+  },
+  "result": "modernvanilla:cracked_lime_concrete",
+  "cookingtime": 200
+}

@@ -38,7 +38,8 @@
   },
   "ambientocclusion": false,
   "textures": {
-    "steel_rod": "modernvanilla:block/steel_rod"
+    "steel_rod": "modernvanilla:block/steel_rod",
+    "particle": "modernvanilla:block/steel_rod"
   },
   "elements": [
     {

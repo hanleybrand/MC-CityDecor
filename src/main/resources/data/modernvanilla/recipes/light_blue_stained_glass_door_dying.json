@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dyed_bricks",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "modernvanilla:glass_door"
+    },
+    "X": {
+      "tag": "forge:dyes/light_blue"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:light_blue_stained_glass_door",
+    "count": 8
+  }
+}

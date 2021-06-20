@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "modernvanilla:glass_door",
+    "modernvanilla:white_stained_glass_door",
+    "modernvanilla:orange_stained_glass_door",
+    "modernvanilla:magenta_stained_glass_door",
+    "modernvanilla:light_blue_stained_glass_door",
+    "modernvanilla:yellow_stained_glass_door",
+    "modernvanilla:lime_stained_glass_door",
+    "modernvanilla:pink_stained_glass_door",
+    "modernvanilla:gray_stained_glass_door",
+    "modernvanilla:light_gray_stained_glass_door",
+    "modernvanilla:cyan_stained_glass_door",
+    "modernvanilla:purple_stained_glass_door",
+    "modernvanilla:blue_stained_glass_door",
+    "modernvanilla:brown_stained_glass_door",
+    "modernvanilla:green_stained_glass_door",
+    "modernvanilla:red_stained_glass_door",
+    "modernvanilla:black_stained_glass_door"
+  ]
+}

@@ -1,9 +1,9 @@
 package com.tzaranthony.modernvanilla.block;
 
 import com.tzaranthony.modernvanilla.util.MVBlocks;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -35,11 +35,7 @@ public class IronScaffolding extends Block implements IWaterLoggable {
     public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
 
     public IronScaffolding(String name) {
-        super(AbstractBlock.Properties
-                .of(Material.DECORATION, MaterialColor.METAL)
-                .noCollission()
-                .sound(SoundType.SCAFFOLDING)
-                .dynamicShape());
+        super(MVBlockProperties.Scaffolding());
         this.setRegistryName(name);
         this.stateDefinition.any()
                 .setValue(DISTANCE, Integer.valueOf(11))

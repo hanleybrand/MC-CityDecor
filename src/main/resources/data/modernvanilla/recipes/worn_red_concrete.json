@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:red_concrete"
+    },
+    "X": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:worn_red_concrete",
+    "count": 8
+}
+}

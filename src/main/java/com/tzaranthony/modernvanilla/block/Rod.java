@@ -1,8 +1,8 @@
 package com.tzaranthony.modernvanilla.block;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.DirectionalBlock;
 import net.minecraft.block.material.PushReaction;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.pathfinding.PathType;
@@ -20,12 +20,8 @@ public class Rod extends DirectionalBlock {
     protected static final VoxelShape ROD_NS_AABB = Block.box(6.0D, 6.0D, 0.0D, 10.0D, 10.0D, 16.0D);
     protected static final VoxelShape ROD_EW_AABB = Block.box(0.0D, 6.0D, 6.0D, 16.0D, 10.0D, 10.0D);
 
-    public Rod(String name) {
-        super(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY)
-                .requiresCorrectToolForDrops()
-                .strength(5.0F, 6.0F)
-                .sound(SoundType.METAL)
-                .noOcclusion());
+    public Rod(String name, Properties properties) {
+        super(properties);
         this.setRegistryName(name);
     }
 

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "modernvanilla:reinforced_concrete"
+  },
+  "result": "modernvanilla:cracked_reinforced_concrete",
+  "cookingtime": 200
+}

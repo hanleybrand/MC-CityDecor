@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cyan_stained_glass"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:cyan_stained_glass_trapdoor",
+    "count": 2
+  }
+}

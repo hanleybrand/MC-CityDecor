@@ -17,6 +17,19 @@
             }
           ],
           "name": "modernvanilla:brown_stained_glass_door"
+        },
+      {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "modernvanilla:brown_stained_glass_door",
+              "properties": {
+                "half": "upper"
+              }
+            }
+          ],
+          "name": "modernvanilla:brown_stained_glass_door"
         }
       ],
       "conditions": [

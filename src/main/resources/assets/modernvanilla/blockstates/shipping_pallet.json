@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "modernvanilla:block/shipping_pallet",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "modernvanilla:block/shipping_pallet"
+    },
+    "facing=south": {
+      "model": "modernvanilla:block/shipping_pallet",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "modernvanilla:block/shipping_pallet",
+      "y": 270
+    }
+  }
+}

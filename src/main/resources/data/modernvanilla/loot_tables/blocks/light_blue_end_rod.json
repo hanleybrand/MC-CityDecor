@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+    {
+      "name": "light_blue_end_rod",
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "modernvanilla:light_blue_end_rod"
+        }
+      ],
+      "conditions": [ { "condition": "minecraft:survives_explosion" } ]
+    }
+  ]
+}

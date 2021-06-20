@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dyed_bricks",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "modernvanilla:worn_concrete"
+    },
+    "X": {
+      "tag": "forge:dyes/light_gray"
+    }
+  },
+  "result": {
+    "item": "modernvanilla:light_gray_worn_concrete",
+    "count": 8
+  }
+}

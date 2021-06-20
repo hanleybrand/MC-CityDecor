@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:gray_concrete"
+  },
+  "result": "modernvanilla:cracked_gray_concrete",
+  "cookingtime": 200
+}

@@ -15,7 +15,8 @@ public class MVItems {
     public static final Item STEEL_INGOT = new MVItemBase("steel_ingot");
     public static final Item STEEL_NUGGET = new MVItemBase("steel_nugget");
     public static final Item BARBED_WIRE = new MVItemBase("barbed_wire");
-    
+    public static final Item CARDBOARD = new MVItemBase("cardboard");
+
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> regItems) {
