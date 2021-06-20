@@ -34,7 +34,7 @@ public class MVBlocks {
 
     //TODO: pallets -- storage that looks like shipping pallets
     public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", MVBlockProperties.Cardboard(0.1F));
-    public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(2.5F));
+    public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(1.5F));
 
     // reinforced concrete
     public static final Block REINFORCED_CONCRETE = new MVBlock("reinforced_concrete", MVBlockProperties.StandardRock(2.0F, 9.0F));
