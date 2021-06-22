@@ -109,7 +109,7 @@ public class BoxTileEntity extends LockableLootTileEntity implements ISidedInven
     }
 
     public boolean canPlaceItemThroughFace(int p_180462_1_, ItemStack p_180462_2_, @Nullable Direction p_180462_3_) {
-        return !(Block.byItem(p_180462_2_.getItem()) instanceof ShulkerBoxBlock) |
+        return !(Block.byItem(p_180462_2_.getItem()) instanceof ShulkerBoxBlock) ||
                 !(Block.byItem(p_180462_2_.getItem()) instanceof CardboardBox);
     }
 
