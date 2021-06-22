@@ -33,8 +33,10 @@ public class MVBlocks {
 
 
     //TODO: pallets -- storage that looks like shipping pallets
-    public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", MVBlockProperties.Cardboard(0.1F));
-    public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(1.5F));
+    public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", MVBlockProperties.Cardboard(0.1F), false);
+    public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(1.5F), true);
+//    public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", MVBlockProperties.Cardboard(0.1F));
+//    public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(1.5F));
 
     // reinforced concrete
     public static final Block REINFORCED_CONCRETE = new MVBlock("reinforced_concrete", MVBlockProperties.StandardRock(2.0F, 9.0F));
@@ -547,6 +549,10 @@ public class MVBlocks {
                     regBlockItems.getRegistry().register(blockItem);
                 } else if (obj instanceof IronScaffolding) {
                     BlockItem blockItem = new IronScaffoldingItem((Block) obj, new Item.Properties().tab(ModernVanilla.TAB));
+                    blockItem.setRegistryName(((Block) obj).getRegistryName());
+                    regBlockItems.getRegistry().register(blockItem);
+                } else if (obj instanceof CardboardBox) {
+                    BlockItem blockItem = new IronScaffoldingItem((Block) obj, new Item.Properties().tab(ModernVanilla.TAB).stacksTo(1));
                     blockItem.setRegistryName(((Block) obj).getRegistryName());
                     regBlockItems.getRegistry().register(blockItem);
                 } else if (obj instanceof Block && !IGNORE_CLASS_LIST.contains(obj.getClass())) {

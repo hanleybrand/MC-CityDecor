@@ -7,9 +7,11 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import java.lang.reflect.Field;
 
+@Mod.EventBusSubscriber(modid = ModernVanilla.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MVTileEntityType {
     public static final TileEntityType<BoxTileEntity> BOX = register("box", TileEntityType.Builder.of(BoxTileEntity::new, MVBlocks.CARDBOARD_BOX, MVBlocks.SHIPPING_PALLET));
 

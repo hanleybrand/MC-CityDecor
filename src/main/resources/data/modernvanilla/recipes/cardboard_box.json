@@ -3,12 +3,15 @@
   "group": "dyed_bricks",
   "pattern": [
     "###",
-    "# #",
+    "#X#",
     "###"
   ],
   "key": {
     "#": {
       "item": "modernvanilla:cardboard"
+    },
+    "X": {
+      "item": "minecraft:shulker_shell"
     }
   },
   "result": {
