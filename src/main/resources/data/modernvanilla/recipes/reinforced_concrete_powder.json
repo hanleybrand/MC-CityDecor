@@ -3,7 +3,7 @@
   "group": "concrete_powder",
   "ingredients": [
     {
-      "item": "modernvanilla:steel_rod"
+      "tag": "forge:rods/steel"
     },
     {
       "item": "minecraft:sand"

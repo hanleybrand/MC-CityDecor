@@ -1,8 +1,17 @@
 {
   "replace": false,
   "values": [
+    "modernvanilla:muddy_sandstone_wall",
     "modernvanilla:polished_granite_wall",
     "modernvanilla:polished_andesite_wall",
-    "modernvanilla:polished_diorite_wall"
+    "modernvanilla:polished_diorite_wall",
+    "modernvanilla:oak_wood_wall",
+    "modernvanilla:spruce_wood_wall",
+    "modernvanilla:birch_wood_wall",
+    "modernvanilla:dark_oak_wood_wall",
+    "modernvanilla:acacia_wood_wall",
+    "modernvanilla:jungle_wood_wall",
+    "modernvanilla:warped_hyphae_wall",
+    "modernvanilla:crimson_hyphae_wall"
   ]
 }

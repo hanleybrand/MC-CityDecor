@@ -4,7 +4,6 @@ import com.tzaranthony.modernvanilla.block.CardboardBox;
 import com.tzaranthony.modernvanilla.util.MVTileEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -109,8 +108,7 @@ public class BoxTileEntity extends LockableLootTileEntity implements ISidedInven
     }
 
     public boolean canPlaceItemThroughFace(int p_180462_1_, ItemStack p_180462_2_, @Nullable Direction p_180462_3_) {
-        return !(Block.byItem(p_180462_2_.getItem()) instanceof ShulkerBoxBlock) ||
-                !(Block.byItem(p_180462_2_.getItem()) instanceof CardboardBox);
+        return !(Block.byItem(p_180462_2_.getItem()) instanceof CardboardBox);
     }
 
     public boolean canTakeItemThroughFace(int p_180461_1_, ItemStack p_180461_2_, Direction p_180461_3_) {

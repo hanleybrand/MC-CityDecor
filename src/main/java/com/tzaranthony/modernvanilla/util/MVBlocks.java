@@ -32,11 +32,9 @@ public class MVBlocks {
     //TODO: Cushion -- like a half slab of wool, but sittable, make it have a better texture please. Maybe a chair???
 
 
-    //TODO: pallets -- storage that looks like shipping pallets
+    // shipping
     public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", MVBlockProperties.Cardboard(0.1F), false);
     public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(1.5F), true);
-//    public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", MVBlockProperties.Cardboard(0.1F));
-//    public static final Block SHIPPING_PALLET = new CardboardBox("shipping_pallet", MVBlockProperties.Cardboard(1.5F));
 
     // reinforced concrete
     public static final Block REINFORCED_CONCRETE = new MVBlock("reinforced_concrete", MVBlockProperties.StandardRock(2.0F, 9.0F));
@@ -398,6 +396,14 @@ public class MVBlocks {
     public static final Block POLISHED_DIORITE_WALL = new MVWall("polished_diorite_wall", Blocks.POLISHED_DIORITE);
     public static final Block POLISHED_ANDESITE_WALL = new MVWall("polished_andesite_wall", Blocks.POLISHED_ANDESITE);
     public static final Block POLISHED_GRANITE_WALL = new MVWall("polished_granite_wall", Blocks.POLISHED_GRANITE);
+    public static final Block OAK_WOOD_WALL = new MVWall("oak_wood_wall", Blocks.OAK_WOOD);
+    public static final Block SPRUCE_WOOD_WALL = new MVWall("spruce_wood_wall", Blocks.SPRUCE_WOOD);
+    public static final Block BIRCH_WOOD_WALL = new MVWall("birch_wood_wall", Blocks.BIRCH_WOOD);
+    public static final Block DARK_OAK_WOOD_WALL = new MVWall("dark_oak_wood_wall", Blocks.DARK_OAK_WOOD);
+    public static final Block ACACIA_WOOD_WALL = new MVWall("acacia_wood_wall", Blocks.ACACIA_WOOD);
+    public static final Block JUNGLE_WOOD_WALL = new MVWall("jungle_wood_wall", Blocks.JUNGLE_WOOD);
+    public static final Block WARPED_HYPHAE_WALL = new MVWall("warped_hyphae_wall", Blocks.WARPED_HYPHAE);
+    public static final Block CRIMSON_HYPHAE_WALL = new MVWall("crimson_hyphae_wall", Blocks.CRIMSON_HYPHAE);
 
     // terracotta
     // stairs

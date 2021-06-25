@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "modernvanilla:oak_wood_wall",
+    "modernvanilla:spruce_wood_wall",
+    "modernvanilla:birch_wood_wall",
+    "modernvanilla:dark_oak_wood_wall",
+    "modernvanilla:acacia_wood_wall",
+    "modernvanilla:jungle_wood_wall"
+  ]
+}

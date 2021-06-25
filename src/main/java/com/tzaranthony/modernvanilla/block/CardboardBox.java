@@ -89,7 +89,6 @@ public class CardboardBox extends ContainerBlock {
         if (tileentity instanceof BoxTileEntity) {
             BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
             if (!p_176208_1_.isClientSide && p_176208_4_.isCreative() && !boxtileentity.isEmpty()) {
-//            if (!p_176208_1_.isClientSide && !boxtileentity.isEmpty()) {
                 ItemStack itemstack = new ItemStack(getType());
                 CompoundNBT compoundnbt = boxtileentity.saveToTag(new CompoundNBT());
                 if (!compoundnbt.isEmpty()) {
