@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "modernvanilla:orange_concrete_slab"
+    },
+    {
+      "item": "modernvanilla:orange_concrete_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:orange_concrete",
+    "count": 1
+  }
+}

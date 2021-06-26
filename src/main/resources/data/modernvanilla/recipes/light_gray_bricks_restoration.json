@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "modernvanilla:light_gray_bricks_slab"
+    },
+    {
+      "item": "modernvanilla:light_gray_bricks_slab"
+    }
+  ],
+  "result": {
+    "item": "modernvanilla:light_gray_bricks",
+    "count": 1
+  }
+}

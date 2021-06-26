@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "modernvanilla:blue_terracotta_slab"
+    },
+    {
+      "item": "modernvanilla:blue_terracotta_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_terracotta",
+    "count": 1
+  }
+}
