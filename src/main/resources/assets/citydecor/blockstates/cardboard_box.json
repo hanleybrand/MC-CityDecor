@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "citydecor:block/cardboard_box",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "citydecor:block/cardboard_box"
+    },
+    "facing=south": {
+      "model": "citydecor:block/cardboard_box",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "citydecor:block/cardboard_box",
+      "y": 270
+    }
+  }
+}

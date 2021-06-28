@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "modernvanilla:block/cracked_reinforced_concrete",
-    "top": "modernvanilla:block/cracked_reinforced_concrete",
-    "side": "modernvanilla:block/cracked_reinforced_concrete"
-  }
-}

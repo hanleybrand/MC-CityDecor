@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "citydecor:block/white_iron_siding"
+  }
+}

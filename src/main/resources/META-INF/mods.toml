@@ -30,7 +30,7 @@ issueTrackerURL="http://my.issue.tracker/" #optional
 
 
 # The modid of the mod
-modId="modernvanilla" #mandatory
+modId="citydecor" #mandatory
 
 
 
@@ -40,7 +40,7 @@ version="1.16.4-0.0.0" #mandatory
 
 
 # A display name for the mod
-displayName="Modern Vanilla" #mandatory
+displayName="City Decor" #mandatory
 
 
 
@@ -65,7 +65,7 @@ credits="Thanks for this example mod goes to Java" #optional
 
 
 # A text field displayed in the mod UI
-authors="TzarAnthonyMCXI" #optional
+authors="TzarAnthony" #optional
 
 
 

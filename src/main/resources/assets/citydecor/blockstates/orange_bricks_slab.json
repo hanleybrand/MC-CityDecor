@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "citydecor:block/orange_bricks_slab"
+    },
+    "type=double": {
+      "model": "citydecor:block/orange_bricks"
+    },
+    "type=top": {
+      "model": "citydecor:block/orange_bricks_slab_top"
+    }
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "bottom": "modernvanilla:block/cracked_cyan_concrete",
-    "top": "modernvanilla:block/cracked_cyan_concrete",
-    "side": "modernvanilla:block/cracked_cyan_concrete"
-  }
-}

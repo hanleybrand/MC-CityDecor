@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "citydecor:block/ceiling_light",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "citydecor:block/ceiling_light"
+    },
+    "axis=z": {
+      "model": "citydecor:block/ceiling_light",
+      "x": 90
+    }
+  }
+}

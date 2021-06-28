@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "modernvanilla:iron_scaffolding",
-    "modernvanilla:steel_scaffolding",
-    "modernvanilla:chain_link_fence",
-    "modernvanilla:barbed_wire_roll",
-    "modernvanilla:barbed_wire_edging"
+    "citydecor:iron_scaffolding",
+    "citydecor:steel_scaffolding",
+    "citydecor:chain_link_fence",
+    "citydecor:barbed_wire_roll",
+    "citydecor:barbed_wire_edging"
   ]
 }

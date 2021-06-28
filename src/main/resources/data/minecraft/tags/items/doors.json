@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#modernvanilla:glass_door",
-    "modernvanilla:steel_door"
+    "#citydecor:glass_door",
+    "citydecor:steel_door"
   ]
 }

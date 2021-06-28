@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "citydecor:block/magenta_bricks",
+    "top": "citydecor:block/magenta_bricks",
+    "side": "citydecor:block/magenta_bricks"
+  }
+}

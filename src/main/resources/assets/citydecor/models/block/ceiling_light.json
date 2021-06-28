@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "citydecor:block/ceiling_light_side",
+    "side": "citydecor:block/ceiling_light"
+  }
+}

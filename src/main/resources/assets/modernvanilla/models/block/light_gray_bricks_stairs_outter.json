@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "modernvanilla:block/light_gray_bricks",
-    "top": "modernvanilla:block/light_gray_bricks",
-    "side": "modernvanilla:block/light_gray_bricks"
-  }
-}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:pink_terracotta_bricks"
+  },
+  "result": "citydecor:pink_terracotta_bricks_slab",
+  "count": 2
+}

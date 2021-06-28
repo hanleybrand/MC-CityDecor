@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "bottom": "modernvanilla:block/cracked_red_concrete",
-    "top": "modernvanilla:block/cracked_red_concrete",
-    "side": "modernvanilla:block/cracked_red_concrete"
-  }
-}

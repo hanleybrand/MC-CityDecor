@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "citydecor:cracked_reinforced_concrete"
+    }
+  },
+  "result": {
+    "item": "citydecor:cracked_reinforced_concrete_stairs",
+    "count": 4
+}
+}

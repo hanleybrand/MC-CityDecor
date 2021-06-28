@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:cyan_concrete"
+  },
+  "result": "citydecor:cracked_cyan_concrete",
+  "cookingtime": 200
+}

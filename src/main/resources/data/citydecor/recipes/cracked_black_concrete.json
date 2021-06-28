@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:black_concrete"
+  },
+  "result": "citydecor:cracked_black_concrete",
+  "cookingtime": 200
+}

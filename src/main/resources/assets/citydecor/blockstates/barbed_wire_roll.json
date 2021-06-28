@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "citydecor:block/barbed_wire_roll",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "citydecor:block/barbed_wire_roll"
+    },
+    "axis=z": {
+      "model": "citydecor:block/barbed_wire_roll",
+      "x": 90
+    }
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:magenta_concrete"
-  },
-  "result": "modernvanilla:cracked_magenta_concrete",
-  "cookingtime": 200
-}

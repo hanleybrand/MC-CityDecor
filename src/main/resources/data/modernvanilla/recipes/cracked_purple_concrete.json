@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:purple_concrete"
-  },
-  "result": "modernvanilla:cracked_purple_concrete",
-  "cookingtime": 200
-}

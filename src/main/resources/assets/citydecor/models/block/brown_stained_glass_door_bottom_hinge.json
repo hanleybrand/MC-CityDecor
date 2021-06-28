@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "citydecor:block/brown_stained_glass_door_top",
+    "bottom": "citydecor:block/brown_stained_glass_door_bottom"
+  }
+}

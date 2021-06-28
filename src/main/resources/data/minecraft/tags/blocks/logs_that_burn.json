@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "modernvanilla:oak_wood_wall",
-    "modernvanilla:spruce_wood_wall",
-    "modernvanilla:birch_wood_wall",
-    "modernvanilla:dark_oak_wood_wall",
-    "modernvanilla:acacia_wood_wall",
-    "modernvanilla:jungle_wood_wall"
+    "citydecor:oak_wood_wall",
+    "citydecor:spruce_wood_wall",
+    "citydecor:birch_wood_wall",
+    "citydecor:dark_oak_wood_wall",
+    "citydecor:acacia_wood_wall",
+    "citydecor:jungle_wood_wall"
   ]
 }

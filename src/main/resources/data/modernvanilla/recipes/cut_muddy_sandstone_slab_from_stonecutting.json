@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "modernvanilla:cut_muddy_sandstone"
-  },
-  "result": "modernvanilla:cut_muddy_sandstone_slab",
-  "count": 2
-}

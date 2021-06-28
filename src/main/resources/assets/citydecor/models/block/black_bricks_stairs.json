@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "citydecor:block/black_bricks",
+    "top": "citydecor:block/black_bricks",
+    "side": "citydecor:block/black_bricks"
+  }
+}

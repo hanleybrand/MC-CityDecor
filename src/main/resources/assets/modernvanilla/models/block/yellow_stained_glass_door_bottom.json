@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom",
-  "textures": {
-    "top": "modernvanilla:block/yellow_stained_glass_door_top",
-    "bottom": "modernvanilla:block/yellow_stained_glass_door_bottom"
-  }
-}

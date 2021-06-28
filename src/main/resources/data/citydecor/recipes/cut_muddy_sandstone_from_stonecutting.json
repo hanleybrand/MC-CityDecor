@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:muddy_sandstone"
+  },
+  "result": "citydecor:cut_muddy_sandstone",
+  "count": 1
+}

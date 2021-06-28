@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "citydecor:reinforced_concrete"
+  },
+  "result": "citydecor:cracked_reinforced_concrete",
+  "cookingtime": 200
+}

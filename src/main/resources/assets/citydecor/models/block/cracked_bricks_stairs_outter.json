@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "citydecor:block/cracked_bricks",
+    "top": "citydecor:block/cracked_bricks",
+    "side": "citydecor:block/cracked_bricks"
+  }
+}

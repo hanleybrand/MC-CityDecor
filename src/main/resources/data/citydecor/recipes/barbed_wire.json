@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "concrete_powder",
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/steel"
+    },
+    {
+      "tag": "forge:nuggets/steel"
+    },
+    {
+      "tag": "forge:nuggets/steel"
+    }
+  ],
+  "result": {
+    "item": "citydecor:barbed_wire",
+    "count": 2
+  }
+}

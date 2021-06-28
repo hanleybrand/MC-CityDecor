@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "citydecor:yellow_bricks"
+    }
+  },
+  "result": {
+    "item": "citydecor:yellow_bricks_stairs",
+    "count": 4
+}
+}

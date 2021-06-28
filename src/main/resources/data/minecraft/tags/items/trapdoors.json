@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#modernvanilla:glass_trapdoor",
-    "modernvanilla:steel_trapdoor"
+    "#citydecor:glass_trapdoor",
+    "citydecor:steel_trapdoor"
   ]
 }

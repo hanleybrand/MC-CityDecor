@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "modernvanilla:block/muddy_sandstone_top",
-    "top": "modernvanilla:block/muddy_sandstone_top",
-    "side": "modernvanilla:block/cut_muddy_sandstone"
-  }
-}

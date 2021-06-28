@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "citydecor:block/worn_red_concrete",
+    "top": "citydecor:block/worn_red_concrete",
+    "side": "citydecor:block/worn_red_concrete"
+  }
+}

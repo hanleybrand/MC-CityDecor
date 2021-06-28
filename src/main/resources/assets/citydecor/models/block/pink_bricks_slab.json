@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "citydecor:block/pink_bricks",
+    "top": "citydecor:block/pink_bricks",
+    "side": "citydecor:block/pink_bricks"
+  }
+}

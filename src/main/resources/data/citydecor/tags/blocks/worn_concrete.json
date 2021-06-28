@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "citydecor:worn_white_concrete",
+    "citydecor:worn_orange_concrete",
+    "citydecor:worn_magenta_concrete",
+    "citydecor:worn_light_blue_concrete",
+    "citydecor:worn_yellow_concrete",
+    "citydecor:worn_lime_concrete",
+    "citydecor:worn_pink_concrete",
+    "citydecor:worn_gray_concrete",
+    "citydecor:worn_light_gray_concrete",
+    "citydecor:worn_cyan_concrete",
+    "citydecor:worn_purple_concrete",
+    "citydecor:worn_blue_concrete",
+    "citydecor:worn_brown_concrete",
+    "citydecor:worn_green_concrete",
+    "citydecor:worn_red_concrete",
+    "citydecor:worn_black_concrete"
+  ]
+}

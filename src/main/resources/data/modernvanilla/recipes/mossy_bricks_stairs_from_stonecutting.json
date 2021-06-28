@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "modernvanilla:mossy_bricks"
-  },
-  "result": "modernvanilla:mossy_bricks_stairs",
-  "count": 1
-}

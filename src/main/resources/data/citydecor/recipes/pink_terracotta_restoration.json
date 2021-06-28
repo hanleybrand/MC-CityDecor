@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "citydecor:pink_terracotta_slab"
+    },
+    {
+      "item": "citydecor:pink_terracotta_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:pink_terracotta",
+    "count": 1
+  }
+}

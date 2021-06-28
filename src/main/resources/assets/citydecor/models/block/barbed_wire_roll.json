@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "citydecor:block/barbed_wire_post",
+    "side": "citydecor:block/barbed_wire_side"
+  }
+}

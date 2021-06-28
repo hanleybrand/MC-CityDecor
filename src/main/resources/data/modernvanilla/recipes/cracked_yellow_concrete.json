@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:yellow_concrete"
-  },
-  "result": "modernvanilla:cracked_yellow_concrete",
-  "cookingtime": 200
-}

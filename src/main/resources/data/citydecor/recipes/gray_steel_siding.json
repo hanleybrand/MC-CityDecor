@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dyed_bricks",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "citydecor:steel_siding"
+    },
+    "X": {
+      "tag": "forge:dyes/gray"
+    }
+  },
+  "result": {
+    "item": "citydecor:gray_steel_siding",
+    "count": 8
+  }
+}

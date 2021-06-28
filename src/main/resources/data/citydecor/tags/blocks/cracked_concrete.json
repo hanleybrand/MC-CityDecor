@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "citydecor:cracked_white_concrete",
+    "citydecor:cracked_orange_concrete",
+    "citydecor:cracked_magenta_concrete",
+    "citydecor:cracked_light_blue_concrete",
+    "citydecor:cracked_yellow_concrete",
+    "citydecor:cracked_lime_concrete",
+    "citydecor:cracked_pink_concrete",
+    "citydecor:cracked_gray_concrete",
+    "citydecor:cracked_light_gray_concrete",
+    "citydecor:cracked_cyan_concrete",
+    "citydecor:cracked_purple_concrete",
+    "citydecor:cracked_blue_concrete",
+    "citydecor:cracked_brown_concrete",
+    "citydecor:cracked_green_concrete",
+    "citydecor:cracked_red_concrete",
+    "citydecor:cracked_black_concrete"
+  ]
+}

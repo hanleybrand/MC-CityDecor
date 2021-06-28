@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NIN",
+    "III",
+    "NIN"
+  ],
+  "key": {
+    "I": {
+      "item": "citydecor:steel_nugget"
+    },
+    "N": {
+      "item": "citydecor:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "citydecor:steel_frame"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x#",
+    "#x"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:sand"
+    },
+    "x": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "citydecor:muddy_sandstone"
+  }
+}

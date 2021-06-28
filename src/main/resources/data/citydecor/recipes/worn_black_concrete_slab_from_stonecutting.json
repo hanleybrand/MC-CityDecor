@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:worn_black_concrete"
+  },
+  "result": "citydecor:worn_black_concrete_slab",
+  "count": 2
+}

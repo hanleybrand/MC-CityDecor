@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:bricks",
+    "citydecor:white_bricks",
+    "citydecor:orange_bricks",
+    "citydecor:magenta_bricks",
+    "citydecor:light_blue_bricks",
+    "citydecor:yellow_bricks",
+    "citydecor:lime_bricks",
+    "citydecor:pink_bricks",
+    "citydecor:gray_bricks",
+    "citydecor:light_gray_bricks",
+    "citydecor:cyan_bricks",
+    "citydecor:purple_bricks",
+    "citydecor:blue_bricks",
+    "citydecor:brown_bricks",
+    "citydecor:green_bricks",
+    "citydecor:red_bricks",
+    "citydecor:black_bricks"
+  ]
+}

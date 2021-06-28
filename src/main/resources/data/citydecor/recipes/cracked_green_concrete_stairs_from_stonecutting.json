@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:cracked_green_concrete"
+  },
+  "result": "citydecor:cracked_green_concrete_stairs",
+  "count": 1
+}

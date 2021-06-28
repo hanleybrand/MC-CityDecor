@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:end_rod",
+    "citydecor:white_end_rod",
+    "citydecor:orange_end_rod",
+    "citydecor:magenta_end_rod",
+    "citydecor:light_blue_end_rod",
+    "citydecor:yellow_end_rod",
+    "citydecor:lime_end_rod",
+    "citydecor:pink_end_rod",
+    "citydecor:gray_end_rod",
+    "citydecor:light_gray_end_rod",
+    "citydecor:cyan_end_rod",
+    "citydecor:purple_end_rod",
+    "citydecor:blue_end_rod",
+    "citydecor:brown_end_rod",
+    "citydecor:green_end_rod",
+    "citydecor:red_end_rod",
+    "citydecor:black_end_rod"
+  ]
+}

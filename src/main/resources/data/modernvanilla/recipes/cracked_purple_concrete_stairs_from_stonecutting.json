@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "modernvanilla:cracked_purple_concrete"
-  },
-  "result": "modernvanilla:cracked_purple_concrete_stairs",
-  "count": 1
-}

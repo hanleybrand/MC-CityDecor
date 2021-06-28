@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "modernvanilla:block/white_steel_siding"
-  }
-}

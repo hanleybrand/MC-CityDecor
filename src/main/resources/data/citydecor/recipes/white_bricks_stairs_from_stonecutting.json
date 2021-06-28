@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:white_bricks"
+  },
+  "result": "citydecor:white_bricks_stairs",
+  "count": 1
+}

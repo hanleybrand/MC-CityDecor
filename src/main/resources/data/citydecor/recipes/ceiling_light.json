@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "ceiling_light",
+  "pattern": [
+    "XYX",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:glass_panes"
+    },
+    "Y": {
+      "item": "minecraft:glowstone"
+    },
+    "X": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "result": {
+    "item": "citydecor:ceiling_light",
+    "count": 4
+  }
+}

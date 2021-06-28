@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "citydecor:block/purple_terracotta_bricks"
+  }
+}

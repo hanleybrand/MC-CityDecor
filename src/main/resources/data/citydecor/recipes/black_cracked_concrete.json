@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dyed_bricks",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "citydecor:cracked_concrete"
+    },
+    "X": {
+      "tag": "forge:dyes/black"
+    }
+  },
+  "result": {
+    "item": "citydecor:black_cracked_concrete",
+    "count": 8
+  }
+}

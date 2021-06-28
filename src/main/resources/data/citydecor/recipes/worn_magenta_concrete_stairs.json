@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "citydecor:worn_magenta_concrete"
+    }
+  },
+  "result": {
+    "item": "citydecor:worn_magenta_concrete_stairs",
+    "count": 4
+}
+}

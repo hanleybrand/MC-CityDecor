@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "modernvanilla:iron_siding"
-  },
-  "result": "liberexponentia:iron_siding_slab",
-  "count": 2
-}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "citydecor:block/cracked_white_concrete_slab"
+    },
+    "type=double": {
+      "model": "citydecor:block/cracked_white_concrete"
+    },
+    "type=top": {
+      "model": "citydecor:block/cracked_white_concrete_slab_top"
+    }
+  }
+}

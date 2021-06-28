@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:orange_bricks"
+  },
+  "result": "citydecor:orange_bricks_slab",
+  "count": 2
+}

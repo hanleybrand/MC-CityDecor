@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:mossy_bricks"
+  },
+  "result": "citydecor:mossy_bricks_slab",
+  "count": 2
+}

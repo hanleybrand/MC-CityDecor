@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "citydecor:block/black_light",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "citydecor:block/black_light",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "citydecor:block/black_light",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "citydecor:block/black_light",
+      "x": 90,
+      "y": 270
+    },
+    "facing=up": {
+      "model": "citydecor:block/black_light",
+      "x": 90
+    },
+    "facing=down": {
+      "model": "citydecor:block/black_light",
+      "x": 90
+    }
+  }
+}

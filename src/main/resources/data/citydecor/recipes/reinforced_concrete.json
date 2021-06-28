@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "citydecor:reinforced_concrete_slab"
+    },
+    {
+      "item": "citydecor:reinforced_concrete_slab"
+    }
+  ],
+  "result": {
+    "item": "citydecor:reinforced_concrete",
+    "count": 1
+  }
+}

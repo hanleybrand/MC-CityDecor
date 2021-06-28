@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "modernvanilla:cracked_cyan_concrete"
-  },
-  "result": "modernvanilla:cracked_cyan_concrete_slab",
-  "count": 2
-}

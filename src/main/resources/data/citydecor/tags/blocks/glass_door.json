@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "citydecor:glass_door",
+    "citydecor:white_stained_glass_door",
+    "citydecor:orange_stained_glass_door",
+    "citydecor:magenta_stained_glass_door",
+    "citydecor:light_blue_stained_glass_door",
+    "citydecor:yellow_stained_glass_door",
+    "citydecor:lime_stained_glass_door",
+    "citydecor:pink_stained_glass_door",
+    "citydecor:gray_stained_glass_door",
+    "citydecor:light_gray_stained_glass_door",
+    "citydecor:cyan_stained_glass_door",
+    "citydecor:purple_stained_glass_door",
+    "citydecor:blue_stained_glass_door",
+    "citydecor:brown_stained_glass_door",
+    "citydecor:green_stained_glass_door",
+    "citydecor:red_stained_glass_door",
+    "citydecor:black_stained_glass_door"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "citydecor:magenta_concrete_slab"
+    },
+    {
+      "item": "citydecor:magenta_concrete_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:magenta_concrete",
+    "count": 1
+  }
+}

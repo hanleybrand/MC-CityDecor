@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "citydecor:block/muddy_sandstone_slab"
+    },
+    "type=double": {
+      "model": "citydecor:block/muddy_sandstone"
+    },
+    "type=top": {
+      "model": "citydecor:block/muddy_sandstone_slab_top"
+    }
+  }
+}

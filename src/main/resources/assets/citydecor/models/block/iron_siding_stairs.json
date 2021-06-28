@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "citydecor:block/iron_siding",
+    "top": "citydecor:block/iron_siding",
+    "side": "citydecor:block/iron_siding"
+  }
+}

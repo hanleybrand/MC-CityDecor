@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "citydecor:block/worn_light_gray_concrete",
+    "top": "citydecor:block/worn_light_gray_concrete",
+    "side": "citydecor:block/worn_light_gray_concrete"
+  }
+}

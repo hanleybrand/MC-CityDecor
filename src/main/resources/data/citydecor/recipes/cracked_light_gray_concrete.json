@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:light_gray_concrete"
+  },
+  "result": "citydecor:cracked_light_gray_concrete",
+  "cookingtime": 200
+}

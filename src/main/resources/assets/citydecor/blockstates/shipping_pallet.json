@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "citydecor:block/shipping_pallet",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "citydecor:block/shipping_pallet"
+    },
+    "facing=south": {
+      "model": "citydecor:block/shipping_pallet",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "citydecor:block/shipping_pallet",
+      "y": 270
+    }
+  }
+}

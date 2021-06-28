@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "bottom": "modernvanilla:block/barbed_wire_roll",
-    "top": "modernvanilla:block/barbed_wire_roll",
-    "side": "modernvanilla:block/barbed_wire_roll"
-  }
-}

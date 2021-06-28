@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:light_blue_concrete"
-  },
-  "result": "modernvanilla:worn_light_blue_concrete",
-  "count": 1
-}

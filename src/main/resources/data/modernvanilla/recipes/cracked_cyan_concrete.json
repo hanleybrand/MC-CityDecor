@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:cyan_concrete"
-  },
-  "result": "modernvanilla:cracked_cyan_concrete",
-  "cookingtime": 200
-}

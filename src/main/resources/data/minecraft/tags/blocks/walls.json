@@ -1,17 +1,17 @@
 {
   "replace": false,
   "values": [
-    "modernvanilla:muddy_sandstone_wall",
-    "modernvanilla:polished_granite_wall",
-    "modernvanilla:polished_andesite_wall",
-    "modernvanilla:polished_diorite_wall",
-    "modernvanilla:oak_wood_wall",
-    "modernvanilla:spruce_wood_wall",
-    "modernvanilla:birch_wood_wall",
-    "modernvanilla:dark_oak_wood_wall",
-    "modernvanilla:acacia_wood_wall",
-    "modernvanilla:jungle_wood_wall",
-    "modernvanilla:warped_hyphae_wall",
-    "modernvanilla:crimson_hyphae_wall"
+    "citydecor:muddy_sandstone_wall",
+    "citydecor:polished_granite_wall",
+    "citydecor:polished_andesite_wall",
+    "citydecor:polished_diorite_wall",
+    "citydecor:oak_wood_wall",
+    "citydecor:spruce_wood_wall",
+    "citydecor:birch_wood_wall",
+    "citydecor:dark_oak_wood_wall",
+    "citydecor:acacia_wood_wall",
+    "citydecor:jungle_wood_wall",
+    "citydecor:warped_hyphae_wall",
+    "citydecor:crimson_hyphae_wall"
   ]
 }

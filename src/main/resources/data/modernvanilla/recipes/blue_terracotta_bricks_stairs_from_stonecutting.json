@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "modernvanilla:blue_terracotta_bricks"
-  },
-  "result": "modernvanilla:blue_terracotta_bricks_stairs",
-  "count": 1
-}

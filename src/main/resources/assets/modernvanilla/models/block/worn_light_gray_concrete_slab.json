@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "modernvanilla:block/worn_light_gray_concrete",
-    "top": "modernvanilla:block/worn_light_gray_concrete",
-    "side": "modernvanilla:block/worn_light_gray_concrete"
-  }
-}

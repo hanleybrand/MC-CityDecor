@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "INI",
+    "NIN",
+    "INI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:chain"
+    },
+    "N": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "result": {
+    "item": "citydecor:chain_link_fence",
+    "count": 16
+  }
+}

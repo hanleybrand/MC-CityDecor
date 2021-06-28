@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "citydecor:block/muddy_sandstone_top",
+    "top": "citydecor:block/muddy_sandstone_top",
+    "side": "citydecor:block/muddy_sandstone_top"
+  }
+}

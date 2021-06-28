@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "INI",
+    "NNN"
+  ],
+  "key": {
+    "I": {
+      "item": "citydecor:steel_rod"
+    },
+    "N": {
+      "item": "citydecor:barbed_wire"
+    }
+  },
+  "result": {
+    "item": "citydecor:barbed_wire_roll"
+  }
+}

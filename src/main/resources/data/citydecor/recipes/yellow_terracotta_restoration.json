@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "block",
+  "ingredients": [
+    {
+      "item": "citydecor:yellow_terracotta_slab"
+    },
+    {
+      "item": "citydecor:yellow_terracotta_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_terracotta",
+    "count": 1
+  }
+}

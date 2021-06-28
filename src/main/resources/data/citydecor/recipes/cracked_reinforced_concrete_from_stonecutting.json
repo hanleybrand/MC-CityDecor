@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:reinforced_concrete"
+  },
+  "result": "citydecor:cracked_reinforced_concrete",
+  "count": 1
+}

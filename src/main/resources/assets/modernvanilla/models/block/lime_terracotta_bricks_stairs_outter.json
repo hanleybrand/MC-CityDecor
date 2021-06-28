@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "modernvanilla:block/lime_terracotta_bricks",
-    "top": "modernvanilla:block/lime_terracotta_bricks",
-    "side": "modernvanilla:block/lime_terracotta_bricks"
-  }
-}

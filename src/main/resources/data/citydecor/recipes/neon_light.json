@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x#x"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "x": {
+      "tag": "forge:glass_panes"
+    }
+  },
+  "result": {
+    "item": "citydecor:neon_light",
+    "count": 1
+  }
+}

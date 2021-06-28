@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "citydecor:cut_muddy_sandstone"
+    }
+  },
+  "result": {
+    "item": "citydecor:cut_muddy_sandstone_slab",
+    "count": 6
+}
+}

@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "citydecor:iron_siding",
+    "citydecor:white_iron_siding",
+    "citydecor:orange_iron_siding",
+    "citydecor:magenta_iron_siding",
+    "citydecor:light_blue_iron_siding",
+    "citydecor:yellow_iron_siding",
+    "citydecor:lime_iron_siding",
+    "citydecor:pink_iron_siding",
+    "citydecor:gray_iron_siding",
+    "citydecor:light_gray_iron_siding",
+    "citydecor:cyan_iron_siding",
+    "citydecor:purple_iron_siding",
+    "citydecor:blue_iron_siding",
+    "citydecor:brown_iron_siding",
+    "citydecor:green_iron_siding",
+    "citydecor:red_iron_siding",
+    "citydecor:black_iron_siding"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dyed_bricks",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "citydecor:terracotta_bricks"
+    },
+    "X": {
+      "tag": "forge:dyes/blue"
+    }
+  },
+  "result": {
+    "item": "citydecor:blue_terracotta_bricks",
+    "count": 8
+  }
+}

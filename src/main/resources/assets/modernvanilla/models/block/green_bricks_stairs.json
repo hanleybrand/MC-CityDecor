@@ -1,8 +1,0 @@
-{
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "modernvanilla:block/green_bricks",
-    "top": "modernvanilla:block/green_bricks",
-    "side": "modernvanilla:block/green_bricks"
-  }
-}

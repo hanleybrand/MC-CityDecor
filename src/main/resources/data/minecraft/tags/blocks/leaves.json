@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "modernvanilla:barbed_wire_roll",
-    "modernvanilla:barbed_wire_edging"
+    "citydecor:barbed_wire_roll",
+    "citydecor:barbed_wire_edging"
   ]
 }

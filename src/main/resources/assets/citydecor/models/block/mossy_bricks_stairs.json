@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "citydecor:block/mossy_bricks",
+    "top": "citydecor:block/mossy_bricks",
+    "side": "citydecor:block/mossy_bricks"
+  }
+}

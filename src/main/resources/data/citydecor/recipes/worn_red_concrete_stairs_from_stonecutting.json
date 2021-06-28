@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "citydecor:worn_red_concrete"
+  },
+  "result": "citydecor:worn_red_concrete_stairs",
+  "count": 1
+}

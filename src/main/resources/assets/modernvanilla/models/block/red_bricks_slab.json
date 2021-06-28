@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "modernvanilla:block/red_bricks",
-    "top": "modernvanilla:block/red_bricks",
-    "side": "modernvanilla:block/red_bricks"
-  }
-}
