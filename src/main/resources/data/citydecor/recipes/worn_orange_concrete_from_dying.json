@@ -8,14 +8,14 @@
   ],
   "key": {
     "#": {
-      "tag": "city_decor:worn_concrete"
+      "tag": "citydecor:worn_concrete"
     },
     "X": {
       "tag": "forge:dyes/orange"
     }
   },
   "result": {
-    "item": "city_decor:worn_orange_concrete",
+    "item": "citydecor:worn_orange_concrete",
     "count": 8
   }
 }
