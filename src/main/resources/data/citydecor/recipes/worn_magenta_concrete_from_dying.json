@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "block",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "city_decor:worn_concrete"
+    },
+    "X": {
+      "tag": "forge:dyes/magenta"
+    }
+  },
+  "result": {
+    "item": "city_decor:worn_magenta_concrete",
+    "count": 8
+  }
+}
