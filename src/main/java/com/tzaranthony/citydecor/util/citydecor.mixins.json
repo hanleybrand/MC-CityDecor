@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.tzaranthony.citydecor.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "liberexponentia.refmap.json",
+  "mixins": [
+    "MixinShulkerInventory"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

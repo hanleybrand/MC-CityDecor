@@ -119,6 +119,12 @@ public class CDBlocks {
     public static final Block RED_END_ROD = new Rod("red_end_rod", CDBlockProperties.EndRod());
     public static final Block BLACK_END_ROD = new Rod("black_end_rod", CDBlockProperties.EndRod());
 
+    //TODO: glass light blocks
+
+    //TODO: pastel blocks
+
+    //TODO: muted pastel blocks
+
     // metal plating
     public static final Block IRON_SIDING = new CDBlock("iron_siding", CDBlockProperties.StandardNetheriteSoundMetal());
     public static final Block STEEL_SIDING = new CDBlock("steel_siding", CDBlockProperties.StandardNetheriteSoundMetal());
