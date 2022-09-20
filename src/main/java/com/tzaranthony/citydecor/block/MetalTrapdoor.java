@@ -1,6 +1,6 @@
 package com.tzaranthony.citydecor.block;
 
-import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 
 public class MetalTrapdoor extends TrapDoorBlock {
     public MetalTrapdoor(String name) {

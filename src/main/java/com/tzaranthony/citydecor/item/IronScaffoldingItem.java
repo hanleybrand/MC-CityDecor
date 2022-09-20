@@ -1,20 +1,19 @@
 package com.tzaranthony.citydecor.item;
 
 import com.tzaranthony.citydecor.block.IronScaffolding;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.network.play.server.SChatPacket;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.ChatType;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
@@ -24,9 +23,9 @@ public class IronScaffoldingItem extends BlockItem {
     }
 
     @Nullable
-    public BlockItemUseContext updatePlacementContext(BlockItemUseContext context) {
+    public BlockPlaceContext updatePlacementContext(BlockPlaceContext context) {
         BlockPos blockpos = context.getClickedPos();
-        World world = context.getLevel();
+        Level world = context.getLevel();
         BlockState blockstate = world.getBlockState(blockpos);
         Block block = this.getBlock();
         if (!blockstate.is(block)) {
@@ -40,16 +39,15 @@ public class IronScaffoldingItem extends BlockItem {
             }
 
             int i = 0;
-            BlockPos.Mutable blockpos$mutable = blockpos.mutable().move(direction);
+            BlockPos.MutableBlockPos blockpos$mutable = blockpos.mutable().move(direction);
 
             while (i < 15) {
-                if (!world.isClientSide && !World.isInWorldBounds(blockpos$mutable)) {
-                    PlayerEntity playerentity = context.getPlayer();
+                if (!world.isClientSide && !Level.isInSpawnableBounds(blockpos$mutable)) {
+                    Player playerentity = context.getPlayer();
                     int j = world.getHeight();
-                    if (playerentity instanceof ServerPlayerEntity && blockpos$mutable.getY() >= j) {
-                        SChatPacket schatpacket = new SChatPacket((new TranslationTextComponent("build.tooHigh", j))
-                                .withStyle(TextFormatting.RED), ChatType.GAME_INFO, Util.NIL_UUID);
-                        ((ServerPlayerEntity) playerentity).connection.send(schatpacket);
+                    if (playerentity instanceof ServerPlayer && blockpos$mutable.getY() >= j) {
+                        ((ServerPlayer)playerentity).sendMessage((new TranslatableComponent("build.tooHigh", j - 1))
+                                .withStyle(ChatFormatting.RED), ChatType.GAME_INFO, Util.NIL_UUID);
                     }
                     break;
                 }
@@ -57,7 +55,7 @@ public class IronScaffoldingItem extends BlockItem {
                 blockstate = world.getBlockState(blockpos$mutable);
                 if (!blockstate.is(this.getBlock())) {
                     if (blockstate.canBeReplaced(context)) {
-                        return BlockItemUseContext.at(context, blockpos$mutable, direction);
+                        return BlockPlaceContext.at(context, blockpos$mutable, direction);
                     }
                     break;
                 }

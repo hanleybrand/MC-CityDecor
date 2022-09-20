@@ -2,38 +2,48 @@ package com.tzaranthony.citydecor.block;
 
 import com.tzaranthony.citydecor.tileentity.BoxTileEntity;
 import com.tzaranthony.citydecor.util.CDBlocks;
-import net.minecraft.block.*;
-import net.minecraft.block.material.PushReaction;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.monster.piglin.PiglinTasks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.LootParameters;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.*;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import com.tzaranthony.citydecor.util.CDTileEntityType;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class CardboardBox extends ContainerBlock {
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+public class CardboardBox extends BaseEntityBlock {
+    public static final DirectionProperty FACING = DirectionalBlock.FACING;
     public static final ResourceLocation CONTENTS = new ResourceLocation("contents");
     public boolean isPallet;
 
@@ -44,12 +54,18 @@ public class CardboardBox extends ContainerBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new BoxTileEntity(pos, state);
+    }
+
+    public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
 
-    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
-        return BlockRenderType.MODEL;
+    public RenderShape getRenderShape(BlockState p_149645_1_) {
+        return RenderShape.MODEL;
     }
 
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
@@ -60,41 +76,37 @@ public class CardboardBox extends ContainerBlock {
         return p_185471_1_.rotate(p_185471_2_.getRotation(p_185471_1_.getValue(FACING)));
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(FACING);
     }
 
-    public ActionResultType use(BlockState p_225533_1_, World p_225533_2_, BlockPos p_225533_3_, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+    public InteractionResult use(BlockState p_225533_1_, Level p_225533_2_, BlockPos p_225533_3_, Player p_225533_4_, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {
         if (p_225533_2_.isClientSide) {
-            return ActionResultType.SUCCESS;
+            return InteractionResult.SUCCESS;
         } else if (p_225533_4_.isSpectator()) {
-            return ActionResultType.CONSUME;
+            return InteractionResult.CONSUME;
         } else {
-            TileEntity tileentity = p_225533_2_.getBlockEntity(p_225533_3_);
+            BlockEntity tileentity = p_225533_2_.getBlockEntity(p_225533_3_);
             if (tileentity instanceof BoxTileEntity) {
                 BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
                 p_225533_4_.openMenu(boxtileentity);
 //                p_225533_4_.awardStat(Stats.OPEN_SHULKER_BOX);
-                PiglinTasks.angerNearbyPiglins(p_225533_4_, true);
+                PiglinAi.angerNearbyPiglins(p_225533_4_, true);
 
-                return ActionResultType.CONSUME;
+                return InteractionResult.CONSUME;
             } else {
-                return ActionResultType.PASS;
+                return InteractionResult.PASS;
             }
         }
     }
 
-    public void playerWillDestroy(World p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, PlayerEntity p_176208_4_) {
-        TileEntity tileentity = p_176208_1_.getBlockEntity(p_176208_2_);
+    public void playerWillDestroy(Level p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, Player p_176208_4_) {
+        BlockEntity tileentity = p_176208_1_.getBlockEntity(p_176208_2_);
         if (tileentity instanceof BoxTileEntity) {
             BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
             if (!p_176208_1_.isClientSide && p_176208_4_.isCreative() && !boxtileentity.isEmpty()) {
                 ItemStack itemstack = new ItemStack(getType());
-                CompoundNBT compoundnbt = boxtileentity.saveToTag(new CompoundNBT());
-                if (!compoundnbt.isEmpty()) {
-                    itemstack.addTagElement("BlockEntityTag", compoundnbt);
-                }
-
+                boxtileentity.saveToItem(itemstack);
                 if (boxtileentity.hasCustomName()) {
                     itemstack.setHoverName(boxtileentity.getCustomName());
                 }
@@ -110,7 +122,7 @@ public class CardboardBox extends ContainerBlock {
     }
 
     public List<ItemStack> getDrops(BlockState p_220076_1_, LootContext.Builder p_220076_2_) {
-        TileEntity tileentity = p_220076_2_.getOptionalParameter(LootParameters.BLOCK_ENTITY);
+        BlockEntity tileentity = p_220076_2_.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
         if (tileentity instanceof BoxTileEntity) {
             BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
             p_220076_2_ = p_220076_2_.withDynamicDrop(CONTENTS, (p_220168_1_, p_220168_2_) -> {
@@ -122,18 +134,18 @@ public class CardboardBox extends ContainerBlock {
         return super.getDrops(p_220076_1_, p_220076_2_);
     }
 
-    public void setPlacedBy(World p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
+    public void setPlacedBy(Level p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
         if (p_180633_5_.hasCustomHoverName()) {
-            TileEntity tileentity = p_180633_1_.getBlockEntity(p_180633_2_);
+            BlockEntity tileentity = p_180633_1_.getBlockEntity(p_180633_2_);
             if (tileentity instanceof BoxTileEntity) {
                 ((BoxTileEntity) tileentity).setCustomName(p_180633_5_.getHoverName());
             }
         }
     }
 
-    public void onRemove(BlockState p_196243_1_, World p_196243_2_, BlockPos p_196243_3_, BlockState p_196243_4_, boolean p_196243_5_) {
+    public void onRemove(BlockState p_196243_1_, Level p_196243_2_, BlockPos p_196243_3_, BlockState p_196243_4_, boolean p_196243_5_) {
         if (!p_196243_1_.is(p_196243_4_.getBlock())) {
-            TileEntity tileentity = p_196243_2_.getBlockEntity(p_196243_3_);
+            BlockEntity tileentity = p_196243_2_.getBlockEntity(p_196243_3_);
             if (tileentity instanceof BoxTileEntity) {
                 p_196243_2_.updateNeighbourForOutputSignal(p_196243_3_, p_196243_1_.getBlock());
             }
@@ -142,17 +154,17 @@ public class CardboardBox extends ContainerBlock {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
+    public void appendHoverText(ItemStack p_190948_1_, @Nullable BlockGetter p_190948_2_, List<Component> p_190948_3_, TooltipFlag p_190948_4_) {
         super.appendHoverText(p_190948_1_, p_190948_2_, p_190948_3_, p_190948_4_);
-        CompoundNBT compoundnbt = p_190948_1_.getTagElement("BlockEntityTag");
+        CompoundTag compoundnbt = p_190948_1_.getTagElement("BlockEntityTag");
         if (compoundnbt != null) {
             if (compoundnbt.contains("LootTable", 8)) {
-                p_190948_3_.add(new StringTextComponent("???????"));
+                p_190948_3_.add(new TextComponent("???????"));
             }
 
             if (compoundnbt.contains("Items", 9)) {
                 NonNullList<ItemStack> nonnulllist = NonNullList.withSize(27, ItemStack.EMPTY);
-                ItemStackHelper.loadAllItems(compoundnbt, nonnulllist);
+                ContainerHelper.loadAllItems(compoundnbt, nonnulllist);
                 int i = 0;
                 int j = 0;
 
@@ -161,14 +173,14 @@ public class CardboardBox extends ContainerBlock {
                         ++j;
                         if (i <= 4) {
                             ++i;
-                            IFormattableTextComponent iformattabletextcomponent = itemstack.getHoverName().copy();
-                            iformattabletextcomponent.append(" x").append(String.valueOf(itemstack.getCount()));
-                            p_190948_3_.add(iformattabletextcomponent);
+                            MutableComponent component = itemstack.getHoverName().copy();
+                            component.append(" x").append(String.valueOf(itemstack.getCount()));
+                            p_190948_3_.add(component);
                         }
                     }
                 }
                 if (j - i > 0) {
-                    p_190948_3_.add((new TranslationTextComponent("container.shulkerBox.more", j - i)).withStyle(TextFormatting.ITALIC));
+                    p_190948_3_.add((new TranslatableComponent("container.shulkerBox.more", j - i)).withStyle(ChatFormatting.ITALIC));
                 }
             }
         }
@@ -182,17 +194,15 @@ public class CardboardBox extends ContainerBlock {
         return true;
     }
 
-    public int getAnalogOutputSignal(BlockState p_180641_1_, World p_180641_2_, BlockPos p_180641_3_) {
-        return Container.getRedstoneSignalFromContainer((IInventory) p_180641_2_.getBlockEntity(p_180641_3_));
+    public int getAnalogOutputSignal(BlockState p_56223_, Level p_56224_, BlockPos p_56225_) {
+        return AbstractContainerMenu.getRedstoneSignalFromContainer((Container)p_56224_.getBlockEntity(p_56225_));
     }
 
-    public ItemStack getCloneItemStack(IBlockReader p_185473_1_, BlockPos p_185473_2_, BlockState p_185473_3_) {
+    public ItemStack getCloneItemStack(BlockGetter p_185473_1_, BlockPos p_185473_2_, BlockState p_185473_3_) {
         ItemStack itemstack = super.getCloneItemStack(p_185473_1_, p_185473_2_, p_185473_3_);
-        BoxTileEntity boxtileentity = (BoxTileEntity) p_185473_1_.getBlockEntity(p_185473_2_);
-        CompoundNBT compoundnbt = boxtileentity.saveToTag(new CompoundNBT());
-        if (!compoundnbt.isEmpty()) {
-            itemstack.addTagElement("BlockEntityTag", compoundnbt);
-        }
+        p_185473_1_.getBlockEntity(p_185473_2_, CDTileEntityType.BOX).ifPresent((p_187446_) -> {
+            p_187446_.saveToItem(itemstack);
+        });
         return itemstack;
     }
 
@@ -202,11 +212,5 @@ public class CardboardBox extends ContainerBlock {
         } else {
             return CDBlocks.CARDBOARD_BOX;
         }
-    }
-
-    @Nullable
-    @Override
-    public TileEntity newBlockEntity(IBlockReader reader) {
-        return new BoxTileEntity();
     }
 }

@@ -1,8 +1,8 @@
 package com.tzaranthony.citydecor;
 
 import com.tzaranthony.citydecor.util.CDBlocks;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -30,7 +30,7 @@ public class CityDecor {
     }
 
 
-    public static final ItemGroup TAB = new ItemGroup("CityDecor") {
+    public static final CreativeModeTab TAB = new CreativeModeTab("CityDecor") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(CDBlocks.SHIPPING_PALLET);

@@ -1,25 +1,24 @@
 package com.tzaranthony.citydecor.block;
 
 import com.tzaranthony.citydecor.util.CDDamageSource;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
-public class CDStairsDmg extends StairsBlock {
-    public CDStairsDmg(String name, BlockState state, AbstractBlock block) {
+public class CDStairsDmg extends StairBlock {
+    public CDStairsDmg(String name, BlockState state, BlockBehaviour block) {
         super(state, Properties.copy(block));
         this.setRegistryName(name);
     }
 
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity) {
-            entityIn.makeStuckInBlock(state, new Vector3d((double) 0.5F, 0.75D, (double) 0.5F));
+            entityIn.makeStuckInBlock(state, new Vec3((double) 0.5F, 0.75D, (double) 0.5F));
             entityIn.hurt(CDDamageSource.BARBED_WIRE, 0.5F);
             double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
             double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
@@ -28,10 +27,5 @@ public class CDStairsDmg extends StairsBlock {
                 entityIn.hurt(CDDamageSource.BARBED_WIRE, 4.5F);
             }
         }
-    }
-
-    @Override
-    public boolean isLadder(BlockState state, IWorldReader world, BlockPos pos, net.minecraft.entity.LivingEntity entity) {
-        return true;
     }
 }

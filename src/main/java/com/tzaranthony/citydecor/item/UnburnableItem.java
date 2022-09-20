@@ -1,7 +1,7 @@
 package com.tzaranthony.citydecor.item;
 
 import com.tzaranthony.citydecor.CityDecor;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class UnburnableItem extends Item {
 
@@ -10,4 +10,3 @@ public class UnburnableItem extends Item {
         this.setRegistryName(name);
     }
 }
-

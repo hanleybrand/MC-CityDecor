@@ -4,11 +4,11 @@ import com.tzaranthony.citydecor.CityDecor;
 import com.tzaranthony.citydecor.block.*;
 import com.tzaranthony.citydecor.item.IronScaffoldingItem;
 import com.tzaranthony.citydecor.item.SteelScaffoldingItem;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,9 +26,7 @@ public class CDBlocks {
     public static final Block STEEL_BLOCK = new CDBlock("steel_block", CDBlockProperties.StandardMetal(2, 6.0F, 8.0F));
     public static final Block STEEL_FRAME = new CDBlock("steel_frame", CDBlockProperties.NonFullMetal(2, 6.0F, 8.0F));
     public static final Block IRON_FRAME = new CDBlock("iron_frame", CDBlockProperties.NonFullMetal(1, 5.0F, 6.0F));
-
     //TODO: Cushion -- like a half slab of wool, but sittable, make it have a better texture please. Maybe a chair???
-
 
     // shipping
     public static final Block CARDBOARD_BOX = new CardboardBox("cardboard_box", CDBlockProperties.Cardboard(0.1F), false);
@@ -405,23 +403,23 @@ public class CDBlocks {
 
     // terracotta
     // stairs
-    public static final Block TERRACOTTA_STAIRS = new CDStairs("terracotta_stairs", net.minecraft.block.Blocks.TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.TERRACOTTA);
-    public static final Block WHITE_TERRACOTTA_STAIRS = new CDStairs("white_terracotta_stairs", net.minecraft.block.Blocks.WHITE_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.WHITE_TERRACOTTA);
-    public static final Block ORANGE_TERRACOTTA_STAIRS = new CDStairs("orange_terracotta_stairs", net.minecraft.block.Blocks.ORANGE_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.ORANGE_TERRACOTTA);
-    public static final Block MAGENTA_TERRACOTTA_STAIRS = new CDStairs("magenta_terracotta_stairs", net.minecraft.block.Blocks.MAGENTA_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.MAGENTA_TERRACOTTA);
-    public static final Block LIGHT_BLUE_TERRACOTTA_STAIRS = new CDStairs("light_blue_terracotta_stairs", net.minecraft.block.Blocks.LIGHT_BLUE_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.LIGHT_BLUE_TERRACOTTA);
-    public static final Block YELLOW_TERRACOTTA_STAIRS = new CDStairs("yellow_terracotta_stairs", net.minecraft.block.Blocks.YELLOW_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.YELLOW_TERRACOTTA);
-    public static final Block LIME_TERRACOTTA_STAIRS = new CDStairs("lime_terracotta_stairs", net.minecraft.block.Blocks.LIME_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.LIME_TERRACOTTA);
-    public static final Block PINK_TERRACOTTA_STAIRS = new CDStairs("pink_terracotta_stairs", net.minecraft.block.Blocks.PINK_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.PINK_TERRACOTTA);
-    public static final Block GRAY_TERRACOTTA_STAIRS = new CDStairs("gray_terracotta_stairs", net.minecraft.block.Blocks.GRAY_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.GRAY_TERRACOTTA);
-    public static final Block LIGHT_GRAY_TERRACOTTA_STAIRS = new CDStairs("light_gray_terracotta_stairs", net.minecraft.block.Blocks.LIGHT_GRAY_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.LIGHT_GRAY_TERRACOTTA);
-    public static final Block CYAN_TERRACOTTA_STAIRS = new CDStairs("cyan_terracotta_stairs", net.minecraft.block.Blocks.CYAN_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.CYAN_TERRACOTTA);
-    public static final Block PURPLE_TERRACOTTA_STAIRS = new CDStairs("purple_terracotta_stairs", net.minecraft.block.Blocks.PURPLE_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.PURPLE_TERRACOTTA);
-    public static final Block BLUE_TERRACOTTA_STAIRS = new CDStairs("blue_terracotta_stairs", net.minecraft.block.Blocks.BLUE_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.BLUE_TERRACOTTA);
-    public static final Block BROWN_TERRACOTTA_STAIRS = new CDStairs("brown_terracotta_stairs", net.minecraft.block.Blocks.BROWN_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.BROWN_TERRACOTTA);
-    public static final Block GREEN_TERRACOTTA_STAIRS = new CDStairs("green_terracotta_stairs", net.minecraft.block.Blocks.GREEN_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.GREEN_TERRACOTTA);
-    public static final Block RED_TERRACOTTA_STAIRS = new CDStairs("red_terracotta_stairs", net.minecraft.block.Blocks.RED_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.RED_TERRACOTTA);
-    public static final Block BLACK_TERRACOTTA_STAIRS = new CDStairs("black_terracotta_stairs", net.minecraft.block.Blocks.BLACK_TERRACOTTA.defaultBlockState(), net.minecraft.block.Blocks.BLACK_TERRACOTTA);
+    public static final Block TERRACOTTA_STAIRS = new CDStairs("terracotta_stairs", Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA);
+    public static final Block WHITE_TERRACOTTA_STAIRS = new CDStairs("white_terracotta_stairs", Blocks.WHITE_TERRACOTTA.defaultBlockState(), Blocks.WHITE_TERRACOTTA);
+    public static final Block ORANGE_TERRACOTTA_STAIRS = new CDStairs("orange_terracotta_stairs", Blocks.ORANGE_TERRACOTTA.defaultBlockState(), Blocks.ORANGE_TERRACOTTA);
+    public static final Block MAGENTA_TERRACOTTA_STAIRS = new CDStairs("magenta_terracotta_stairs", Blocks.MAGENTA_TERRACOTTA.defaultBlockState(), Blocks.MAGENTA_TERRACOTTA);
+    public static final Block LIGHT_BLUE_TERRACOTTA_STAIRS = new CDStairs("light_blue_terracotta_stairs", Blocks.LIGHT_BLUE_TERRACOTTA.defaultBlockState(), Blocks.LIGHT_BLUE_TERRACOTTA);
+    public static final Block YELLOW_TERRACOTTA_STAIRS = new CDStairs("yellow_terracotta_stairs", Blocks.YELLOW_TERRACOTTA.defaultBlockState(), Blocks.YELLOW_TERRACOTTA);
+    public static final Block LIME_TERRACOTTA_STAIRS = new CDStairs("lime_terracotta_stairs", Blocks.LIME_TERRACOTTA.defaultBlockState(), Blocks.LIME_TERRACOTTA);
+    public static final Block PINK_TERRACOTTA_STAIRS = new CDStairs("pink_terracotta_stairs", Blocks.PINK_TERRACOTTA.defaultBlockState(), Blocks.PINK_TERRACOTTA);
+    public static final Block GRAY_TERRACOTTA_STAIRS = new CDStairs("gray_terracotta_stairs", Blocks.GRAY_TERRACOTTA.defaultBlockState(), Blocks.GRAY_TERRACOTTA);
+    public static final Block LIGHT_GRAY_TERRACOTTA_STAIRS = new CDStairs("light_gray_terracotta_stairs", Blocks.LIGHT_GRAY_TERRACOTTA.defaultBlockState(), Blocks.LIGHT_GRAY_TERRACOTTA);
+    public static final Block CYAN_TERRACOTTA_STAIRS = new CDStairs("cyan_terracotta_stairs", Blocks.CYAN_TERRACOTTA.defaultBlockState(), Blocks.CYAN_TERRACOTTA);
+    public static final Block PURPLE_TERRACOTTA_STAIRS = new CDStairs("purple_terracotta_stairs", Blocks.PURPLE_TERRACOTTA.defaultBlockState(), Blocks.PURPLE_TERRACOTTA);
+    public static final Block BLUE_TERRACOTTA_STAIRS = new CDStairs("blue_terracotta_stairs", Blocks.BLUE_TERRACOTTA.defaultBlockState(), Blocks.BLUE_TERRACOTTA);
+    public static final Block BROWN_TERRACOTTA_STAIRS = new CDStairs("brown_terracotta_stairs", Blocks.BROWN_TERRACOTTA.defaultBlockState(), Blocks.BROWN_TERRACOTTA);
+    public static final Block GREEN_TERRACOTTA_STAIRS = new CDStairs("green_terracotta_stairs", Blocks.GREEN_TERRACOTTA.defaultBlockState(), Blocks.GREEN_TERRACOTTA);
+    public static final Block RED_TERRACOTTA_STAIRS = new CDStairs("red_terracotta_stairs", Blocks.RED_TERRACOTTA.defaultBlockState(), Blocks.RED_TERRACOTTA);
+    public static final Block BLACK_TERRACOTTA_STAIRS = new CDStairs("black_terracotta_stairs", Blocks.BLACK_TERRACOTTA.defaultBlockState(), Blocks.BLACK_TERRACOTTA);
     // slabs
     public static final Block TERRACOTTA_SLAB = new CDSlab("terracotta_slab", CDBlockProperties.Terracotta(MaterialColor.COLOR_ORANGE));
     public static final Block WHITE_TERRACOTTA_SLAB = new CDSlab("white_terracotta_slab", CDBlockProperties.Terracotta(MaterialColor.TERRACOTTA_WHITE));
@@ -443,22 +441,22 @@ public class CDBlocks {
 
     // concrete
     // stairs
-    public static final Block WHITE_CONCRETE_STAIRS = new CDStairs("white_concrete_stairs", net.minecraft.block.Blocks.WHITE_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.WHITE_CONCRETE);
-    public static final Block ORANGE_CONCRETE_STAIRS = new CDStairs("orange_concrete_stairs", net.minecraft.block.Blocks.ORANGE_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.ORANGE_CONCRETE);
-    public static final Block MAGENTA_CONCRETE_STAIRS = new CDStairs("magenta_concrete_stairs", net.minecraft.block.Blocks.MAGENTA_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.MAGENTA_CONCRETE);
-    public static final Block LIGHT_BLUE_CONCRETE_STAIRS = new CDStairs("light_blue_concrete_stairs", net.minecraft.block.Blocks.LIGHT_BLUE_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.LIGHT_BLUE_CONCRETE);
-    public static final Block YELLOW_CONCRETE_STAIRS = new CDStairs("yellow_concrete_stairs", net.minecraft.block.Blocks.YELLOW_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.YELLOW_CONCRETE);
-    public static final Block LIME_CONCRETE_STAIRS = new CDStairs("lime_concrete_stairs", net.minecraft.block.Blocks.LIME_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.LIME_CONCRETE);
-    public static final Block PINK_CONCRETE_STAIRS = new CDStairs("pink_concrete_stairs", net.minecraft.block.Blocks.PINK_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.PINK_CONCRETE);
-    public static final Block GRAY_CONCRETE_STAIRS = new CDStairs("gray_concrete_stairs", net.minecraft.block.Blocks.GRAY_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.GRAY_CONCRETE);
-    public static final Block LIGHT_GRAY_CONCRETE_STAIRS = new CDStairs("light_gray_concrete_stairs", net.minecraft.block.Blocks.LIGHT_GRAY_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.LIGHT_GRAY_CONCRETE);
-    public static final Block CYAN_CONCRETE_STAIRS = new CDStairs("cyan_concrete_stairs", net.minecraft.block.Blocks.CYAN_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.CYAN_CONCRETE);
-    public static final Block PURPLE_CONCRETE_STAIRS = new CDStairs("purple_concrete_stairs", net.minecraft.block.Blocks.PURPLE_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.PURPLE_CONCRETE);
-    public static final Block BLUE_CONCRETE_STAIRS = new CDStairs("blue_concrete_stairs", net.minecraft.block.Blocks.BLUE_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.BLUE_CONCRETE);
-    public static final Block BROWN_CONCRETE_STAIRS = new CDStairs("brown_concrete_stairs", net.minecraft.block.Blocks.BROWN_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.BROWN_CONCRETE);
-    public static final Block GREEN_CONCRETE_STAIRS = new CDStairs("green_concrete_stairs", net.minecraft.block.Blocks.GREEN_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.GREEN_CONCRETE);
-    public static final Block RED_CONCRETE_STAIRS = new CDStairs("red_concrete_stairs", net.minecraft.block.Blocks.RED_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.RED_CONCRETE);
-    public static final Block BLACK_CONCRETE_STAIRS = new CDStairs("black_concrete_stairs", net.minecraft.block.Blocks.BLACK_CONCRETE.defaultBlockState(), net.minecraft.block.Blocks.BLACK_CONCRETE);
+    public static final Block WHITE_CONCRETE_STAIRS = new CDStairs("white_concrete_stairs", Blocks.WHITE_CONCRETE.defaultBlockState(), Blocks.WHITE_CONCRETE);
+    public static final Block ORANGE_CONCRETE_STAIRS = new CDStairs("orange_concrete_stairs", Blocks.ORANGE_CONCRETE.defaultBlockState(), Blocks.ORANGE_CONCRETE);
+    public static final Block MAGENTA_CONCRETE_STAIRS = new CDStairs("magenta_concrete_stairs", Blocks.MAGENTA_CONCRETE.defaultBlockState(), Blocks.MAGENTA_CONCRETE);
+    public static final Block LIGHT_BLUE_CONCRETE_STAIRS = new CDStairs("light_blue_concrete_stairs", Blocks.LIGHT_BLUE_CONCRETE.defaultBlockState(), Blocks.LIGHT_BLUE_CONCRETE);
+    public static final Block YELLOW_CONCRETE_STAIRS = new CDStairs("yellow_concrete_stairs", Blocks.YELLOW_CONCRETE.defaultBlockState(), Blocks.YELLOW_CONCRETE);
+    public static final Block LIME_CONCRETE_STAIRS = new CDStairs("lime_concrete_stairs", Blocks.LIME_CONCRETE.defaultBlockState(), Blocks.LIME_CONCRETE);
+    public static final Block PINK_CONCRETE_STAIRS = new CDStairs("pink_concrete_stairs", Blocks.PINK_CONCRETE.defaultBlockState(), Blocks.PINK_CONCRETE);
+    public static final Block GRAY_CONCRETE_STAIRS = new CDStairs("gray_concrete_stairs", Blocks.GRAY_CONCRETE.defaultBlockState(), Blocks.GRAY_CONCRETE);
+    public static final Block LIGHT_GRAY_CONCRETE_STAIRS = new CDStairs("light_gray_concrete_stairs", Blocks.LIGHT_GRAY_CONCRETE.defaultBlockState(), Blocks.LIGHT_GRAY_CONCRETE);
+    public static final Block CYAN_CONCRETE_STAIRS = new CDStairs("cyan_concrete_stairs", Blocks.CYAN_CONCRETE.defaultBlockState(), Blocks.CYAN_CONCRETE);
+    public static final Block PURPLE_CONCRETE_STAIRS = new CDStairs("purple_concrete_stairs", Blocks.PURPLE_CONCRETE.defaultBlockState(), Blocks.PURPLE_CONCRETE);
+    public static final Block BLUE_CONCRETE_STAIRS = new CDStairs("blue_concrete_stairs", Blocks.BLUE_CONCRETE.defaultBlockState(), Blocks.BLUE_CONCRETE);
+    public static final Block BROWN_CONCRETE_STAIRS = new CDStairs("brown_concrete_stairs", Blocks.BROWN_CONCRETE.defaultBlockState(), Blocks.BROWN_CONCRETE);
+    public static final Block GREEN_CONCRETE_STAIRS = new CDStairs("green_concrete_stairs", Blocks.GREEN_CONCRETE.defaultBlockState(), Blocks.GREEN_CONCRETE);
+    public static final Block RED_CONCRETE_STAIRS = new CDStairs("red_concrete_stairs", Blocks.RED_CONCRETE.defaultBlockState(), Blocks.RED_CONCRETE);
+    public static final Block BLACK_CONCRETE_STAIRS = new CDStairs("black_concrete_stairs", Blocks.BLACK_CONCRETE.defaultBlockState(), Blocks.BLACK_CONCRETE);
     // slabs
     public static final Block WHITE_CONCRETE_SLAB = new CDSlab("white_concrete_slab", CDBlockProperties.Concrete(MaterialColor.SNOW));
     public static final Block ORANGE_CONCRETE_SLAB = new CDSlab("orange_concrete_slab", CDBlockProperties.Concrete(MaterialColor.COLOR_ORANGE));

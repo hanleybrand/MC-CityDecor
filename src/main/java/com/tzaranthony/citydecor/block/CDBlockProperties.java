@@ -1,96 +1,91 @@
 package com.tzaranthony.citydecor.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class CDBlockProperties {
-    public static AbstractBlock.Properties Block(Material material, SoundType sound, float hardness, float resistance) {
-        return AbstractBlock.Properties.of(material)
+    public static BlockBehaviour.Properties Block(Material material, SoundType sound, float hardness, float resistance) {
+        return BlockBehaviour.Properties.of(material)
                 .sound(sound)
                 .strength(hardness, resistance);
     }
 
-    public static AbstractBlock.Properties ColoredBlock(Material material, MaterialColor color, SoundType sound, float hardness, float resistance) {
-        return AbstractBlock.Properties.of(material, color)
+    public static BlockBehaviour.Properties ColoredBlock(Material material, MaterialColor color, SoundType sound, float hardness, float resistance) {
+        return BlockBehaviour.Properties.of(material, color)
                 .sound(sound)
                 .strength(hardness, resistance);
     }
 
     // metals
-    public static AbstractBlock.Properties StandardMetal(SoundType sound, int harvestLevel, float hardness, float resistance) {
+    public static BlockBehaviour.Properties StandardMetal(SoundType sound, int speedFactor, float hardness, float resistance) {
         return Block(Material.METAL, sound, hardness, resistance)
-                .harvestLevel(harvestLevel)
-                .requiresCorrectToolForDrops()
-                .harvestTool(ToolType.PICKAXE);
+                .speedFactor(speedFactor)
+                .requiresCorrectToolForDrops();
     }
 
-    public static AbstractBlock.Properties StandardMetal(int harvestLevel, float hardness, float resistance) {
-        return StandardMetal(SoundType.METAL, harvestLevel, hardness, resistance);
+    public static BlockBehaviour.Properties StandardMetal(int speedFactor, float hardness, float resistance) {
+        return StandardMetal(SoundType.METAL, speedFactor, hardness, resistance);
     }
 
-    public static AbstractBlock.Properties NetheriteSoundMetal(int harvestLevel, float hardness, float resistance) {
-        return StandardMetal(SoundType.NETHERITE_BLOCK, harvestLevel, hardness, resistance);
+    public static BlockBehaviour.Properties NetheriteSoundMetal(int speedFactor, float hardness, float resistance) {
+        return StandardMetal(SoundType.NETHERITE_BLOCK, speedFactor, hardness, resistance);
     }
 
-    public static AbstractBlock.Properties StandardNetheriteSoundMetal() {
+    public static BlockBehaviour.Properties StandardNetheriteSoundMetal() {
         return NetheriteSoundMetal(3, 4.0F, 15.0F);
     }
 
-    public static AbstractBlock.Properties NonFullMetal(int harvestLevel, float hardness, float resistance) {
-        return StandardMetal(harvestLevel, hardness, resistance)
+    public static BlockBehaviour.Properties NonFullMetal(int speedFactor, float hardness, float resistance) {
+        return StandardMetal(speedFactor, hardness, resistance)
                 .noOcclusion();
     }
 
     // wood
-    public static AbstractBlock.Properties Cardboard(float hardnessAndResistance) {
+    public static BlockBehaviour.Properties Cardboard(float hardnessAndResistance) {
         return Block(Material.WOOD, SoundType.WOOD, hardnessAndResistance, hardnessAndResistance)
-                .noOcclusion()
-                .harvestTool(ToolType.AXE);
+                .noOcclusion();
     }
 
     // rocks
-    public static AbstractBlock.Properties StandardRock(float hardness, float resistance) {
+    public static BlockBehaviour.Properties StandardRock(float hardness, float resistance) {
         return Block(Material.STONE, SoundType.STONE, hardness, resistance)
-                .requiresCorrectToolForDrops()
-                .harvestTool(ToolType.PICKAXE);
+                .requiresCorrectToolForDrops();
     }
 
-    public static AbstractBlock.Properties StandardRock() {
+    public static BlockBehaviour.Properties StandardRock() {
         return StandardRock(2.0F, 6.0F);
     }
 
     // rocks with material color
-    public static AbstractBlock.Properties ColoredRock(MaterialColor color, float hardness, float resistance) {
+    public static BlockBehaviour.Properties ColoredRock(MaterialColor color, float hardness, float resistance) {
         return ColoredBlock(Material.STONE, color, SoundType.STONE, hardness, resistance)
-                .requiresCorrectToolForDrops()
-                .harvestTool(ToolType.PICKAXE);
+                .requiresCorrectToolForDrops();
     }
 
-    public static AbstractBlock.Properties Concrete(MaterialColor color) {
+    public static BlockBehaviour.Properties Concrete(MaterialColor color) {
         return ColoredRock(color, 1.8F, 1.8F);
     }
 
-    public static AbstractBlock.Properties Terracotta(MaterialColor color) {
+    public static BlockBehaviour.Properties Terracotta(MaterialColor color) {
         return ColoredRock(color, 1.8F, 1.8F);
     }
 
-    public static AbstractBlock.Properties ColoredRock(MaterialColor color) {
+    public static BlockBehaviour.Properties ColoredRock(MaterialColor color) {
         return ColoredRock(color, 2.0F, 6.0F);
     }
 
     // concrete powder
-    public static AbstractBlock.Properties ConcretePowder(MaterialColor color) {
+    public static BlockBehaviour.Properties ConcretePowder(MaterialColor color) {
         return ColoredBlock(Material.SAND, color, SoundType.SAND, 0.5F, 0.5F);
     }
 
-    public static AbstractBlock.Properties MetalLightBlock(int light) {
+    public static BlockBehaviour.Properties MetalLightBlock(int light) {
         return StandardMetal(SoundType.GLASS, 1, 1.5F, 9.0F)
                 .lightLevel((state) -> {
                     return light;
@@ -98,21 +93,21 @@ public class CDBlockProperties {
     }
 
     // uniques
-    public static AbstractBlock.Properties BarbedWire() {
+    public static BlockBehaviour.Properties BarbedWire() {
         return Block(Material.DECORATION, SoundType.CHAIN, 20, 0.5F)
                 .noCollission()
                 .noOcclusion();
     }
 
-    public static AbstractBlock.Properties Scaffolding() {
-        return AbstractBlock.Properties.of(Material.DECORATION, MaterialColor.METAL)
+    public static BlockBehaviour.Properties Scaffolding() {
+        return BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.METAL)
                 .noCollission()
                 .sound(SoundType.SCAFFOLDING)
                 .dynamicShape();
     }
 
-    public static AbstractBlock.Properties EndRod() {
-        return AbstractBlock.Properties.of(Material.DECORATION)
+    public static BlockBehaviour.Properties EndRod() {
+        return BlockBehaviour.Properties.of(Material.DECORATION)
                 .instabreak()
                 .lightLevel((p_235454_0_) -> {
                     return 14;
@@ -121,9 +116,9 @@ public class CDBlockProperties {
                 .noOcclusion();
     }
 
-    public static AbstractBlock.Properties NeonLight(int light) {
-        return AbstractBlock.Properties.of(Material.DECORATION)
-                .harvestLevel(0)
+    public static BlockBehaviour.Properties NeonLight(int light) {
+        return BlockBehaviour.Properties.of(Material.DECORATION)
+                .speedFactor(0)
                 .strength(0.1F, 9.0F)
                 .sound(SoundType.GLASS)
                 .lightLevel((p_235454_0_) -> {
@@ -133,31 +128,29 @@ public class CDBlockProperties {
     }
 
     // iron bars
-    public static AbstractBlock.Properties IronBarLike(MaterialColor color, SoundType sound, float hardness, float resistance) {
+    public static BlockBehaviour.Properties IronBarLike(MaterialColor color, SoundType sound, float hardness, float resistance) {
         return ColoredBlock(Material.METAL, color, sound, hardness, resistance)
                 .requiresCorrectToolForDrops()
-                .harvestTool(ToolType.PICKAXE)
                 .noOcclusion();
     }
 
-    public static AbstractBlock.Properties ChainFence() {
+    public static BlockBehaviour.Properties ChainFence() {
         return IronBarLike(MaterialColor.COLOR_GRAY, SoundType.CHAIN, 5.0F, 6.0F);
     }
 
     // doors
-    public static AbstractBlock.Properties Door(Material material, MaterialColor color, SoundType sound, float HardnessAndResistance) {
+    public static BlockBehaviour.Properties Door(Material material, MaterialColor color, SoundType sound, float HardnessAndResistance) {
         return ColoredBlock(material, color, sound, HardnessAndResistance, HardnessAndResistance)
                 .noOcclusion();
     }
 
-    public static AbstractBlock.Properties MetalDoor(int harvestLevel, float HardnessAndResistance) {
+    public static BlockBehaviour.Properties MetalDoor(int speedFactor, float HardnessAndResistance) {
         return Door(Material.METAL, MaterialColor.METAL, SoundType.METAL, HardnessAndResistance)
-                .harvestLevel(harvestLevel)
-                .requiresCorrectToolForDrops()
-                .harvestTool(ToolType.PICKAXE);
+                .speedFactor(speedFactor)
+                .requiresCorrectToolForDrops();
     }
 
-    public static AbstractBlock.Properties GlassDoor(MaterialColor color) {
+    public static BlockBehaviour.Properties GlassDoor(MaterialColor color) {
         return Door(Material.GLASS, color, SoundType.GLASS, 0.3F)
                 .isValidSpawn(CDBlockProperties::never)
                 .isRedstoneConductor(CDBlockProperties::never)
@@ -166,29 +159,28 @@ public class CDBlockProperties {
     }
 
     // trapdoors
-    public static AbstractBlock.Properties Trapdoor(Material material, MaterialColor color, SoundType sound, float HardnessAndResistance) {
+    public static BlockBehaviour.Properties Trapdoor(Material material, MaterialColor color, SoundType sound, float HardnessAndResistance) {
         return Door(material, color, sound, HardnessAndResistance)
                 .isValidSpawn(CDBlockProperties::never);
     }
 
-    public static AbstractBlock.Properties MetalTrapdoor() {
+    public static BlockBehaviour.Properties MetalTrapdoor() {
         return Trapdoor(Material.METAL, MaterialColor.METAL, SoundType.METAL, 5.0F)
-                .requiresCorrectToolForDrops()
-                .harvestTool(ToolType.PICKAXE);
+                .requiresCorrectToolForDrops();
     }
 
-    public static AbstractBlock.Properties GlassTrapdoor(MaterialColor color) {
+    public static BlockBehaviour.Properties GlassTrapdoor(MaterialColor color) {
         return Trapdoor(Material.GLASS, color, SoundType.GLASS, 0.3F)
                 .isRedstoneConductor(CDBlockProperties::never)
                 .isSuffocating(CDBlockProperties::never)
                 .isViewBlocking(CDBlockProperties::never);
     }
 
-    private static Boolean never(BlockState p_235427_0_, IBlockReader p_235427_1_, BlockPos p_235427_2_, EntityType<?> p_235427_3_) {
+    private static Boolean never(BlockState p_235427_0_, BlockGetter p_235427_1_, BlockPos p_235427_2_, EntityType<?> p_235427_3_) {
         return (boolean) false;
     }
 
-    private static boolean never(BlockState p_235436_0_, IBlockReader p_235436_1_, BlockPos p_235436_2_) {
+    private static boolean never(BlockState p_235436_0_, BlockGetter p_235436_1_, BlockPos p_235436_2_) {
         return false;
     }
 }
