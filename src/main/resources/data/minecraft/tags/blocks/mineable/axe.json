@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "citydecor:oak_wood_wall",
+    "citydecor:spruce_wood_wall",
+    "citydecor:birch_wood_wall",
+    "citydecor:dark_oak_wood_wall",
+    "citydecor:acacia_wood_wall",
+    "citydecor:jungle_wood_wall",
+    "citydecor:warped_hyphae_wall",
+    "citydecor:crimson_hyphae_wall",
+    "citydecor:cardboard_box",
+    "citydecor:shipping_pallet"
+  ]
+}

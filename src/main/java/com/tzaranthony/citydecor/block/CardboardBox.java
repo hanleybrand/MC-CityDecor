@@ -47,14 +47,12 @@ public class CardboardBox extends BaseEntityBlock {
     public static final ResourceLocation CONTENTS = new ResourceLocation("contents");
     public boolean isPallet;
 
-    public CardboardBox(String name, Properties properties, boolean isPallet) {
+    public CardboardBox(Properties properties, boolean isPallet) {
         super(properties);
-        this.setRegistryName(name);
         this.isPallet = isPallet;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new BoxTileEntity(pos, state);
@@ -80,18 +78,18 @@ public class CardboardBox extends BaseEntityBlock {
         p_206840_1_.add(FACING);
     }
 
-    public InteractionResult use(BlockState p_225533_1_, Level p_225533_2_, BlockPos p_225533_3_, Player p_225533_4_, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {
-        if (p_225533_2_.isClientSide) {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        if (level.isClientSide) {
             return InteractionResult.SUCCESS;
-        } else if (p_225533_4_.isSpectator()) {
+        } else if (player.isSpectator()) {
             return InteractionResult.CONSUME;
         } else {
-            BlockEntity tileentity = p_225533_2_.getBlockEntity(p_225533_3_);
+            BlockEntity tileentity = level.getBlockEntity(pos);
             if (tileentity instanceof BoxTileEntity) {
                 BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
-                p_225533_4_.openMenu(boxtileentity);
+                player.openMenu(boxtileentity);
 //                p_225533_4_.awardStat(Stats.OPEN_SHULKER_BOX);
-                PiglinAi.angerNearbyPiglins(p_225533_4_, true);
+                PiglinAi.angerNearbyPiglins(player, true);
 
                 return InteractionResult.CONSUME;
             } else {
@@ -100,38 +98,46 @@ public class CardboardBox extends BaseEntityBlock {
         }
     }
 
-    public void playerWillDestroy(Level p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, Player p_176208_4_) {
-        BlockEntity tileentity = p_176208_1_.getBlockEntity(p_176208_2_);
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        BlockEntity tileentity = level.getBlockEntity(pos);
         if (tileentity instanceof BoxTileEntity) {
             BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
-            if (!p_176208_1_.isClientSide && p_176208_4_.isCreative() && !boxtileentity.isEmpty()) {
-                ItemStack itemstack = new ItemStack(getType());
+            if (!level.isClientSide && player.isCreative() && !boxtileentity.isEmpty()) {
+                ItemStack itemstack = new ItemStack(this.getType());
                 boxtileentity.saveToItem(itemstack);
                 if (boxtileentity.hasCustomName()) {
                     itemstack.setHoverName(boxtileentity.getCustomName());
                 }
-
-                ItemEntity itementity = new ItemEntity(p_176208_1_, (double) p_176208_2_.getX() + 0.5D, (double) p_176208_2_.getY() + 0.5D, (double) p_176208_2_.getZ() + 0.5D, itemstack);
+                ItemEntity itementity = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, itemstack);
                 itementity.setDefaultPickUpDelay();
-                p_176208_1_.addFreshEntity(itementity);
+                level.addFreshEntity(itementity);
             } else {
-                boxtileentity.unpackLootTable(p_176208_4_);
+                boxtileentity.unpackLootTable(player);
+
+                ItemStack itemstack = new ItemStack(this.getType());
+                boxtileentity.saveToItem(itemstack);
+                if (boxtileentity.hasCustomName()) {
+                    itemstack.setHoverName(boxtileentity.getCustomName());
+                }
+                ItemEntity itementity = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, itemstack);
+                itementity.setDefaultPickUpDelay();
+                level.addFreshEntity(itementity);
             }
         }
-        super.playerWillDestroy(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
+        super.playerWillDestroy(level, pos, state, player);
     }
 
-    public List<ItemStack> getDrops(BlockState p_220076_1_, LootContext.Builder p_220076_2_) {
-        BlockEntity tileentity = p_220076_2_.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+        BlockEntity tileentity = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
         if (tileentity instanceof BoxTileEntity) {
             BoxTileEntity boxtileentity = (BoxTileEntity) tileentity;
-            p_220076_2_ = p_220076_2_.withDynamicDrop(CONTENTS, (p_220168_1_, p_220168_2_) -> {
+            builder = builder.withDynamicDrop(CONTENTS, (p_220168_1_, p_220168_2_) -> {
                 for (int i = 0; i < boxtileentity.getContainerSize(); ++i) {
                     p_220168_2_.accept(boxtileentity.getItem(i));
                 }
             });
         }
-        return super.getDrops(p_220076_1_, p_220076_2_);
+        return super.getDrops(state, builder);
     }
 
     public void setPlacedBy(Level p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
@@ -200,7 +206,7 @@ public class CardboardBox extends BaseEntityBlock {
 
     public ItemStack getCloneItemStack(BlockGetter p_185473_1_, BlockPos p_185473_2_, BlockState p_185473_3_) {
         ItemStack itemstack = super.getCloneItemStack(p_185473_1_, p_185473_2_, p_185473_3_);
-        p_185473_1_.getBlockEntity(p_185473_2_, CDTileEntityType.BOX).ifPresent((p_187446_) -> {
+        p_185473_1_.getBlockEntity(p_185473_2_, CDTileEntityType.BOX.get()).ifPresent((p_187446_) -> {
             p_187446_.saveToItem(itemstack);
         });
         return itemstack;
@@ -208,9 +214,9 @@ public class CardboardBox extends BaseEntityBlock {
 
     public Block getType() {
         if (this.isPallet) {
-            return CDBlocks.SHIPPING_PALLET;
+            return CDBlocks.SHIPPING_PALLET.get();
         } else {
-            return CDBlocks.CARDBOARD_BOX;
+            return CDBlocks.CARDBOARD_BOX.get();
         }
     }
 }

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import javax.annotation.Nullable;
 
 @Mixin(ShulkerBoxBlockEntity.class)
-public abstract class MixinShulkerInventory {
+public abstract class MixinShulkerHopper {
     @Inject(at = @At(value = "HEAD"), method = "canPlaceItemThroughFace", cancellable = true)
     public void restrictCardboardBox(int p_59663_, ItemStack p_59664_, @Nullable Direction p_59665_, CallbackInfoReturnable<Boolean> cir) {
         if (Block.byItem(p_59664_.getItem()) instanceof CardboardBox) {

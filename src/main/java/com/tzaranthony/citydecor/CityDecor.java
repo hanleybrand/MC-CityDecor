@@ -1,6 +1,9 @@
 package com.tzaranthony.citydecor;
 
+import com.tzaranthony.citydecor.block.CDBlockRender;
 import com.tzaranthony.citydecor.util.CDBlocks;
+import com.tzaranthony.citydecor.util.CDItems;
+import com.tzaranthony.citydecor.util.CDTileEntityType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,7 +21,12 @@ public class CityDecor {
 
     public CityDecor() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::ClientSetup);
+
+        CDBlocks.reg.register(FMLJavaModLoadingContext.get().getModEventBus());
+        CDItems.reg.register(FMLJavaModLoadingContext.get().getModEventBus());
+        CDTileEntityType.reg.register(FMLJavaModLoadingContext.get().getModEventBus());
+        MinecraftForge.EVENT_BUS.register(this);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -26,14 +34,15 @@ public class CityDecor {
     private void setup(final FMLCommonSetupEvent event) {
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
+    private void ClientSetup(final FMLClientSetupEvent event) {
+        CDBlockRender.renderBlocks();
     }
 
 
     public static final CreativeModeTab TAB = new CreativeModeTab("CityDecor") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(CDBlocks.SHIPPING_PALLET);
+            return new ItemStack(CDBlocks.SHIPPING_PALLET.get());
         }
     };
 }

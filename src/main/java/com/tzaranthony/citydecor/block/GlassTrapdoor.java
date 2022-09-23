@@ -9,9 +9,8 @@ import net.minecraft.world.level.material.MaterialColor;
 import javax.annotation.Nullable;
 
 public class GlassTrapdoor extends TrapDoorBlock {
-    public GlassTrapdoor(String name, MaterialColor color) {
+    public GlassTrapdoor(MaterialColor color) {
         super(CDBlockProperties.GlassTrapdoor(color));
-        this.setRegistryName(name);
     }
 
     protected void playSound(@Nullable Player p_185731_1_, Level p_185731_2_, BlockPos p_185731_3_, boolean p_185731_4_) {

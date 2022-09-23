@@ -1,6 +1,6 @@
 package com.tzaranthony.citydecor.item;
 
-import com.tzaranthony.citydecor.block.CDScaffolding;
+import com.tzaranthony.citydecor.block.SteelScaffolding;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -30,7 +30,7 @@ public class SteelScaffoldingItem extends BlockItem {
         BlockState blockstate = world.getBlockState(blockpos);
         Block block = this.getBlock();
         if (!blockstate.is(block)) {
-            return CDScaffolding.getDistance(world, blockpos) == 15 ? null : context;
+            return SteelScaffolding.getDistance(world, blockpos) == 15 ? null : context;
         } else {
             Direction direction;
             if (context.isSecondaryUseActive()) {

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -11,12 +12,14 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
+import javax.annotation.Nullable;
+
 public class CDDoor extends DoorBlock {
-    public CDDoor(String name, Properties properties) {
+    public CDDoor(Properties properties) {
         super(properties);
-        this.setRegistryName(name);
     }
 
     public InteractionResult use(BlockState p_225533_1_, Level p_225533_2_, BlockPos p_225533_3_, Player p_225533_4_, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {
@@ -30,10 +33,11 @@ public class CDDoor extends DoorBlock {
         }
     }
 
-    public void setOpen(Level p_242663_1_, BlockState p_242663_2_, BlockPos p_242663_3_, boolean p_242663_4_) {
-        if (p_242663_2_.is(this) && p_242663_2_.getValue(OPEN) != p_242663_4_) {
-            p_242663_1_.setBlock(p_242663_3_, p_242663_2_.setValue(OPEN, Boolean.valueOf(p_242663_4_)), 10);
-            this.playSound(p_242663_1_, p_242663_3_, p_242663_4_);
+    public void setOpen(@Nullable Entity p_153166_, Level p_153167_, BlockState p_153168_, BlockPos p_153169_, boolean p_153170_) {
+        if (p_153168_.is(this) && p_153168_.getValue(OPEN) != p_153170_) {
+            p_153167_.setBlock(p_153169_, p_153168_.setValue(OPEN, Boolean.valueOf(p_153170_)), 10);
+            this.playSound(p_153167_, p_153169_, p_153170_);
+            p_153167_.gameEvent(p_153166_, p_153170_ ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, p_153169_);
         }
     }
 

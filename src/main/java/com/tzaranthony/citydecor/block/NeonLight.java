@@ -21,9 +21,8 @@ public class NeonLight extends Block {
     protected static final VoxelShape NS = Block.box(4.0D, 6.0D, 0.0D, 12.0D, 10.0D, 16.0D);
     protected static final VoxelShape EW = Block.box(0.0D, 6.0D, 4.0D, 16.0D, 10.0D, 12.0D);
 
-    public NeonLight(String name, Properties properties) {
+    public NeonLight(Properties properties) {
         super(properties);
-        this.setRegistryName(name);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH));
     }

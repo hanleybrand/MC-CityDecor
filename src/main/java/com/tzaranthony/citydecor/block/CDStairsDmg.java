@@ -11,9 +11,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 public class CDStairsDmg extends StairBlock {
-    public CDStairsDmg(String name, BlockState state, BlockBehaviour block) {
+    public CDStairsDmg(BlockState state, BlockBehaviour block) {
         super(state, Properties.copy(block));
-        this.setRegistryName(name);
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

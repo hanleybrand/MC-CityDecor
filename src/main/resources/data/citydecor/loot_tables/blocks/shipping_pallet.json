@@ -35,6 +35,7 @@
             },
             {
               "function": "minecraft:set_contents",
+              "type": "citydecor:shipping_pallet",
               "entries": [
                 {
                   "type": "minecraft:dynamic",

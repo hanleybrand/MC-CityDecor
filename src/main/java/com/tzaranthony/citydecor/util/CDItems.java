@@ -1,34 +1,19 @@
 package com.tzaranthony.citydecor.util;
 
 import com.tzaranthony.citydecor.CityDecor;
-import com.tzaranthony.citydecor.item.CDItemBase;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-
-import java.lang.reflect.Field;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = CityDecor.MOD_ID, bus = Bus.MOD)
 public class CDItems {
-    public static final Item STEEL_INGOT = new CDItemBase("steel_ingot");
-    public static final Item STEEL_NUGGET = new CDItemBase("steel_nugget");
-    public static final Item BARBED_WIRE = new CDItemBase("barbed_wire");
-    public static final Item CARDBOARD = new CDItemBase("cardboard");
+    public static final DeferredRegister<Item> reg = DeferredRegister.create(ForgeRegistries.ITEMS, CityDecor.MOD_ID);
 
-
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> regItems) {
-        try {
-            for (Field f : CDItems.class.getDeclaredFields()) {
-                Object obj = f.get(null);
-                if (obj instanceof Item) {
-                    regItems.getRegistry().register((Item) obj);
-                }
-            }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public static final RegistryObject<Item> STEEL_INGOT = reg.register("steel_ingot", () -> new Item(new Item.Properties().tab(CityDecor.TAB)));
+    public static final RegistryObject<Item> STEEL_NUGGET = reg.register("steel_nugget", () -> new Item(new Item.Properties().tab(CityDecor.TAB)));
+    public static final RegistryObject<Item> BARBED_WIRE = reg.register("barbed_wire", () -> new Item(new Item.Properties().tab(CityDecor.TAB)));
+    public static final RegistryObject<Item> CARDBOARD = reg.register("cardboard", () -> new Item(new Item.Properties().tab(CityDecor.TAB)));
 }

@@ -27,31 +27,20 @@ import javax.annotation.Nullable;
 import java.util.stream.IntStream;
 
 public class BoxTileEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
+    public static final int COLUMNS = 9;
+    public static final int ROWS = 3;
+    public static final int CONTAINER_SIZE = 27;
+    public static final String ITEMS_TAG = "Items";
     private static final int[] SLOTS = IntStream.range(0, 27).toArray();
     private NonNullList<ItemStack> itemStacks = NonNullList.withSize(27, ItemStack.EMPTY);
     private int openCount;
 
     public BoxTileEntity(BlockPos pos, BlockState state) {
-        super(CDTileEntityType.BOX, pos, state);
+        super(CDTileEntityType.BOX.get(), pos, state);
     }
 
-    public void load(CompoundTag p_155678_) {
-        super.load(p_155678_);
-        this.loadFromTag(p_155678_);
-    }
-
-    protected void saveAdditional(CompoundTag p_187513_) {
-        super.saveAdditional(p_187513_);
-        if (!this.trySaveLootTable(p_187513_)) {
-            ContainerHelper.saveAllItems(p_187513_, this.itemStacks, false);
-        }
-    }
-
-    public void loadFromTag(CompoundTag p_59694_) {
-        this.itemStacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        if (!this.tryLoadLootTable(p_59694_) && p_59694_.contains("Items", 9)) {
-            ContainerHelper.loadAllItems(p_59694_, this.itemStacks);
-        }
+    public int getContainerSize() {
+        return this.itemStacks.size();
     }
 
     public boolean triggerEvent(int p_145842_1_, int p_145842_2_) {
@@ -100,17 +89,27 @@ public class BoxTileEntity extends RandomizableContainerBlockEntity implements W
         }
     }
 
-
-    public int[] getSlotsForFace(Direction p_180463_1_) {
-        return SLOTS;
+    protected Component getDefaultName() {
+        return new TranslatableComponent("Cardboard Box");
     }
 
-    public boolean canPlaceItemThroughFace(int p_180462_1_, ItemStack p_180462_2_, @Nullable Direction p_180462_3_) {
-        return !(Block.byItem(p_180462_2_.getItem()) instanceof CardboardBox) & !(Block.byItem(p_180462_2_.getItem()) instanceof ShulkerBoxBlock);
+    public void load(CompoundTag p_155678_) {
+        super.load(p_155678_);
+        this.loadFromTag(p_155678_);
     }
 
-    public boolean canTakeItemThroughFace(int p_180461_1_, ItemStack p_180461_2_, Direction p_180461_3_) {
-        return true;
+    protected void saveAdditional(CompoundTag p_187513_) {
+        super.saveAdditional(p_187513_);
+        if (!this.trySaveLootTable(p_187513_)) {
+            ContainerHelper.saveAllItems(p_187513_, this.itemStacks, false);
+        }
+    }
+
+    public void loadFromTag(CompoundTag p_59694_) {
+        this.itemStacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        if (!this.tryLoadLootTable(p_59694_) && p_59694_.contains("Items", 9)) {
+            ContainerHelper.loadAllItems(p_59694_, this.itemStacks);
+        }
     }
 
     protected NonNullList<ItemStack> getItems() {
@@ -121,15 +120,19 @@ public class BoxTileEntity extends RandomizableContainerBlockEntity implements W
         this.itemStacks = p_199721_1_;
     }
 
-    protected Component getDefaultName() {
-        return new TranslatableComponent("Cardboard Box");
+    public int[] getSlotsForFace(Direction p_180463_1_) {
+        return SLOTS;
+    }
+
+    public boolean canPlaceItemThroughFace(int p_59663_, ItemStack p_59664_, @Nullable Direction p_59665_) {
+        return !(Block.byItem(p_59664_.getItem()) instanceof CardboardBox) || !(Block.byItem(p_59664_.getItem()) instanceof ShulkerBoxBlock);
+    }
+
+    public boolean canTakeItemThroughFace(int p_59682_, ItemStack p_59683_, Direction p_59684_) {
+        return true;
     }
 
     protected AbstractContainerMenu createMenu(int p_213906_1_, Inventory p_213906_2_) {
         return new ShulkerBoxMenu(p_213906_1_, p_213906_2_, this);
-    }
-
-    public int getContainerSize() {
-        return this.itemStacks.size();
     }
 }

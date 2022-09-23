@@ -11,9 +11,8 @@ import net.minecraft.world.phys.Vec3;
 
 public class BarbedWire extends RotatedPillarBlock {
 
-    public BarbedWire(String name) {
+    public BarbedWire() {
         super(CDBlockProperties.BarbedWire());
-        this.setRegistryName(name);
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

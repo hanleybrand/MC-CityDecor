@@ -5,8 +5,7 @@ import net.minecraft.world.level.block.ConcretePowderBlock;
 import net.minecraft.world.level.material.MaterialColor;
 
 public class CDConcretePowder extends ConcretePowderBlock {
-    public CDConcretePowder(String name, Block block, MaterialColor color) {
+    public CDConcretePowder(Block block, MaterialColor color) {
         super(block, CDBlockProperties.ConcretePowder(color));
-        this.setRegistryName(name);
     }
 }
