@@ -23,26 +23,25 @@ public class CDBlockProperties {
     }
 
     // metals
-    public static BlockBehaviour.Properties StandardMetal(SoundType sound, int speedFactor, float hardness, float resistance) {
+    public static BlockBehaviour.Properties StandardMetal(SoundType sound, float hardness, float resistance) {
         return Block(Material.METAL, sound, hardness, resistance)
-                .speedFactor(speedFactor)
                 .requiresCorrectToolForDrops();
     }
 
-    public static BlockBehaviour.Properties StandardMetal(int speedFactor, float hardness, float resistance) {
-        return StandardMetal(SoundType.METAL, speedFactor, hardness, resistance);
+    public static BlockBehaviour.Properties StandardMetal(float hardness, float resistance) {
+        return StandardMetal(SoundType.METAL, hardness, resistance);
     }
 
-    public static BlockBehaviour.Properties NetheriteSoundMetal(int speedFactor, float hardness, float resistance) {
-        return StandardMetal(SoundType.NETHERITE_BLOCK, speedFactor, hardness, resistance);
+    public static BlockBehaviour.Properties NetheriteSoundMetal(float hardness, float resistance) {
+        return StandardMetal(SoundType.NETHERITE_BLOCK, hardness, resistance);
     }
 
     public static BlockBehaviour.Properties StandardNetheriteSoundMetal() {
-        return NetheriteSoundMetal(3, 4.0F, 15.0F);
+        return NetheriteSoundMetal(4.0F, 15.0F);
     }
 
-    public static BlockBehaviour.Properties NonFullMetal(int speedFactor, float hardness, float resistance) {
-        return StandardMetal(speedFactor, hardness, resistance)
+    public static BlockBehaviour.Properties NonFullMetal(float hardness, float resistance) {
+        return StandardMetal(hardness, resistance)
                 .noOcclusion();
     }
 
@@ -86,7 +85,7 @@ public class CDBlockProperties {
     }
 
     public static BlockBehaviour.Properties MetalLightBlock(int light) {
-        return StandardMetal(SoundType.GLASS, 1, 1.5F, 9.0F)
+        return StandardMetal(SoundType.GLASS, 1.5F, 9.0F)
                 .lightLevel((state) -> {
                     return light;
                 });
@@ -118,7 +117,6 @@ public class CDBlockProperties {
 
     public static BlockBehaviour.Properties NeonLight(int light) {
         return BlockBehaviour.Properties.of(Material.DECORATION)
-                .speedFactor(0)
                 .strength(0.1F, 9.0F)
                 .sound(SoundType.GLASS)
                 .lightLevel((p_235454_0_) -> {
@@ -144,9 +142,8 @@ public class CDBlockProperties {
                 .noOcclusion();
     }
 
-    public static BlockBehaviour.Properties MetalDoor(int speedFactor, float HardnessAndResistance) {
+    public static BlockBehaviour.Properties MetalDoor(float HardnessAndResistance) {
         return Door(Material.METAL, MaterialColor.METAL, SoundType.METAL, HardnessAndResistance)
-                .speedFactor(speedFactor)
                 .requiresCorrectToolForDrops();
     }
 

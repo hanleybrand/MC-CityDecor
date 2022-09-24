@@ -22,9 +22,9 @@ public class CDBlocks {
     public static final DeferredRegister<Block> reg = DeferredRegister.create(ForgeRegistries.BLOCKS, CityDecor.MOD_ID);
 
     // steel
-    public static final RegistryObject<Block> STEEL_BLOCK = registerBlockAndItem("steel_block", () -> new Block(CDBlockProperties.StandardMetal(2, 6.0F, 8.0F)));
-    public static final RegistryObject<Block> STEEL_FRAME = registerBlockAndItem("steel_frame", () -> new Block(CDBlockProperties.NonFullMetal(2, 6.0F, 8.0F)));
-    public static final RegistryObject<Block> IRON_FRAME = registerBlockAndItem("iron_frame", () -> new Block(CDBlockProperties.NonFullMetal(1, 5.0F, 6.0F)));
+    public static final RegistryObject<Block> STEEL_BLOCK = registerBlockAndItem("steel_block", () -> new Block(CDBlockProperties.StandardMetal(6.0F, 8.0F)));
+    public static final RegistryObject<Block> STEEL_FRAME = registerBlockAndItem("steel_frame", () -> new Block(CDBlockProperties.NonFullMetal(6.0F, 8.0F)));
+    public static final RegistryObject<Block> IRON_FRAME = registerBlockAndItem("iron_frame", () -> new Block(CDBlockProperties.NonFullMetal(5.0F, 6.0F)));
     //TODO: Cushion -- like a half slab of wool, but sittable, make it have a better texture please. Maybe a chair???
 
     // shipping
@@ -44,18 +44,18 @@ public class CDBlocks {
     public static final RegistryObject<Block> WORN_REINFORCED_CONCRETE_STAIRS = registerBlockAndItem("worn_reinforced_concrete_stairs", () -> new StairBlock(WORN_REINFORCED_CONCRETE.get().defaultBlockState(), BlockBehaviour.Properties.copy(WORN_REINFORCED_CONCRETE.get())));
     public static final RegistryObject<Block> CRACKED_REINFORCED_CONCRETE_STAIRS = registerBlockAndItem("cracked_reinforced_concrete_stairs", () -> new StairBlock(CRACKED_REINFORCED_CONCRETE.get().defaultBlockState(), BlockBehaviour.Properties.copy(CRACKED_REINFORCED_CONCRETE.get())));
 
-    //TODO: peripherals -- grate, barbed wire, metal scaffolding, pipes?, Iron blinds, steel blinds
+    //TODO: peripherals -- Iron blinds, steel blinds, corner pipes
     public static final RegistryObject<Block> BARBED_WIRE_ROLL = registerBlockAndItem("barbed_wire_roll", () -> new BarbedWire());
     public static final RegistryObject<Block> BARBED_WIRE_EDGING = registerBlockAndItem("barbed_wire_edging", () -> new CDStairsDmg(BARBED_WIRE_ROLL.get().defaultBlockState(), BARBED_WIRE_ROLL.get()));
     public static final RegistryObject<Block> IRON_SCAFFOLDING = registerBlockAndItem("iron_scaffolding", () -> new IronScaffolding(), true);
     public static final RegistryObject<Block> STEEL_SCAFFOLDING = registerBlockAndItem("steel_scaffolding", () -> new SteelScaffolding(), false);
-    public static final RegistryObject<Block> STEEL_ROD = registerBlockAndItem("steel_rod", () -> new CDRod(CDBlockProperties.NonFullMetal(2,5.0F,6.0F)));
+    public static final RegistryObject<Block> STEEL_ROD = registerBlockAndItem("steel_rod", () -> new CDRod(CDBlockProperties.NonFullMetal(5.0F,6.0F)));
     // metal fence, steel trap door, steel door
     public static final RegistryObject<Block> IRON_FENCE = registerBlockAndItem("iron_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> STEEL_FENCE = registerBlockAndItem("steel_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(STEEL_BLOCK.get())));
     public static final RegistryObject<Block> CHAIN_LINK_FENCE = registerBlockAndItem("chain_link_fence", () -> new IronBarsBlock(CDBlockProperties.ChainFence()));
     public static final RegistryObject<Block> STEEL_TRAPDOOR = registerBlockAndItem("steel_trapdoor", () -> new TrapDoorBlock(CDBlockProperties.MetalTrapdoor()));
-    public static final RegistryObject<Block> STEEL_DOOR = registerBlockAndItem("steel_door", () -> new CDDoor(CDBlockProperties.MetalDoor(2,5.0F)));
+    public static final RegistryObject<Block> STEEL_DOOR = registerBlockAndItem("steel_door", () -> new CDDoor(CDBlockProperties.MetalDoor(5.0F)));
 
     // glass trapdoors
     public static final RegistryObject<Block> GLASS_TRAPDOOR = registerBlockAndItem("glass_trapdoor", () -> new GlassTrapdoor(MaterialColor.NONE));
@@ -99,22 +99,22 @@ public class CDBlocks {
     public static final RegistryObject<Block> NEON_LIGHT = registerBlockAndItem("neon_light", () -> new NeonLight(CDBlockProperties.NeonLight(15)));
     public static final RegistryObject<Block> BLACK_LIGHT = registerBlockAndItem("black_light", () -> new NeonLight(CDBlockProperties.NeonLight(7)));
     // end rods
-    public static final RegistryObject<Block> WHITE_END_ROD  = registerBlockAndItem("white_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> ORANGE_END_ROD = registerBlockAndItem("orange_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> MAGENTA_END_RO = registerBlockAndItem("magenta_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> LIGHT_BLUE_END_ROD = registerBlockAndItem("light_blue_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> YELLOW_END_ROD = registerBlockAndItem("yellow_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> LIME_END_ROD = registerBlockAndItem("lime_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> PINK_END_ROD = registerBlockAndItem("pink_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> GRAY_END_ROD = registerBlockAndItem("gray_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> LIGHT_GRAY_END_ROD = registerBlockAndItem("light_gray_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> CYAN_END_ROD = registerBlockAndItem("cyan_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> PURPLE_END_ROD = registerBlockAndItem("purple_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> BLUE_END_ROD = registerBlockAndItem("blue_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> BROWN_END_ROD  = registerBlockAndItem("brown_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> GREEN_END_ROD  = registerBlockAndItem("green_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> RED_END_ROD = registerBlockAndItem("red_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
-    public static final RegistryObject<Block> BLACK_END_ROD  = registerBlockAndItem("black_end_rod", () -> new CDRod(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> WHITE_END_ROD  = registerBlockAndItem("white_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> ORANGE_END_ROD = registerBlockAndItem("orange_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> MAGENTA_END_RO = registerBlockAndItem("magenta_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> LIGHT_BLUE_END_ROD = registerBlockAndItem("light_blue_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> YELLOW_END_ROD = registerBlockAndItem("yellow_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> LIME_END_ROD = registerBlockAndItem("lime_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> PINK_END_ROD = registerBlockAndItem("pink_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> GRAY_END_ROD = registerBlockAndItem("gray_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> LIGHT_GRAY_END_ROD = registerBlockAndItem("light_gray_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> CYAN_END_ROD = registerBlockAndItem("cyan_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> PURPLE_END_ROD = registerBlockAndItem("purple_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> BLUE_END_ROD = registerBlockAndItem("blue_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> BROWN_END_ROD  = registerBlockAndItem("brown_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> GREEN_END_ROD  = registerBlockAndItem("green_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> RED_END_ROD = registerBlockAndItem("red_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
+    public static final RegistryObject<Block> BLACK_END_ROD  = registerBlockAndItem("black_end_rod", () -> new EndRodBlock(CDBlockProperties.EndRod()));
     //TODO: glass light blocks
     //TODO: pastel blocks
     //TODO: muted pastel blocks

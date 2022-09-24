@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "citydecor:chain_link_fence",
+    "citydecor:iron_fence",
+    "#citydecor:iron_siding",
+    "citydecor:steel_door",
+    "citydecor:steel_fence",
+    "citydecor:steel_door",
+    "citydecor:steel_fence",
+    "citydecor:steel_trapdoor",
+    "#citydecor:steel_siding"
+  ]
+}
