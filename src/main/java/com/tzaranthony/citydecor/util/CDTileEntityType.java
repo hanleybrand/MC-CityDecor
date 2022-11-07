@@ -8,7 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class CDTileEntityType {
-    public static final DeferredRegister<BlockEntityType<?>> reg = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, CityDecor.MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> reg = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, CityDecor.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<BoxTileEntity>> BOX = reg.register("box", () -> BlockEntityType.Builder.of(BoxTileEntity::new, CDBlocks.CARDBOARD_BOX.get(), CDBlocks.SHIPPING_PALLET.get()).build(null));
 }

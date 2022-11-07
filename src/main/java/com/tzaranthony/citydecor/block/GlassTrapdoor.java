@@ -21,6 +21,5 @@ public class GlassTrapdoor extends TrapDoorBlock {
             int j = 1036;
             p_185731_2_.levelEvent(p_185731_1_, j, p_185731_3_, 0);
         }
-
     }
 }

@@ -31,7 +31,7 @@ public class CDBlocks {
 
     // reinforced concrete
     public static final RegistryObject<Block> REINFORCED_CONCRETE = registerBlockAndItem("reinforced_concrete", () -> new Block(CDBlockProperties.StandardRock(2.0F, 9.0F)));
-    public static final RegistryObject<Block> REINFORCED_CONCRETE_POWDER = registerBlockAndItem("reinforced_concrete_powder", () -> new CDConcretePowder(REINFORCED_CONCRETE.get(), MaterialColor.SNOW));
+    public static final RegistryObject<Block> REINFORCED_CONCRETE_POWDER = registerBlockAndItem("reinforced_concrete_powder", () -> new ConcretePowderBlock(REINFORCED_CONCRETE.get(), CDBlockProperties.ConcretePowder(MaterialColor.SNOW)));
     public static final RegistryObject<Block> REINFORCED_CONCRETE_STAIRS = registerBlockAndItem("reinforced_concrete_stairs", () -> new StairBlock(REINFORCED_CONCRETE.get().defaultBlockState(), BlockBehaviour.Properties.copy(REINFORCED_CONCRETE.get())));
     public static final RegistryObject<Block> REINFORCED_CONCRETE_SLAB = registerBlockAndItem("reinforced_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(REINFORCED_CONCRETE.get())));
     // worn and cracked
@@ -91,9 +91,8 @@ public class CDBlocks {
     public static final RegistryObject<Block> GREEN_STAINED_GLASS_DOOR = registerBlockAndItem("green_stained_glass_door", () -> new CDDoor(CDBlockProperties.GlassDoor(MaterialColor.COLOR_GREEN)));
     public static final RegistryObject<Block> RED_STAINED_GLASS_DOOR = registerBlockAndItem("red_stained_glass_door", () -> new CDDoor(CDBlockProperties.GlassDoor(MaterialColor.COLOR_RED)));
     public static final RegistryObject<Block> BLACK_STAINED_GLASS_DOOR = registerBlockAndItem("black_stained_glass_door", () -> new CDDoor(CDBlockProperties.GlassDoor(MaterialColor.COLOR_BLACK)));
-    //TODO: lightbulb? (wall, ceiling)
-    public static final RegistryObject<Block> CEILING_LIGHT = registerBlockAndItem("ceiling_light", () -> new RotatedPillarBlock(CDBlockProperties.MetalLightBlock(15)));
     // neon light tubes
+    public static final RegistryObject<Block> CEILING_LIGHT = registerBlockAndItem("ceiling_light", () -> new RotatedPillarBlock(CDBlockProperties.MetalLightBlock(15)));
     public static final RegistryObject<Block> NEON_LIGHT = registerBlockAndItem("neon_light", () -> new NeonLight(CDBlockProperties.NeonLight(15)));
     public static final RegistryObject<Block> BLACK_LIGHT = registerBlockAndItem("black_light", () -> new NeonLight(CDBlockProperties.NeonLight(7)));
     // end rods

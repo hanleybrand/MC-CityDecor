@@ -10,8 +10,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -165,7 +163,7 @@ public class CardboardBox extends BaseEntityBlock {
         CompoundTag compoundnbt = p_190948_1_.getTagElement("BlockEntityTag");
         if (compoundnbt != null) {
             if (compoundnbt.contains("LootTable", 8)) {
-                p_190948_3_.add(new TextComponent("???????"));
+                p_190948_3_.add(Component.literal("???????"));
             }
 
             if (compoundnbt.contains("Items", 9)) {
@@ -186,7 +184,7 @@ public class CardboardBox extends BaseEntityBlock {
                     }
                 }
                 if (j - i > 0) {
-                    p_190948_3_.add((new TranslatableComponent("container.shulkerBox.more", j - i)).withStyle(ChatFormatting.ITALIC));
+                    p_190948_3_.add((Component.translatable("container.shulkerBox.more", j - i)).withStyle(ChatFormatting.ITALIC));
                 }
             }
         }
