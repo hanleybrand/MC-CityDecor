@@ -2,6 +2,7 @@ package com.tzaranthony.citydecor.util;
 
 import com.tzaranthony.citydecor.CityDecor;
 import com.tzaranthony.citydecor.block.*;
+import com.tzaranthony.citydecor.item.BoxItem;
 import com.tzaranthony.citydecor.item.IronScaffoldingItem;
 import com.tzaranthony.citydecor.item.SteelScaffoldingItem;
 import net.minecraft.world.item.BlockItem;
@@ -28,8 +29,8 @@ public class CDBlocks {
     //TODO: Cushion -- like a half slab of wool, but sittable, make it have a better texture please. Maybe a chair???
 
     // shipping
-    public static final RegistryObject<Block> CARDBOARD_BOX = registerBlockAndItem("cardboard_box", () -> new CardboardBox(CDBlockProperties.Cardboard(0.1F), false), 1);
-    public static final RegistryObject<Block> SHIPPING_PALLET = registerBlockAndItem("shipping_pallet", () -> new CardboardBox(CDBlockProperties.Cardboard(1.5F), true), 1);
+    public static final RegistryObject<Block> CARDBOARD_BOX = registerBlockAndNoContainerItem("cardboard_box", () -> new CardboardBox(CDBlockProperties.Cardboard(0.1F), false), 1);
+    public static final RegistryObject<Block> SHIPPING_PALLET = registerBlockAndNoContainerItem("shipping_pallet", () -> new CardboardBox(CDBlockProperties.Cardboard(1.5F), true), 1);
 
     // reinforced concrete
     public static final RegistryObject<Block> REINFORCED_CONCRETE = registerBlockAndItem("reinforced_concrete", () -> new Block(CDBlockProperties.StandardRock(2.0F, 9.0F)));
@@ -477,9 +478,9 @@ public class CDBlocks {
         return blockObj;
     }
 
-    public static RegistryObject<Block> registerBlockAndItem(String name, Supplier<Block> block, int stacksize){
+    public static RegistryObject<Block> registerBlockAndNoContainerItem(String name, Supplier<Block> block, int stacksize){
         RegistryObject<Block> blockObj = reg.register(name, block);
-        CDItems.reg.register(name, () -> new BlockItem(blockObj.get(), new Item.Properties().stacksTo(stacksize).tab(CityDecor.TAB)));
+        CDItems.reg.register(name, () -> new BoxItem(blockObj.get(), new Item.Properties().stacksTo(stacksize).tab(CityDecor.TAB)));
         return blockObj;
     }
 
