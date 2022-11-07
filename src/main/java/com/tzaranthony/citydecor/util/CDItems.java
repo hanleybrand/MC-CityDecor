@@ -2,13 +2,10 @@ package com.tzaranthony.citydecor.util;
 
 import com.tzaranthony.citydecor.CityDecor;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(modid = CityDecor.MOD_ID, bus = Bus.MOD)
 public class CDItems {
     public static final DeferredRegister<Item> reg = DeferredRegister.create(ForgeRegistries.ITEMS, CityDecor.MOD_ID);
 

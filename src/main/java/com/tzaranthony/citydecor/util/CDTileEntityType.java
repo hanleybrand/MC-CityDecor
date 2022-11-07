@@ -3,12 +3,10 @@ package com.tzaranthony.citydecor.util;
 import com.tzaranthony.citydecor.CityDecor;
 import com.tzaranthony.citydecor.tileentity.BoxTileEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(modid = CityDecor.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CDTileEntityType {
     public static final DeferredRegister<BlockEntityType<?>> reg = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, CityDecor.MOD_ID);
 

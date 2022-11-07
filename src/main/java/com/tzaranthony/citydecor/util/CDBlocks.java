@@ -10,15 +10,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(modid = CityDecor.MOD_ID, bus = Bus.MOD)
 public class CDBlocks {
     public static final DeferredRegister<Block> reg = DeferredRegister.create(ForgeRegistries.BLOCKS, CityDecor.MOD_ID);
 
