@@ -1,5 +1,6 @@
 {
   "ambientocclusion": false,
+  "render_type": "cutout",
   "textures": {
     "particle": "block/iron_bars",
     "bars": "citydecor:block/chain_link_fence"

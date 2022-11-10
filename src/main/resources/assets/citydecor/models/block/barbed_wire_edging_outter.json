@@ -1,5 +1,6 @@
 {
   "parent": "block/outer_stairs",
+  "render_type": "cutout",
   "textures": {
     "bottom": "citydecor:block/barbed_wire_roll",
     "top": "citydecor:block/barbed_wire_roll",

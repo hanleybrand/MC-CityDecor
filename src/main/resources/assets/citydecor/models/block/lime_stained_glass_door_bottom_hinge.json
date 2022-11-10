@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_rh",
-  "textures": {
-    "top": "citydecor:block/lime_stained_glass_door_top",
-    "bottom": "citydecor:block/lime_stained_glass_door_bottom"
-  }
-}

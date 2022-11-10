@@ -1,0 +1,9 @@
+
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "citydecor:block/glass_door_bottom",
+    "top": "citydecor:block/glass_door_top"
+  }
+}

@@ -1,6 +1,5 @@
 package com.tzaranthony.citydecor;
 
-import com.tzaranthony.citydecor.block.CDBlockRender;
 import com.tzaranthony.citydecor.util.CDBlocks;
 import com.tzaranthony.citydecor.util.CDItems;
 import com.tzaranthony.citydecor.util.CDTileEntityType;
@@ -35,7 +34,6 @@ public class CityDecor {
     }
 
     private void ClientSetup(final FMLClientSetupEvent event) {
-        CDBlockRender.renderBlocks();
     }
 
 

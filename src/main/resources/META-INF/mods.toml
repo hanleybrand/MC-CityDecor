@@ -30,6 +30,6 @@ description='''Modern decorative blocks'''
 [[dependencies.citydecor]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,1.19)"
+    versionRange="[1.19,1.19.2)"
     ordering="NONE"
     side="BOTH"

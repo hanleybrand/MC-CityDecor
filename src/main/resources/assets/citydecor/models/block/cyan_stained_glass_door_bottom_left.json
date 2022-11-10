@@ -1,0 +1,9 @@
+
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "citydecor:block/cyan_stained_glass_door_bottom",
+    "top": "citydecor:block/cyan_stained_glass_door_top"
+  }
+}
