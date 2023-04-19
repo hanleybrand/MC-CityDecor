@@ -24,10 +24,13 @@ public class CDBlocks {
     public static final RegistryObject<Block> STEEL_FRAME = registerBlockAndItem("steel_frame", () -> new Block(CDBlockProperties.NonFullMetal(6.0F, 8.0F)));
     public static final RegistryObject<Block> IRON_FRAME = registerBlockAndItem("iron_frame", () -> new Block(CDBlockProperties.NonFullMetal(5.0F, 6.0F)));
     //TODO: Cushion -- like a half slab of wool, but sittable, make it have a better texture please. Maybe a chair???
+    //TODO: Beds -- 2x2, 2x3, and 3x3. Bed frames for other wood types
 
     // shipping
+    //TODO: add tileless versions of villager profession blocks and maybe make them on all sides?
     public static final RegistryObject<Block> CARDBOARD_BOX = registerBlockAndNoContainerItem("cardboard_box", () -> new CardboardBox(CDBlockProperties.Cardboard(0.1F), false), 1);
     public static final RegistryObject<Block> SHIPPING_PALLET = registerBlockAndNoContainerItem("shipping_pallet", () -> new CardboardBox(CDBlockProperties.Cardboard(1.5F), true), 1);
+    //TODO: add clear plastic containers with dyable lids
 
     // reinforced concrete
     public static final RegistryObject<Block> REINFORCED_CONCRETE = registerBlockAndItem("reinforced_concrete", () -> new Block(CDBlockProperties.StandardRock(2.0F, 9.0F)));
@@ -43,6 +46,7 @@ public class CDBlocks {
     public static final RegistryObject<Block> CRACKED_REINFORCED_CONCRETE_STAIRS = registerBlockAndItem("cracked_reinforced_concrete_stairs", () -> new StairBlock(CRACKED_REINFORCED_CONCRETE.get().defaultBlockState(), BlockBehaviour.Properties.copy(CRACKED_REINFORCED_CONCRETE.get())));
 
     //TODO: peripherals -- Iron blinds, steel blinds, corner pipes
+    //TODO: log lattice
     public static final RegistryObject<Block> BARBED_WIRE_ROLL = registerBlockAndItem("barbed_wire_roll", () -> new BarbedWire());
     public static final RegistryObject<Block> BARBED_WIRE_EDGING = registerBlockAndItem("barbed_wire_edging", () -> new CDStairsDmg(BARBED_WIRE_ROLL.get().defaultBlockState(), BARBED_WIRE_ROLL.get()));
     public static final RegistryObject<Block> IRON_SCAFFOLDING = registerBlockAndItem("iron_scaffolding", () -> new IronScaffolding(), true);
