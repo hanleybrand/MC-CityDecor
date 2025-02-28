@@ -1,19 +1,19 @@
 modLoader="javafml" #mandatory
-loaderVersion="[40,)"
-license="All rights reserved"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 issueTrackerURL="https://github.com/TzarAnthony/CityDecor/issues" #optional
 [[mods]] #mandatory
 modId="citydecor" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="City Decor" #mandatory
+version="${mod_version}" #mandatory
+displayName="${mod_name}" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 logoFile="steel_ingot.png" #optional
 credits="Open source is very helpful" #optional
-authors="TzarAnthonyMCXI" #optional
-description='''Modern decorative blocks'''
+authors="${mod_authors}" #optional
+description='''${mod_description}'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.citydecor]] #optional
     # the modid of the dependency
@@ -21,7 +21,7 @@ description='''Modern decorative blocks'''
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[40,)" #mandatory
+    versionRange="${loader_version_range}" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -30,6 +30,6 @@ description='''Modern decorative blocks'''
 [[dependencies.citydecor]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.19.2)"
+    versionRange="${mc_version_range}"
     ordering="NONE"
     side="BOTH"
