@@ -14,7 +14,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 
-version = "${mod_version}"
+version = "${mod_version}-${mc_version}-${forge_version}"
 group = "com.TzarAnthony.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${modid}"
 
@@ -32,7 +32,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'CityDecor'
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -45,7 +45,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'CityDecor'
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -59,7 +59,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'CityDecor'
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -73,10 +73,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'citydecor', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
