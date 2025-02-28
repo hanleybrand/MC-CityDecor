@@ -23,11 +23,11 @@ Tasks
 
 (I have no plans to implement any of these)
 
-- [] Log Canopy
-- [] Cushions (like sittable half slabs, maybe with a little extra design)
-- [] Maybe a chair?
-- [] Iron blinds / shutters
-- [] Steel blinds / shutters
-- [] Corner pipes (lightning rods)
-- [] Glass with lightning
-- [] Pastel and Muted Pastel colored blocks, stairs, and slabs?
+- [ ] Log Canopy
+- [ ] Cushions (like sittable half slabs, maybe with a little extra design)
+- [ ] Maybe a chair?
+- [ ] Iron blinds / shutters
+- [ ] Steel blinds / shutters
+- [ ] Corner pipes (lightning rods)
+- [ ] Glass with lightning
+- [ ] Pastel and Muted Pastel colored blocks, stairs, and slabs?
