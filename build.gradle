@@ -98,19 +98,27 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 }
 
-
-
-
 //tasks.named('processResources', ProcessResources).configure {
 //    def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+//
+//    // based on data from https://minecraft.wiki/w/Data_pack#pack.mcmeta
+//    def mc_meta_mc_versions = ["1.19.2": 10, "1.19.3": 10, "1.19.4": 12,
+//                               "1.20.0": 15, "1.20.1": 15, "1.20.2": 18,
+//                               "1.20.3": 26, "1.20.4": 26, "1.20.5": 41,
+//                               "1.20.6": 41, "1.21":   48, "1.21.1": 48,
+//                               "1.21.2": 57, "1.21.3": 57, "1.21.4": 61
+//    ]
+//    def mc_meta_version = mc_meta_mc_versions["${mc_version}"]
 //
 //    def replaceProperties = [
 //            minecraft_version: mc_version, mc_version_range: mc_version_range,
 //            forge_version: forge_version, forge_version_range: forge_version_range,
 //            loader_version_range: loader_version_range,
 //            mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-//            mod_authors: mod_authors, mod_description: mod_description
+//            mod_authors: mod_authors, mod_description: mod_description,
+//            mc_meta_version: mc_meta_version
 //    ]
+//
 //    inputs.properties replaceProperties
 //
 //    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
@@ -122,11 +130,11 @@ processResources {
     def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 
     // based on data from https://minecraft.wiki/w/Data_pack#pack.mcmeta
-    def mc_meta_mc_versions = ["1.19.2": 10, "1.19.3": 10, "1.19.4": "12",
-                               "1.20.0": "15", "1.20.1": "15", "1.20.2": "18",
-                               "1.20.3": "26", "1.20.4": "26", "1.20.5": "41",
-                               "1.20.6": "41", "1.21":   "48", "1.21.1": "48",
-                               "1.21.2": "57", "1.21.3": "57", "1.21.4": "61"
+    def mc_meta_mc_versions = ["1.19.2": 10, "1.19.3": 10, "1.19.4": 12,
+                               "1.20.0": 15, "1.20.1": 15, "1.20.2": 18,
+                               "1.20.3": 26, "1.20.4": 26, "1.20.5": 41,
+                               "1.20.6": 41, "1.21":   48, "1.21.1": 48,
+                               "1.21.2": 57, "1.21.3": 57, "1.21.4": 61
                               ]
     def mc_meta_version = mc_meta_mc_versions["${mc_version}"]
 
