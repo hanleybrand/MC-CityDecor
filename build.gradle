@@ -14,9 +14,13 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 
-version = "${mod_version}"
+version = "${mod_version}-${mc_version}-${forge_version}"
 group = "com.TzarAnthony.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${modid}"
+
+project.setVersion(version)
+project.setGroup(group)
+
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -32,7 +36,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'CityDecor'
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -45,7 +49,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'CityDecor'
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -59,7 +63,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'CityDecor'
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -73,10 +77,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'citydecor', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                citydecor {
                     source sourceSets.main
                 }
             }
@@ -91,7 +95,56 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.1'
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+}
+
+
+
+
+//tasks.named('processResources', ProcessResources).configure {
+//    def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+//
+//    def replaceProperties = [
+//            minecraft_version: mc_version, mc_version_range: mc_version_range,
+//            forge_version: forge_version, forge_version_range: forge_version_range,
+//            loader_version_range: loader_version_range,
+//            mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+//            mod_authors: mod_authors, mod_description: mod_description
+//    ]
+//    inputs.properties replaceProperties
+//
+//    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+//        expand replaceProperties + [project: project]
+//    }
+//}
+
+processResources {
+    def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+
+    // based on data from https://minecraft.wiki/w/Data_pack#pack.mcmeta
+    def mc_meta_mc_versions = ["1.19.2": 10, "1.19.3": 10, "1.19.4": "12",
+                               "1.20.0": "15", "1.20.1": "15", "1.20.2": "18",
+                               "1.20.3": "26", "1.20.4": "26", "1.20.5": "41",
+                               "1.20.6": "41", "1.21":   "48", "1.21.1": "48",
+                               "1.21.2": "57", "1.21.3": "57", "1.21.4": "61"
+                              ]
+    def mc_meta_version = mc_meta_mc_versions["${mc_version}"]
+
+    def replaceProperties = [
+            minecraft_version: mc_version, mc_version_range: mc_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+            mc_meta_version: mc_meta_version
+    ]
+
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
+    }
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -100,9 +153,9 @@ jar {
         attributes([
                 "Specification-Title"     : "${modid}",
                 "Specification-Vendor"    : "${modid}",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Specification-Version"   : "${mod_version}", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Version"  : "${mod_version}",
                 "Implementation-Vendor"   : "${modid}",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
         ])
